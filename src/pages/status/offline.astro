@@ -1,0 +1,20 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+
+const statusResult = {
+	online: false,
+	address: {
+		host: "mc.hypixel.net",
+		port: 25565,
+	},
+	internal: {
+		cached_at: 1673774293240,
+		cache_ends_at: 1673774353240,
+	},
+	error: { randomInfo: "Lorem ipsum" }, // display in <code> block as just json
+};
+---
+
+<Layout>
+	<h1>Status result for {statusResult.address.host}</h1>
+</Layout>
