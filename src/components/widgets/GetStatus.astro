@@ -1,0 +1,61 @@
+---
+import { CONFIG } from "~/config.mjs";
+---
+
+<div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20">
+	<h1 class="text-5xl font-black">Get server status</h1>
+	<p class="mt-2 text-xl">Easily and rapidly access information about Minecraft servers.</p>
+	<form class="mt-2">
+		<div class="inline-flex w-full">
+			<div class="z-10 w-full">
+				<label class="sr-only" for="get-status-input">Address</label>
+				<input
+					type="text"
+					required
+					class="input w-full rounded-l border-gray-300 bg-gray-100 text-center text-xl text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 md:text-left"
+					placeholder="hypixel.net"
+					value=""
+					id="get-status-input"
+				/>
+			</div>
+			<button
+				type="button"
+				disabled
+				class="button w-max whitespace-nowrap rounded-r bg-primary px-3 py-2 text-xl disabled:bg-muted"
+				id="get-status-button"
+			>
+				Get<span class="hidden md:inline"> server status</span>
+			</button>
+		</div>
+		<div class="mb-4 mt-1 flex items-center">
+			<input
+				id="get-status-is-bedrock"
+				type="checkbox"
+				value=""
+				class="h-5 w-5 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+			/>
+			<label for="get-status-is-bedrock" class="ml-2 text-base font-medium text-gray-900 dark:text-gray-300">
+				Bedrock Edition?
+			</label>
+		</div>
+	</form>
+</div>
+
+<script define:vars={{ mainUrl: CONFIG.origin + CONFIG.basePathname }}>
+	const button = document.getElementById("get-status-button");
+	const input = document.getElementById("get-status-input");
+
+	button.addEventListener("click", () => {
+		const isBedrock = document.getElementById("get-status-is-bedrock").checked;
+		const serverAddress = document.getElementById("get-status-input").value;
+
+		window.location.href = `${mainUrl}${isBedrock ? "bedrock" : "java"}/status/${encodeURIComponent(serverAddress)}`;
+	});
+
+	input.addEventListener("input", () => {
+		const serverAddress = document.getElementById("get-status-input").value;
+
+		const button = document.getElementById("get-status-button");
+		button.disabled = serverAddress === ""; // TODO IP validation?
+	});
+</script>

@@ -1,82 +1,46 @@
-import slugify from 'limax';
+import { CONFIG } from "~/config.mjs";
+import { trim } from "~/utils/utils";
 
-import { SITE, BLOG } from '~/config.mjs';
-import { trim } from '~/utils/utils';
-
-export const trimSlash = (s: string) => trim(trim(s, '/'));
-const createPath = (...params: string[]) => {
-  const paths = params
-    .map((el) => trimSlash(el))
-    .filter((el) => !!el)
-    .join('/');
-  return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
-};
-
-const BASE_PATHNAME = SITE.basePathname;
-
-export const cleanSlug = (text = '') =>
-  trimSlash(text)
-    .split('/')
-    .map((slug) => slugify(slug))
-    .join('/');
-
-export const POST_PERMALINK_PATTERN = trimSlash(BLOG?.post?.permalink || '/%slug%');
-
-export const BLOG_BASE = cleanSlug(BLOG?.list?.pathname);
-export const CATEGORY_BASE = cleanSlug(BLOG?.category?.pathname || 'category');
-export const TAG_BASE = cleanSlug(BLOG?.tag?.pathname) || 'tag';
-
-/** */
-export const getCanonical = (path = ''): string | URL => {
-  const url = String(new URL(path, SITE.origin));
-  if (SITE.trailingSlash == false && path && url.endsWith('/')) {
-    return url.slice(0,-1)
-  }
-  else if (SITE.trailingSlash == true && path && !url.endsWith('/') ) {
-    return url + '/';
-  }
-  return url;
+export function trimSlash(s: string) {
+	return trim(trim(s, "/"));
 }
 
-/** */
-export const getPermalink = (slug = '', type = 'page'): string => {
-  let permalink: string;
+function createPath(...params: string[]) {
+	const paths = params
+		.map((el) => trimSlash(el))
+		.filter((el) => !!el)
+		.join("/");
+	return "/" + paths + (CONFIG.trailingSlash && paths ? "/" : "");
+}
 
-  switch (type) {
-    case 'category':
-      permalink = createPath(CATEGORY_BASE, trimSlash(slug));
-      break;
+const BASE_PATHNAME = CONFIG.basePathname;
 
-    case 'tag':
-      permalink = createPath(TAG_BASE, trimSlash(slug));
-      break;
+export function getCanonical(path = ""): string | URL {
+	const url = String(new URL(path, CONFIG.origin));
+	if (!CONFIG.trailingSlash && path && url.endsWith("/")) {
+		return url.slice(0, -1);
+	} else if (CONFIG.trailingSlash && path && !url.endsWith("/")) {
+		return url + "/";
+	}
+	return url;
+}
 
-    case 'post':
-      permalink = createPath(trimSlash(slug));
-      break;
+export function getPermalink(slug = ""): string {
+	return definitivePermalink(createPath(slug));
+}
 
-    case 'page':
-    default:
-      permalink = createPath(slug);
-      break;
-  }
+export function getHomePermalink(): string {
+	return getPermalink("/");
+}
 
-  return definitivePermalink(permalink);
-};
+export function getAsset(path: string): string {
+	return "/" +
+		[BASE_PATHNAME, path]
+			.map((el) => trimSlash(el))
+			.filter((el) => !!el)
+			.join("/");
+}
 
-/** */
-export const getHomePermalink = (): string => getPermalink('/');
-
-/** */
-export const getBlogPermalink = (): string => getPermalink(BLOG_BASE);
-
-/** */
-export const getAsset = (path: string): string =>
-  '/' +
-  [BASE_PATHNAME, path]
-    .map((el) => trimSlash(el))
-    .filter((el) => !!el)
-    .join('/');
-
-/** */
-const definitivePermalink = (permalink: string): string => createPath(BASE_PATHNAME, permalink);
+function definitivePermalink(permalink: string): string {
+	return createPath(BASE_PATHNAME, permalink);
+}

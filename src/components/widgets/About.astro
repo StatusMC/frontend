@@ -1,0 +1,8 @@
+---
+import * as aboutPage from "../../pages/about.mdx";
+import Markdown from "~/components/widgets/Markdown.astro";
+---
+
+<Markdown frontmatter={aboutPage.frontmatter}>
+	<Fragment set:html={aboutPage.compiledContent} />
+</Markdown>
