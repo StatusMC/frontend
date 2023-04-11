@@ -12,7 +12,10 @@ export type Props = HeaderData;
 const { links = [], actions = [] }: Props = Astro.props;
 ---
 
-<header class="relative sticky top-0 z-40 mx-auto w-full flex-none transition-all duration-100 ease-in" id="header">
+<header
+	class="relative sticky top-0 z-40 mx-auto w-full flex-none bg-white shadow-md transition-all duration-100 ease-in dark:bg-slate-900 md:bg-white/90 md:shadow-lg md:backdrop-blur-sm dark:md:bg-slate-900/90"
+	id="header"
+>
 	<div class="mx-auto w-full max-w-7xl px-3 py-3 md:flex md:justify-between md:px-4 md:py-3.5">
 		<div class="mr-auto flex justify-between">
 			<a class="flex items-center" href={getHomePermalink()}>
@@ -30,13 +33,13 @@ const { links = [], actions = [] }: Props = Astro.props;
 			<ul class="flex w-full flex-col pt-8 text-xl md:w-auto md:flex-row md:self-center md:pt-0 md:text-base">
 				{
 					links.map(({ text, href, links }) => (
-						<li class={links?.length ? "dropdown" : ""}>
+						<li class={links?.length ? "block" : ""}>
 							{links?.length ? (
 								<>
 									<button class="flex items-center px-4 py-3 font-medium transition duration-150 ease-in-out hover:text-gray-900 dark:hover:text-white">
 										{text} <Icon name="tabler:chevron-down" class="ml-0.5 hidden h-3.5 w-3.5 md:inline" />
 									</button>
-									<ul class="dropdown-menu rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark">
+									<ul class="block rounded pl-4 font-medium drop-shadow-xl md:absolute md:hidden md:min-w-[200px] md:bg-white/90 md:pl-0 md:backdrop-blur-md dark:md:bg-dark">
 										{links.map(({ text: text2, href: href2 }) => (
 											<li>
 												<a

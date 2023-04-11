@@ -4,7 +4,7 @@ export const CONFIG = {
 	name: "MCStatus",
 
 	// origin: "https://mcstatus.perchun.it",
-	origin: "https://localhost:3000",  // todo get automatically
+	origin: "http://localhost:3000",  // todo get automatically
 	basePathname: "/",
 	trailingSlash: false,
 	apiUrl: "https://api.mcstatus.perchun.it",

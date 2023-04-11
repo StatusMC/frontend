@@ -1,5 +1,16 @@
 ---
 import { CONFIG } from "~/config.mjs";
+
+export interface Props {
+	inputValue: string; // what was already inputted in <input>
+	isBedrockChecked: boolean;
+}
+
+const { inputValue = "", isBedrockChecked = false }: Props = Astro.props;
+
+let propsToCheckbox = {};
+if (isBedrockChecked) propsToCheckbox["checked"] = "";
+else propsToCheckbox["value"] = "";
 ---
 
 <div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20">
@@ -14,13 +25,13 @@ import { CONFIG } from "~/config.mjs";
 					required
 					class="input w-full rounded-l border-gray-300 bg-gray-100 text-center text-xl text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 md:text-left"
 					placeholder="hypixel.net"
-					value=""
+					value={inputValue}
 					id="get-status-input"
 				/>
 			</div>
 			<button
 				type="button"
-				disabled
+				disabled={inputValue === ""}
 				class="button w-max whitespace-nowrap rounded-r bg-primary px-3 py-2 text-xl disabled:bg-muted"
 				id="get-status-button"
 			>
@@ -31,8 +42,8 @@ import { CONFIG } from "~/config.mjs";
 			<input
 				id="get-status-is-bedrock"
 				type="checkbox"
-				value=""
 				class="h-5 w-5 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+				{...propsToCheckbox}
 			/>
 			<label for="get-status-is-bedrock" class="ml-2 text-base font-medium text-gray-900 dark:text-gray-300">
 				Bedrock Edition?
@@ -49,7 +60,7 @@ import { CONFIG } from "~/config.mjs";
 		const isBedrock = document.getElementById("get-status-is-bedrock").checked;
 		const serverAddress = document.getElementById("get-status-input").value;
 
-		window.location.href = `${mainUrl}${isBedrock ? "bedrock" : "java"}/status/${encodeURIComponent(serverAddress)}`;
+		window.location.href = `${mainUrl}status/${isBedrock ? "bedrock" : "java"}/${encodeURIComponent(serverAddress)}`;
 	});
 
 	input.addEventListener("input", () => {
