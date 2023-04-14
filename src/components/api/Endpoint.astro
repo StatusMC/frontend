@@ -1,0 +1,46 @@
+---
+import Collapsible from "~/components/widgets/Collapsible.astro";
+import CodeHighlight from "~/components/widgets/CodeHighlight.astro";
+import getModel from "~/components/api/get-model";
+
+export interface Props {
+	url?: string;
+	model: "java" | "bedrock" | "offline";
+}
+
+const props: Props = Astro.props;
+const modelText = getModel(props.model);
+---
+
+<div>
+	<div class="button-and-url">
+		{
+			props.url !== undefined ? (
+				<>
+					<span class="get-button">GET</span>
+					<code class="url">https://api.mcstatus.perchun.it/{props.url}</code>
+				</>
+			) : null
+		}
+
+		<!-- Some-why, tailwind doesn't work here -->
+		<style>
+			.button-and-url {
+				@apply mt-3 flex items-center gap-2;
+			}
+
+			.get-button {
+				@apply rounded bg-green-700 px-2 py-1 text-xs text-white;
+			}
+
+			.url {
+				@apply break-all;
+			}
+		</style>
+	</div>
+	<div class="not-prose">
+		<Collapsible title={`See the ${props.model.charAt(0).toUpperCase() + props.model.substring(1)} scheme`}>
+			<CodeHighlight code={modelText} language="ts" />
+		</Collapsible>
+	</div>
+</div>

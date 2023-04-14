@@ -1,0 +1,47 @@
+---
+import { getHighlighter, renderToHtml } from "shiki-es";
+
+export interface Props {
+	code: string;
+	language: string;
+}
+
+const { code, language }: Props = Astro.props;
+
+const [htmlDark, htmlLight] = ["github-dark", "github-light"].map((theme) => {
+	return getHighlighter({
+		theme: theme,
+		langs: [language],
+	}).then((highlighter) => {
+		const tokens = highlighter.codeToThemedTokens(code, language);
+
+		return renderToHtml(tokens, {
+			elements: {
+				pre({ className, style, children }) {
+					style = style.replace("background-color: #fff", "");
+					return `<pre tabindex="1" class="${className} p-1" style="${style}">${children}</pre>`;
+				},
+			},
+		});
+	});
+});
+---
+
+<div class="overflow-y-hidden overflow-x-scroll bg-gray-200 dark:bg-gray-800">
+	<span class="dark-code"><Fragment set:html={htmlDark} /></span>
+	<span class="light-code"><Fragment set:html={htmlLight} /></span>
+	<style>
+		:is(.dark .dark-code) {
+			@apply block;
+		}
+		:is(.dark .light-code) {
+			@apply hidden;
+		}
+		.dark-code {
+			@apply hidden;
+		}
+		.light-code {
+			@apply block;
+		}
+	</style>
+</div>
