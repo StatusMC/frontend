@@ -1,0 +1,26 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="mt-4 block" x-data="{ open: false }">
+	<button
+		type="button"
+		class="interactive-box flex items-center justify-between p-2"
+		@click="open = !open"
+		:class="{ '!rounded-b-none': open }"
+	>
+		<span class="text-left font-bold">{title}</span>
+		<span class="transition-transform duration-200" :class="{ '-scale-y-100': open }">
+			<Icon name="ion:chevron-down" size={24} />
+		</span>
+	</button>
+	<div class="box block !rounded-none border-t-0" x-show="open" x-transition>
+		<slot />
+	</div>
+</div>

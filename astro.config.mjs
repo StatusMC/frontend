@@ -9,6 +9,7 @@ import partytown from "@astrojs/partytown";
 import compress from "astro-compress";
 import { CONFIG } from "./src/config.mjs";
 import vercel from "@astrojs/vercel/serverless";
+import alpinejs from "@astrojs/alpinejs";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => CONFIG.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
@@ -38,7 +39,7 @@ export default defineConfig({
     js: true,
     svg: false,
     logger: 1
-  })],
+  }), alpinejs()],
   vite: {
     resolve: {
       alias: {

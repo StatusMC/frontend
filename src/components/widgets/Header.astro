@@ -33,7 +33,7 @@ const { links = [], actions = [] }: Props = Astro.props;
 			<ul class="flex w-full flex-col pt-8 text-xl md:w-auto md:flex-row md:self-center md:pt-0 md:text-base">
 				{
 					links.map(({ text, href, links }) => (
-						<li class={links?.length ? "block" : ""}>
+						<li class={links?.length ? "hover:block" : ""}>
 							{links?.length ? (
 								<>
 									<button class="flex items-center px-4 py-3 font-medium transition duration-150 ease-in-out hover:text-gray-900 dark:hover:text-white">
@@ -91,4 +91,9 @@ const { links = [], actions = [] }: Props = Astro.props;
 			</div>
 		</div>
 	</div>
+	<style>
+		#header.scroll {
+			@apply bg-white shadow-md dark:bg-slate-900 md:bg-white/90 md:shadow-lg md:backdrop-blur-sm dark:md:bg-slate-900/90;
+		}
+	</style>
 </header>

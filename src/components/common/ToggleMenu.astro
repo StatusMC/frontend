@@ -18,5 +18,18 @@ const {
 ---
 
 <button type="button" class={className} aria-label={label} data-aw-toggle-menu>
-	<Icon name={iconName} class={iconClass} optimize={false} />
+	<Icon name={iconName} class={"icon " + iconClass} optimize={false} />
+	<style>
+		path {
+			@apply transition;
+		}
+
+		.expanded g > path:first-child {
+			@apply translate-x-[-3px] translate-y-[15px] -rotate-45;
+		}
+
+		.expanded g > path:last-child {
+			@apply translate-x-[14px] translate-y-[-8px] rotate-45;
+		}
+	</style>
 </button>

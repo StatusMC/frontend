@@ -1,5 +1,5 @@
 import { getPermalink } from "./utils/permalinks";
-import { HeaderData, FooterData } from "~/types";
+import type { HeaderData, FooterData } from "~/types";
 
 const linkStyles = "text-blue-600 hover:underline dark:text-gray-200";
 
