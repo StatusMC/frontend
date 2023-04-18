@@ -18,7 +18,7 @@ export const CONFIG = {
 		prefix: null,
 		link: null,
 	},
-	contactEmail: "statusmc.web@perchun.it",
+	contactEmail: "statusmc@perchun.it",
 
 	defaultTheme: "system", // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
