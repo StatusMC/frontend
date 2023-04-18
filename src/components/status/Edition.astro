@@ -1,0 +1,20 @@
+---
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status, isJava }: Props = Astro.props;
+---
+
+{
+	status.online && !isJava ? (
+		<Base nameValue="Edition">
+			{status.version.edition === "MCPE"
+				? "Bedrock Edition"
+				: status.version.edition === "MCEE"
+				? "Education Edition"
+				: status.version.edition}
+		</Base>
+	) : null
+}

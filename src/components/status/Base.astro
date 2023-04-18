@@ -1,0 +1,25 @@
+---
+export interface Props {
+	nameValue: string;
+	mainClasses: string;
+	nameClasses: string;
+	valueClasses: string;
+}
+
+const props: Props = Astro.props;
+---
+
+<section
+	class={`block w-full border-b border-b-black/10 p-4 dark:border-b-white/10 lg:flex ${props.mainClasses || ""}`}
+>
+	<span
+		class={`capitalize mb-1 block w-64 self-center font-semibold lg:mb-0 lg:inline-block ${props.nameClasses || ""}`}
+	>
+		{props.nameValue}
+	</span>
+	<div class="w-full">
+		<span class={`text-sm ${props.valueClasses || ""}`}>
+			<slot />
+		</span>
+	</div>
+</section>

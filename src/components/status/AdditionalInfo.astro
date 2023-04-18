@@ -1,0 +1,21 @@
+---
+import Collapsible from "~/components/widgets/Collapsible.astro";
+import CodeHighlight from "~/components/widgets/CodeHighlight.astro";
+
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status }: Props = Astro.props;
+---
+
+{
+	status.additional ? (
+		<Base nameValue="Additional Info">
+			<Collapsible title="Open">
+				<CodeHighlight code={JSON.stringify(status.additional, null, 2)} language="js" />
+			</Collapsible>
+		</Base>
+	) : null
+}

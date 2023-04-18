@@ -1,6 +1,21 @@
 ---
 import Layout from "~/layouts/PageLayout.astro";
 import GetStatus from "~/components/widgets/GetStatus.astro";
+import { JavaStatusAnswer, BedrockStatusAnswer, OfflineStatusAnswer } from "~/components/status/interfaces";
+import IsOnlineComponent from "~/components/status/IsOnline.astro";
+import HostComponent from "~/components/status/Host.astro";
+import PortComponent from "~/components/status/Port.astro";
+import ErrorInfoComponent from "~/components/status/ErrorInfo.astro";
+import IconComponent from "~/components/status/Icon.astro";
+import MotdComponent from "~/components/status/Motd.astro";
+import VersionNameComponent from "~/components/status/VersionName.astro";
+import VersionProtocolComponent from "~/components/status/VersionProtocol.astro";
+import EditionComponent from "~/components/status/Edition.astro";
+import PlayersComponent from "~/components/status/Players.astro";
+import MapNameComponent from "~/components/status/MapName.astro";
+import GamemodeComponent from "~/components/status/Gamemode.astro";
+import CachedComponent from "~/components/status/Cached.astro";
+import AdditionalInfoComponent from "~/components/status/AdditionalInfo.astro";
 
 export interface Props {
 	edition: string;
@@ -9,7 +24,7 @@ export interface Props {
 
 const { edition, ip }: Props = Astro.params;
 
-const javaStatusResult = {
+const javaStatusResult: JavaStatusAnswer = {
 	online: true,
 	address: {
 		host: "mc.hypixel.net",
@@ -35,9 +50,18 @@ const javaStatusResult = {
 		max: 200000,
 		list: [
 			// list can be undefined
-			{ name: "Notch", uuid: "41eb4bd0-88b6-490b-8dc2-289206f586b3" },
-			{ name: "Perchun", uuid: "7bdf8fd6-64d8-468d-ab48-8f0ac0220a1b" },
-			{ name: "Salko", uuid: "cc7bb962-d64d-4476-b1f0-39a994a37942" },
+			{ name: "Notch", uuid: "069a79f4-44e9-4726-a5be-fca90e38aaf5" },
+			{ name: "Perchun_Pak", uuid: "0b3717c4-f45d-47c8-b8e2-3d9ff6f93a89" },
+			{ name: "Salko", uuid: "021ee2f3-7cc2-41d1-a517-c3166fe333c2" },
+			{ name: "WiseMysticalTree", uuid: "e6cfb84b-c9b8-4328-b20e-727407df20aa" },
+			{ name: "Mister_Fix", uuid: "c5ef3347-4593-4f39-8bb1-2eaa40dd986e" },
+			{ name: "EinfxchLisa", uuid: "e80af961-dc42-4ef1-af66-73d667d941a0" },
+			{ name: "pawjobs", uuid: "e0fe0cc9-d156-4425-adad-9782cb05db6a" },
+			{ name: "EinfxchLukas", uuid: "ce1fc54b-fc1d-4579-af2e-0d6e18f0cea7" },
+			{ name: "RubbaBoy", uuid: "946dba0a-1eee-489a-ab6d-516927fb2df7" },
+			{ name: "ScoutingForSued", uuid: "c5eb8d11-ac67-49d0-99a8-18b5901811dc" },
+			{ name: "8blockluca", uuid: "c6c8473d-d184-4f74-bab2-8688eb0c4578" },
+			{ name: "DarkEyeDragon", uuid: "f73aa17d-166f-4535-92bd-49eda5a27b31" },
 		],
 	},
 	// icon can be undefined
@@ -49,7 +73,7 @@ const javaStatusResult = {
 	additional: { randomInfo: "Lorem ipsum" }, // display in <code> block as just json
 };
 
-const bedrockStatusResult = {
+const bedrockStatusResult: BedrockStatusAnswer = {
 	online: true,
 	address: {
 		host: "mc.hypixel.net",
@@ -80,7 +104,7 @@ const bedrockStatusResult = {
 	},
 };
 
-const offlineStatusResult = {
+const offlineStatusResult: OfflineStatusAnswer = {
 	online: false,
 	address: {
 		host: "mc.hypixel.net",
@@ -99,96 +123,28 @@ const offlineStatusResult = {
 
 const statusResult =
 	ip === "offline" ? offlineStatusResult : edition === "bedrock" ? bedrockStatusResult : javaStatusResult;
-
-const fields: {
-	name: string;
-	value: string;
-	valueIsHTML?: true;
-	className?: {
-		main?: string;
-		name?: string;
-		value?: string;
-	};
-}[] = [
-	{
-		name: "Status",
-		value: statusResult.online ? "Online" : "Offline",
-		className: { value: `bg-${statusResult.online ? "green-700" : "red-600"} px-2 py-1 rounded` },
-	},
-	{
-		name: "Host",
-		value: statusResult.address.host,
-	},
-	{
-		name: "Port",
-		value: statusResult.address.port.toString(),
-	},
-	/*
-	{
-		name: "Icon",
-		value: `<img src=${statusResult.icon} alt=\"Server's icon\" />`,
-		valueIsHTML: true,
-	},
-	{
-		name: "MOTD",
-		value: statusResult.motd.html,
-		valueIsHTML: true,
-	},
-	{
-		name: "Version",
-		value: statusResult.version.name.html,
-		valueIsHTML: true,
-	},
-	{
-		name: "Players",
-		value: `${statusResult.players.online} / ${statusResult.players.max}`,
-	},
-	{
-		name: "Protocol",
-		value: statusResult.version.protocol.toString(),
-		className: { main: "border-none" },
-	},*/
-];
-
-if (statusResult.online === false) {
-	fields.push({
-		name: "Error info",
-		value: `
-			<code class="text-sm text-white bg-dark px-2 py-1 rounded">
-				${statusResult.error.shortName}
-			</code>
-		`,
-		valueIsHTML: true,
-	});
-}
 ---
 
 <Layout>
 	<GetStatus inputValue={ip} isBedrockChecked={edition === "bedrock"} />
 	<section class="mx-auto max-w-6xl px-4 pb-8 lg:px-8 lg:pb-20">
-		<div class="rounded border-2 border-solid border-slate-500 bg-gray-700 p-5 text-white">
-			{
-				fields.map((field) => (
-					<section
-						class={`block w-full border-b border-b-black/10 p-4 dark:border-b-white/10 lg:flex ${
-							field.className?.main ? field.className.main : ""
-						}`}
-					>
-						<span
-							class={`mb-1 block w-64 self-center font-semibold lg:mb-0 lg:inline-block ${
-								field.className?.name ? field.className.name : ""
-							}`}
-						>
-							{field.name}
-						</span>
-						<div class="w-full">
-							<span class={`text-sm text-white ${field.className?.value ? field.className.value : ""}`}>
-								{field.valueIsHTML ? <Fragment set:html={field.value} /> : field.value}
-							</span>
-						</div>
-					</section>
-				))
-			}
+		<div
+			class="rounded border-2 border-solid border-slate-300 bg-slate-50 p-5 text-black dark:border-slate-500 dark:bg-slate-800 dark:text-white"
+		>
+			<IsOnlineComponent status={statusResult} isJava={edition === "java"} />
+			<HostComponent status={statusResult} isJava={edition === "java"} />
+			<PortComponent status={statusResult} isJava={edition === "java"} />
+			<ErrorInfoComponent status={statusResult} isJava={edition === "java"} />
+			<IconComponent status={statusResult} isJava={edition === "java"} />
+			<MotdComponent status={statusResult} isJava={edition === "java"} />
+			<VersionNameComponent status={statusResult} isJava={edition === "java"} />
+			<VersionProtocolComponent status={statusResult} isJava={edition === "java"} />
+			<EditionComponent status={statusResult} isJava={edition === "java"} />
+			<PlayersComponent status={statusResult} isJava={edition === "java"} />
+			<MapNameComponent status={statusResult} isJava={edition === "java"} />
+			<GamemodeComponent status={statusResult} isJava={edition === "java"} />
+			<CachedComponent status={statusResult} isJava={edition === "java"} />
+			<AdditionalInfoComponent status={statusResult} isJava={edition === "java"} />
 		</div>
 	</section>
 </Layout>

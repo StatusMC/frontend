@@ -38,7 +38,7 @@ const modelText = getModel(props.model);
 			}
 		</style>
 	</div>
-	<div class="not-prose">
+	<div class="not-prose mt-4">
 		<Collapsible title={`See the ${props.model.charAt(0).toUpperCase() + props.model.substring(1)} scheme`}>
 			<CodeHighlight code={modelText} language="ts" />
 		</Collapsible>

@@ -1,0 +1,12 @@
+---
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status }: Props = Astro.props;
+---
+
+<Base nameValue="Port">
+	{status.address.port.toString()}
+</Base>

@@ -1,0 +1,19 @@
+---
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status }: Props = Astro.props;
+---
+
+{
+	status.online ? (
+		<Base nameValue="MOTD">
+			<pre
+				class="block w-full overflow-x-auto rounded border border-slate-400 bg-neutral-900 p-4"
+				set:html={status.motd.html}
+			/>
+		</Base>
+	) : null
+}

@@ -1,0 +1,22 @@
+---
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status }: Props = Astro.props;
+
+const id = (Math.random() + 1).toString(36).substring(7);
+---
+
+<Base nameValue="Cache Info">
+	<span class="text-gray-400">Cached at</span>
+	<span id={`${id}-from`}></span>
+	<span class="text-gray-400">until</span>
+	<span id={`${id}-to`}></span>
+
+	<script define:vars={{ id: id, cachedAt: status.internal.cached_at, cacheEndsAt: status.internal.cache_ends_at }}>
+		document.getElementById(`${id}-from`).innerText = new Date(cachedAt).toLocaleTimeString();
+		document.getElementById(`${id}-to`).innerText = new Date(cacheEndsAt).toLocaleTimeString();
+	</script>
+</Base>

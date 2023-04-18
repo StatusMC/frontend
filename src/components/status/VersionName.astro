@@ -1,0 +1,16 @@
+---
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status }: Props = Astro.props;
+---
+
+{
+	status.online ? (
+		<Base nameValue="Version name">
+			<Fragment set:html={status.version.name.html} />
+		</Base>
+	) : null
+}

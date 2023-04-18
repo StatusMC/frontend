@@ -9,27 +9,29 @@ const { inputValue = "", isBedrockChecked = false }: Props = Astro.props;
 const id = (Math.random() + 1).toString(36).substring(7);
 ---
 
-<div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20" x-data=`{ isBedrock: ${isBedrockChecked}, serverAddress: ${inputValue} }`>
+<div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20" x-data={id}>
 	<h1 class="text-5xl font-black">Get server status</h1>
 	<p class="mt-2 text-xl">Easily and rapidly access information about Minecraft servers.</p>
 	<form class="mt-2">
 		<div class="inline-flex w-full">
 			<div class="z-10 w-full">
+				<input type="text" class="sr-only" @keyup.enter="alert('Submitted!')" />
 				<label class="sr-only" for={`${id}-input`}>Address</label>
 				<input
 					type="text"
 					required
-					class="box input !rounded-r-none text-center md:text-left"
+					class="box input !rounded-r-none"
 					placeholder="hypixel.net"
 					value={inputValue}
 					id={`${id}-input`}
 					x-model="serverAddress"
+					@keyup.enter="handleGetStatus"
 				/>
 			</div>
 			<button
 				type="button"
-				class="button w-max whitespace-nowrap rounded-r bg-primary px-3 py-2 text-xl disabled:bg-muted"
-				@click="window.location.href = `https://mcstatus.perchun.it/${isBedrock ? 'bedrock' : 'java'}/status/${encodeURIComponent(serverAddress)}`"
+				class="button w-max whitespace-nowrap rounded-r bg-primary px-3 py-2 text-xl text-white disabled:bg-muted"
+				@click="handleGetStatus"
 				:disabled="!serverAddress"
 			>
 				Get<span class="hidden md:inline"> server status</span>
@@ -39,12 +41,31 @@ const id = (Math.random() + 1).toString(36).substring(7);
 			<input
 				id={`${id}-is-bedrock`}
 				type="checkbox"
-				class="h-5 w-5 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+				class="h-5 w-5 cursor-pointer rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
 				x-model="isBedrock"
 			/>
-			<label for={`${id}-is-bedrock`} class="ml-2 text-base font-medium text-gray-900 dark:text-gray-300">
+			<label
+				for={`${id}-is-bedrock`}
+				class="ml-2 cursor-pointer text-base font-medium text-gray-900 dark:text-gray-300"
+			>
 				Bedrock Edition?
 			</label>
 		</div>
 	</form>
+
+	<script define:vars={{ id: id, isBedrockChecked: isBedrockChecked, inputValue: inputValue || "" }}>
+		document.addEventListener("alpine:init", () => {
+			// eslint-disable-next-line no-undef
+			Alpine.data(id, () => ({
+				isBedrock: isBedrockChecked,
+				serverAddress: inputValue,
+
+				handleGetStatus() {
+					window.location.href = `/status/${this.isBedrock ? "bedrock" : "java"}/${encodeURIComponent(
+						this.serverAddress
+					)}`;
+				},
+			}));
+		});
+	</script>
 </div>

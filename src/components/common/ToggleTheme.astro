@@ -2,27 +2,17 @@
 import { Icon } from "astro-icon";
 
 import { CONFIG } from "~/config.mjs";
-
-export interface Props {
-	label?: string;
-	class?: string;
-	iconClass?: string;
-	iconName?: string;
-}
-
-const {
-	label = "Toggle between Dark and Light mode",
-	class:
-		className = "text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center",
-	iconClass = "w-6 h-6",
-	iconName = "tabler:sun",
-} = Astro.props;
 ---
 
 {
 	!(CONFIG?.defaultTheme && CONFIG.defaultTheme.endsWith(":only")) && (
-		<button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
-			<Icon name={iconName} class={iconClass} />
+		<button
+			type="button"
+			class="inline-flex items-center rounded-lg p-2.5 text-sm text-muted hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+			aria-label="Toggle between Dark and Light mode"
+			data-aw-toggle-color-scheme
+		>
+			<Icon name="tabler:sun" class="h-6 w-6" />
 		</button>
 	)
 }

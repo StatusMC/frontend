@@ -1,0 +1,16 @@
+---
+import type { Props as BaseProps } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = BaseProps;
+
+const { status }: Props = Astro.props;
+---
+
+{
+	status.icon ? (
+		<Base nameValue="Icon">
+			<img src={status.icon} width="64" height="64" />
+		</Base>
+	) : null
+}
