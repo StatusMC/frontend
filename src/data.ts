@@ -11,7 +11,7 @@ export const headerData: HeaderData = {
 		},
 		{
 			text: "Sources",
-			href: "https://github.com/MCStatusWeb/frontend",
+			href: "https://github.com/StatusMCWeb/frontend",
 		},
 		{
 			text: "About",
@@ -22,7 +22,7 @@ export const headerData: HeaderData = {
 
 export const footerData: FooterData = {
 	socialLinks: [
-		{ ariaLabel: "Github", icon: "tabler:brand-github", href: "https://github.com/MCStatusWeb" },
+		{ ariaLabel: "Github", icon: "tabler:brand-github", href: "https://github.com/StatusMCWeb" },
 		{ ariaLabel: "Discord", icon: "tabler:brand-discord", href: "https://s.perchun.it/discord" },
 	],
 	footNote: `

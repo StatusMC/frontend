@@ -1,13 +1,13 @@
 import defaultImage from "./assets/images/default.png";
 
 export const CONFIG = {
-	name: "MCStatus",
+	name: "StatusMC",
 
-	// origin: "https://mcstatus.perchun.it",
+	// origin: "https://statusmc.perchun.it",
 	origin: "http://localhost:3000",  // todo get automatically
 	basePathname: "/",
 	trailingSlash: false,
-	apiUrl: "https://api.mcstatus.perchun.it",
+	apiUrl: "https://api.statusmc.perchun.it",
 
 	title: "AstroWind — Free template for create a website with Astro + Tailwind CSS",
 	description:
@@ -18,7 +18,7 @@ export const CONFIG = {
 		prefix: null,
 		link: null,
 	},
-	contactEmail: "mcstatus.web@perchun.it",
+	contactEmail: "statusmc.web@perchun.it",
 
 	defaultTheme: "system", // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
