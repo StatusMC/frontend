@@ -1,4 +1,6 @@
 ---
+import generateID from "~/utils/generate-id";
+
 export interface Props {
 	inputValue: string; // what was already inputted in <input>
 	isBedrockChecked: boolean;
@@ -6,7 +8,7 @@ export interface Props {
 
 const { inputValue = "", isBedrockChecked = false }: Props = Astro.props;
 
-const id = (Math.random() + 1).toString(36).substring(7);
+const id = generateID(5);
 ---
 
 <div class="mx-auto max-w-6xl px-4 py-16 lg:px-8 lg:py-20" x-data={id}>

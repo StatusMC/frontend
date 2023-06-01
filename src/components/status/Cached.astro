@@ -1,4 +1,5 @@
 ---
+import generateID from "~/utils/generate-id";
 import type { Props as BaseProps } from "~/components/status/interfaces";
 import Base from "~/components/status/Base.astro";
 
@@ -6,7 +7,7 @@ export type Props = BaseProps;
 
 const { status }: Props = Astro.props;
 
-const id = (Math.random() + 1).toString(36).substring(7);
+const id = generateID(5);
 ---
 
 <Base nameValue="Cache Info">
