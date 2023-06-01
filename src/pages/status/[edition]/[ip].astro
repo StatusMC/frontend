@@ -123,28 +123,30 @@ const offlineStatusResult: OfflineStatusAnswer = {
 
 const statusResult =
 	ip === "offline" ? offlineStatusResult : edition === "bedrock" ? bedrockStatusResult : javaStatusResult;
+
+const isJava = edition === "java";
 ---
 
 <Layout>
-	<GetStatus inputValue={ip} isBedrockChecked={edition === "bedrock"} />
+	<GetStatus inputValue={ip} isBedrockChecked={!isJava} />
 	<section class="mx-auto max-w-6xl px-4 pb-8 lg:px-8 lg:pb-20">
 		<div
 			class="rounded border-2 border-solid border-slate-300 bg-slate-50 p-5 text-black dark:border-slate-500 dark:bg-slate-800 dark:text-white"
 		>
-			<IsOnlineComponent status={statusResult} isJava={edition === "java"} />
-			<HostComponent status={statusResult} isJava={edition === "java"} />
-			<PortComponent status={statusResult} isJava={edition === "java"} />
-			<ErrorInfoComponent status={statusResult} isJava={edition === "java"} />
-			<IconComponent status={statusResult} isJava={edition === "java"} />
-			<MotdComponent status={statusResult} isJava={edition === "java"} />
-			<VersionNameComponent status={statusResult} isJava={edition === "java"} />
-			<VersionProtocolComponent status={statusResult} isJava={edition === "java"} />
-			<EditionComponent status={statusResult} isJava={edition === "java"} />
-			<PlayersComponent status={statusResult} isJava={edition === "java"} />
-			<MapNameComponent status={statusResult} isJava={edition === "java"} />
-			<GamemodeComponent status={statusResult} isJava={edition === "java"} />
-			<CachedComponent status={statusResult} isJava={edition === "java"} />
-			<AdditionalInfoComponent status={statusResult} isJava={edition === "java"} />
+			<IsOnlineComponent status={statusResult} isJava={isJava} />
+			<HostComponent status={statusResult} isJava={isJava} />
+			<PortComponent status={statusResult} isJava={isJava} />
+			<ErrorInfoComponent status={statusResult} isJava={isJava} />
+			<IconComponent status={statusResult} isJava={isJava} />
+			<MotdComponent status={statusResult} isJava={isJava} />
+			<VersionNameComponent status={statusResult} isJava={isJava} />
+			<VersionProtocolComponent status={statusResult} isJava={isJava} />
+			<EditionComponent status={statusResult} isJava={isJava} />
+			<PlayersComponent status={statusResult} isJava={isJava} />
+			<MapNameComponent status={statusResult} isJava={isJava} />
+			<GamemodeComponent status={statusResult} isJava={isJava} />
+			<CachedComponent status={statusResult} isJava={isJava} />
+			<AdditionalInfoComponent status={statusResult} isJava={isJava} />
 		</div>
 	</section>
 </Layout>
