@@ -31,7 +31,7 @@ interface BaseOnlineStatusAnswer extends BaseStatusAnswer {
 }
 
 export interface JavaStatusAnswer extends BaseOnlineStatusAnswer {
-	players: { list?: { name: string; uuid: string }[]; } & BaseOnlineStatusAnswer["players"];
+	players: { list?: { name: string; uuid: string }[] } & BaseOnlineStatusAnswer["players"];
 	icon?: string;
 	additional?: object;
 }

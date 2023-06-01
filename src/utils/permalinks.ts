@@ -34,11 +34,13 @@ export function getHomePermalink(): string {
 }
 
 export function getAsset(path: string): string {
-	return "/" +
+	return (
+		"/" +
 		[BASE_PATHNAME, path]
 			.map((el) => trimSlash(el))
 			.filter((el) => !!el)
-			.join("/");
+			.join("/")
+	);
 }
 
 function definitivePermalink(permalink: string): string {
