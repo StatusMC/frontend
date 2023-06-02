@@ -1,0 +1,13 @@
+{
+  "name": "perchun.it",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+      "vscode": {
+      "extensions": ["astro-build.astro-vscode"]
+    }
+  },
+  "postCreateCommand": "yarn && yarn install"
+}
