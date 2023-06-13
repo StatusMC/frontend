@@ -35,3 +35,7 @@
 .interactive-box {
 	@apply box hover:bg-gray-200 dark:hover:bg-gray-600 hover:border-gray-200 dark:hover:border-gray-700
 }
+
+[x-cloak] {
+    display: none !important;
+}
