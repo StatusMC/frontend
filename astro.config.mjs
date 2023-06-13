@@ -10,6 +10,8 @@ import compress from "astro-compress";
 import { CONFIG } from "./src/config.mjs";
 import vercel from "@astrojs/vercel/serverless";
 import alpinejs from "@astrojs/alpinejs";
+import { sentryVitePlugin } from "@sentry/vite-plugin";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) => CONFIG.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
 
@@ -45,7 +47,20 @@ export default defineConfig({
       alias: {
         "~": path.resolve(__dirname, "./src")
       }
-    }
+    },
+		plugins: [
+      sentryVitePlugin({
+        org: "perchunpak",
+        project: "statusmc-frontend",
+
+        // Specify the directory containing build artifacts
+        include: "./.vercel",
+
+        // Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
+        // and needs the `project:releases` and `org:read` scopes
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      }),
+		]
   },
   adapter: vercel()
 });
