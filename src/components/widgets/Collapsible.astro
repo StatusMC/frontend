@@ -3,12 +3,13 @@ import { Icon } from "astro-icon";
 
 export interface Props {
 	title: string;
+	openByDefault?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, openByDefault } = Astro.props;
 ---
 
-<div class="block" x-data="{ open: false }">
+<div class="block" x-data={`{ open: ${openByDefault} }`}>
 	<button
 		type="button"
 		class="interactive-box flex items-center justify-between p-2"
@@ -20,7 +21,7 @@ const { title } = Astro.props;
 			<Icon name="ion:chevron-down" size={24} />
 		</span>
 	</button>
-	<div class="box block !rounded-none border-t-0" x-show="open" x-transition>
+	<div class="box block !rounded-t-none border-t-0" x-show="open" x-transition>
 		<slot />
 	</div>
 </div>

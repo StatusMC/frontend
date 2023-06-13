@@ -1,14 +1,14 @@
 ---
-import type { Props as BaseProps } from "~/components/status/interfaces";
+import type { BedrockStatusAnswer } from "~/components/status/interfaces";
 import Base from "~/components/status/Base.astro";
 
-export type Props = BaseProps;
+export type Props = { status: BedrockStatusAnswer };
 
-const { status, isJava }: Props = Astro.props;
+const { status }: Props = Astro.props;
 ---
 
 {
-	status.online && !isJava ? (
+	status.online ? (
 		<Base nameValue="Edition">
 			{status.version.edition === "MCPE"
 				? "Bedrock Edition"

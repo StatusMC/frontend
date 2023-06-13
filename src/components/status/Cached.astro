@@ -1,9 +1,9 @@
 ---
 import generateID from "~/utils/generate-id";
-import type { Props as BaseProps } from "~/components/status/interfaces";
+import type { AnyStatusAnswer } from "~/components/status/interfaces";
 import Base from "~/components/status/Base.astro";
 
-export type Props = BaseProps;
+export type Props = { status: AnyStatusAnswer };
 
 const { status }: Props = Astro.props;
 

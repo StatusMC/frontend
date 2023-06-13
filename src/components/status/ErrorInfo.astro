@@ -2,28 +2,24 @@
 import Modal from "~/components/widgets/Modal.astro";
 import CodeHighlight from "~/components/widgets/CodeHighlight.astro";
 
-import type { Props as BaseProps } from "~/components/status/interfaces";
+import type { OfflineStatusAnswer } from "~/components/status/interfaces";
 import Base from "~/components/status/Base.astro";
 
-export type Props = BaseProps;
+export type Props = { status: OfflineStatusAnswer };
 
 const { status }: Props = Astro.props;
 ---
 
-{
-	status.online ? null : (
-		<Base nameValue="Error Info" valueClasses="space-y-2 md:space-y-0 md:flex md:items-center md:space-x-5">
-			<Modal>
-				<button
-					slot="button"
-					class="flex transform items-center rounded text-sm tracking-wide transition-colors duration-200"
-				>
-					<code class="rounded bg-dark px-2 py-1 text-white">{status.error.shortName}</code>
-				</button>
-				<div slot="value">
-					<CodeHighlight code={status.error.traceback} language="python" />
-				</div>
-			</Modal>
-		</Base>
-	)
-}
+<Base nameValue="Error Info" valueClasses="space-y-2 md:space-y-0 md:flex md:items-center md:space-x-5">
+	<Modal>
+		<button
+			slot="button"
+			class="flex transform items-center rounded text-sm tracking-wide transition-colors duration-200"
+		>
+			<code class="rounded bg-dark px-2 py-1 text-white">{status.error.shortName}</code>
+		</button>
+		<div slot="value">
+			<CodeHighlight code={status.error.traceback} language="python" />
+		</div>
+	</Modal>
+</Base>

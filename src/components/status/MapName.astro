@@ -1,8 +1,8 @@
 ---
-import type { Props as BaseProps } from "~/components/status/interfaces";
+import type { BedrockStatusAnswer, QueryAnswer } from "~/components/status/interfaces";
 import Base from "~/components/status/Base.astro";
 
-export type Props = BaseProps;
+export type Props = { status: BedrockStatusAnswer | QueryAnswer };
 
 const { status }: Props = Astro.props;
 ---

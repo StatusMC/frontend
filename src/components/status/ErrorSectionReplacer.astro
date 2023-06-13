@@ -1,0 +1,19 @@
+---
+import type { OfflineStatusAnswer } from "~/components/status/interfaces";
+
+import IsOnlineComponent from "~/components/status/IsOnline.astro";
+import HostComponent from "~/components/status/Host.astro";
+import PortComponent from "~/components/status/Port.astro";
+import ErrorInfoComponent from "~/components/status/ErrorInfo.astro";
+import CachedComponent from "~/components/status/Cached.astro";
+
+export type Props = { status: OfflineStatusAnswer };
+
+const { status }: Props = Astro.props;
+---
+
+<IsOnlineComponent status={status} />
+<HostComponent status={status} />
+<PortComponent status={status} />
+<ErrorInfoComponent status={status} />
+<CachedComponent status={status} />

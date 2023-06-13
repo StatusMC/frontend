@@ -1,3 +1,10 @@
+interface FormattedString {
+	raw: string;
+	plain: string;
+	html: string;
+	ansi: string;
+}
+
 interface BaseStatusAnswer {
 	online: boolean;
 	address: {
@@ -10,36 +17,43 @@ interface BaseStatusAnswer {
 	};
 }
 
+interface VersionInfoOnlyName {
+	name: FormattedString;
+}
+interface VersionInfo extends VersionInfoOnlyName {
+	protocol: number;
+}
+
 interface BaseOnlineStatusAnswer extends BaseStatusAnswer {
 	online: true;
-	motd: {
-		raw: string;
-		plain: string;
-		html: string;
-		ansi: string;
-	};
-	version: {
-		name: {
-			raw: string;
-			plain: string;
-			html: string;
-			ansi: string;
-		};
-		protocol: number;
-	};
+	motd: FormattedString;
+	version: VersionInfoOnlyName;
 	players: { online: number; max: number };
 }
 
 export interface JavaStatusAnswer extends BaseOnlineStatusAnswer {
-	players: { list?: { name: string; uuid: string }[] } & BaseOnlineStatusAnswer["players"];
+	version: VersionInfo;
+	players: { list?: { name: FormattedString; uuid: string }[] } & BaseOnlineStatusAnswer["players"];
 	icon?: string;
 	additional?: object;
 }
 
 export interface BedrockStatusAnswer extends BaseOnlineStatusAnswer {
-	version: { edition: "MCPE" | "MCEE" } & BaseOnlineStatusAnswer["version"];
+	version: { edition: "MCPE" | "MCEE" } & VersionInfo;
 	map_name?: "World";
 	gamemode?: "Survival";
+}
+
+export interface QueryAnswer extends BaseOnlineStatusAnswer {
+	map_name: string;
+	players: { names: string[] } & BaseOnlineStatusAnswer["players"];
+	version: {
+		brand: FormattedString;
+		plugins: {
+			name: string;
+			version: string;
+		}[];
+	} & VersionInfoOnlyName;
 }
 
 export interface OfflineStatusAnswer extends BaseStatusAnswer {
@@ -50,7 +64,5 @@ export interface OfflineStatusAnswer extends BaseStatusAnswer {
 	};
 }
 
-export interface Props {
-	status: JavaStatusAnswer | BedrockStatusAnswer | OfflineStatusAnswer;
-	isJava: boolean;
-}
+export type OnlineStatusAnswer = JavaStatusAnswer | BedrockStatusAnswer | QueryAnswer;
+export type AnyStatusAnswer = JavaStatusAnswer | BedrockStatusAnswer | QueryAnswer | OfflineStatusAnswer;

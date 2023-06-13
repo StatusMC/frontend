@@ -1,12 +1,34 @@
 ---
 import generateID from "~/utils/generate-id";
+import uppercaseFirstLetter from "~/utils/uppercase-first-letter";
 
 export interface Props {
-	inputValue: string; // what was already inputted in <input>
-	isBedrockChecked: boolean;
+	inputValues: {
+		main: string;
+		java: string;
+		bedrock: string;
+		query: string;
+	};
+	isBedrockChecked: {
+		java: boolean;
+		bedrock: boolean;
+		query: boolean;
+	};
 }
 
-const { inputValue = "", isBedrockChecked = false }: Props = Astro.props;
+const {
+	inputValues = {
+		main: "",
+		java: "",
+		bedrock: "",
+		query: "",
+	},
+	isChecked = {
+		java: true,
+		bedrock: false,
+		query: false,
+	},
+}: Props = Astro.props;
 
 const id = generateID(5);
 ---
@@ -17,14 +39,13 @@ const id = generateID(5);
 	<form class="mt-2">
 		<div class="inline-flex w-full">
 			<div class="z-10 w-full">
-				<input type="text" class="sr-only" @keyup.enter="alert('Submitted!')" />
 				<label class="sr-only" for={`${id}-input`}>Address</label>
 				<input
 					type="text"
 					required
 					class="box input !rounded-r-none"
 					placeholder="hypixel.net"
-					value={inputValue}
+					value={inputValues.main}
 					id={`${id}-input`}
 					x-model="serverAddress"
 					@keyup.enter="handleGetStatus"
@@ -40,32 +61,70 @@ const id = generateID(5);
 			</button>
 		</div>
 		<div class="mb-4 mt-1 flex items-center">
-			<input
-				id={`${id}-is-bedrock`}
-				type="checkbox"
-				class="h-5 w-5 cursor-pointer rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
-				x-model="isBedrock"
-			/>
-			<label
-				for={`${id}-is-bedrock`}
-				class="ml-2 cursor-pointer text-base font-medium text-gray-900 dark:text-gray-300"
-			>
-				Bedrock Edition?
-			</label>
+			{
+				["java", "bedrock", "query"].map((moduleName) => (
+					<div class="flow-root">
+						<input
+							id={`${id}-is-${moduleName}`}
+							type="checkbox"
+							class="peer h-5 w-5 cursor-pointer rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+							x-model={`is${uppercaseFirstLetter(moduleName)}`}
+						/>
+						<label
+							for={`${id}-is-${moduleName}`}
+							class="ml-2 cursor-pointer text-base font-medium text-gray-900 dark:text-gray-300"
+						>
+							{uppercaseFirstLetter(moduleName)} Edition?
+						</label>
+						<div class="invisible mr-3 mt-2 peer-checked:visible">
+							<label class="sr-only" for={`${id}-${moduleName}-input`}>
+								Different address for {moduleName} edition
+							</label>
+							<input
+								type="text"
+								class="box input"
+								placeholder="Other IP?"
+								value={inputValues[moduleName]}
+								id={`${id}-${moduleName}-input`}
+								x-model={`${moduleName}IP`}
+								@keyup.enter="handleGetStatus"
+							/>
+						</div>
+					</div>
+				))
+			}
 		</div>
 	</form>
 
-	<script define:vars={{ id: id, isBedrockChecked: isBedrockChecked, inputValue: inputValue || "" }}>
+	<script define:vars={{ id: id, isChecked: isChecked, inputValues: inputValues }}>
 		document.addEventListener("alpine:init", () => {
 			// eslint-disable-next-line no-undef
 			Alpine.data(id, () => ({
-				isBedrock: isBedrockChecked,
-				serverAddress: inputValue,
+				isJava: isChecked.java,
+				isBedrock: isChecked.bedrock,
+				isQuery: isChecked.query,
+				serverAddress: inputValues.main,
+				javaIP: inputValues.java,
+				bedrockIP: inputValues.bedrock,
+				queryIP: inputValues.query,
 
 				handleGetStatus() {
-					window.location.href = `/status/${this.isBedrock ? "bedrock" : "java"}/${encodeURIComponent(
-						this.serverAddress
-					)}`;
+					let redirectTo = `/info/${encodeURIComponent(this.serverAddress)}?modules=`;
+					let laterArgs = "&";
+
+					for (const [module, isActive, ip] of [
+						["java", this.isJava, this.javaIP],
+						["bedrock", this.isBedrock, this.bedrockIP],
+						["query", this.isQuery, this.queryIP],
+					]) {
+						if (!isActive) continue;
+						if (!redirectTo.endsWith("=")) redirectTo += ",";
+						redirectTo += module;
+						if (ip) laterArgs += `to_${module}=${encodeURIComponent(ip)}&`;
+					}
+					if (laterArgs !== "&") redirectTo += laterArgs.slice(0, -1);
+
+					window.location.href = redirectTo;
 				},
 			}));
 		});
