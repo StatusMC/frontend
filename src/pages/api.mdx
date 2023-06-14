@@ -4,57 +4,87 @@ layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 import { CONFIG } from "~/config.mjs";
-import Endpoint from "~/components/api/Endpoint.astro";
+import ModelDocumentation from "~/components/api/ModelDocumentation.astro";
 
 export const prerender = true;
 
-We have a very simple but powerful API. All answers are returned as JSON, so it's language inclusive. The main goal of
-API is to provide as much as possible data in a single request, without making it long. All fetched requests are cached
-for 5 minutes at our CDN (CloudFlare) and local database.
+As you may know from the [About us](/about) page, we have the modules system, which allows to do multiple things with
+one request. This works with Query parameters (text after `?` in the URL). For example, if you want to get the server
+Java and Bedrock status in one time, you can just send HTTP GET request to `https://api.statusmc.perchun.it/myserver.net?modules=java,bedrock`.
 
-Please, feel free to contact us at <code>{CONFIG.contactEmail}</code> if you will find any errors, unclear information
-or if you will need any help with our service.
+Our API server will send a Java status request to `myserver.net:25565` and Bedrock status request to `myserver.net:19132`.
+(Those ports are guessed automatically: if no port specified, we will try `19132` for Bedrock and `25565` (or SRV record)
+for Java. You can specify the port adding `:port` to the end of the hostname, for example `myserver.net:12345`).
 
-## Cache
+But what about Java status and Query? Those cannot be hosted on one port, so you need to use another one (e.g. `25566`).
+In the modules system, we can specify completely different IP for every module. For example, if you want to get Java
+status from `myserver.net:25565` and Query from `myserver.net:25566`, you can send HTTP GET request to
+`https://api.statusmc.perchun.it/v1/i_am_ignored?modules=java,query&to_java=myserver.net:25565&to_query=myserver.net:25566`.
+(For example, if you will not specify `&to_java=`, the API will use IP from the URL as fallback (in upper example, it's
+`i_am_ignored`).)
 
-We have implemented a caching system for all data that we retrieve from our service, including server status responses
-and icons, to reduce spam and deliberate denial-of-service attacks. Each endpoint has its own unique cache duration,
-specific to the request pathname. Any requests made after cache expiration time will result in fresh data being
-retrieved from our end. We do not make any exceptions to the cache duration. If you want to bypass the cache, we
-recommend that you self-host the backend server available on our [GitHub repository](https://github.com/StatusMCWeb/backend)
-or use the original library - [mcstatus](https://github.com/py-mine/mcstatus) (Python).
+It's not limited to only ports, but also to completely different IPs:
+`https://api.statusmc.perchun.it/v1/hypixel.net?modules=java,bedrock&to_bedrock=mco.cubecraft.net`. This works with Query too!
+
+## Few answers in one? How?
+
+This is the simplest part. Each module provides property in answer, that is named as module. For example, if you will
+ask for Java status, the answer will be a JSON object with `java` property where the answer is stored.
+In this property, there will be Java status answer object, there is a description of it in the end of the page.
+
+```json
+{ "java": {...} }
+```
+
+So if you will request all possible modules (`java`, `bedrock`, `query`) - there will be three properties with three
+different answers:
+
+```json
+{
+  "java": {...},
+  "bedrock": {...},
+  "query": {...}
+}
+```
+
+<ModelDocumentation model="java" />
+<ModelDocumentation model="bedrock" />
+<ModelDocumentation model="query" />
+
+## What if the server offline?
+
+We just replace it with other object, that has `online` property set to `false`.
+
+<ModelDocumentation model="offline" />
+
+## Icon endpoint
+
+You can get the icon of the server separately, on the `v1/icon/{ip}` endpoint. It will return the icon in PNG format.
+This is actually the same as doing Java status request, and decode from Base64 `icon` property. If you need an icon and
+Java status, you should do only Java status request and decode the icon from it. This will reduce the network latency
+(time between the moment when you sent the request and our server answered on it). The endpoint is actually doing the same.
+Also, if you will do two requests (for Java status and icon) - don't worry, we cache the Java status answer, so
+we don't spam the server!
+
+The endpoint is `https://api.statusmc.perchun.it/v1/icon/myserver.net`. Replace the `myserver.net` part with your IP.
+This is not done as one of modules, because the endpoint return bytes that cannot be properly encoded into JSON, and
+even if so, there is no sense to encode those, as you can just use `icon` property from Java status answer with the
+same impact.
 
 ## Supported Versions
 
 Our API supports all modern Minecraft servers, including Bedrock and Education Edition servers. Please
-ensure that you use the correct endpoint when retrieving server status. Attempting to use the Java Edition status route
-with a Bedrock Edition host (or vice versa) will result in a response indicating that the server is offline unless the
-server explicitly supports cross-play. If the server you are specifying does not use the standard port value (`25565`
-for Java Edition, `19132` for Bedrock Edition), you will need to specify the port using the following format:
-`host:port`.
+ensure that you use the correct module when retrieving server status. Attempting to use the Java Edition status module
+with a Bedrock Edition host (or vice versa) will result in a response indicating that the answer doesn't have
+the property with data, that you expected.
 
 Please inform us at <code>{CONFIG.contactEmail}</code> if you will find unsupported server.
 
-## Using the API
+## Cache
 
-If an address works in Minecraft, it works with our API. If you do not specify a port, our API will find it. SRV records
-are also supported.
-
-### Java Status
-
-Retrieves all possible information from a Java Edition server. Currently, this includes only status data (that shown at
-server list in Minecraft client) and some IP info. {/* TODO add query */}
-
-<Endpoint url="v1/status/java/{ip}" model="java" />
-
-### Bedrock Status
-
-All the same what with Java, but there are some additional attributes that are special for Bedrock.
-
-<Endpoint url="v1/status/bedrock/{ip}" model="bedrock" />
-
-### Offline Status
-
-If the server is offline, we still can get some useful info from it.
-
-<Endpoint model="offline" />
+We have a cache system on our CDN (Cloudflare) which uses an URL as a key and another cache system on our backend,
+that caches each module individually. Second one is quite slower, but more efficient. Anyway, you're free to spam
+as many requests, as you want. But note that our service is a proxy and helping tool for other humans, do not use
+it for example server scanners, or similar software where performance is important. You can self-host our backend
+server (see [GitHub repository](https://github.com/StatusMC/backend)) or use the original library -
+[mcstatus](https://github.com/py-mine/mcstatus) (Python).

@@ -4,14 +4,18 @@ title: "About us"
 
 export const prerender = true;
 
-{/* TODO fill it */}
+You maybe know other same services for pinging Minecraft servers, like https://mcstatus.io or https://mcsrvstat.us.
+And you may ask, why do we need another one? Well, the answer is not so simple. Firstly, I wanted to write this project
+to resolve [this feature request](https://github.com/py-mine/mcstatus/issues/157) and add another project to my portfolio.
+But the idea of building same service as there are wasn't accepted. Anyway, I started to build this project by myself,
+and during the development, I found the feature to add, that it will not look like just the same service.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in ultrices justo. Nullam eu dolor dignissim nunc venenatis dapibus. Mauris aliquet imperdiet tellus, sed dictum mauris sollicitudin a. Quisque erat libero, dictum non mauris ac, varius convallis enim. Integer quis pellentesque ante. Etiam suscipit nibh sed sagittis mollis. Maecenas tincidunt, nisi ut efficitur efficitur, libero ex ultricies turpis, non pulvinar urna purus sed quam.
+This feature is modules system. In other services, you can only get the server status (java or bedrock), but here you can
+get Java status, Bedrock status and Query answer in _one_ request! These three request are done in parallel on the backend
+(aka our API), so you don't need to even know how does asynchronous programming work or what are threads. You can also
+set different IPs for each module, so you can get Java status from one server and Bedrock status from another one.
 
-Vestibulum rhoncus leo vel dictum malesuada. Quisque semper justo et elit placerat, eget egestas nisi vehicula. Etiam ac lobortis ligula. Nam et ipsum lobortis, scelerisque erat vel, mattis odio. Aliquam erat volutpat. Aenean sollicitudin, erat at eleifend tempor, arcu eros elementum leo, id faucibus augue risus eu erat. Proin placerat non ante quis tempus. Ut quis massa mi. Mauris luctus at dolor eu faucibus. Praesent tempor aliquam turpis sed imperdiet. Fusce consectetur facilisis quam sagittis fermentum. Donec rutrum, arcu vitae commodo convallis, mi erat fringilla odio, eget placerat nisi lorem vel ex. Duis commodo, tortor sit amet pretium elementum, lacus neque molestie leo, sit amet semper augue mauris ut dolor.
-
-Nunc vel elit egestas, fringilla metus et, pretium quam. Maecenas augue metus, varius lacinia enim a, efficitur pharetra leo. Nam vitae eleifend eros, luctus pulvinar ante. Quisque bibendum lectus dignissim arcu lacinia, laoreet finibus nunc tempor. Vestibulum sed erat elit. Nullam molestie facilisis ipsum a sagittis. Cras ac vehicula augue. Etiam non iaculis ante. Nulla lobortis lectus sit amet sagittis vulputate. Duis iaculis felis ut pulvinar pharetra.
-
-Ut eu volutpat ex. Phasellus ac leo porttitor, scelerisque nisi eget, pellentesque odio. Nam at sollicitudin nibh. Duis volutpat, dui vel congue hendrerit, leo metus venenatis enim, vitae sollicitudin tellus quam sed neque. Aliquam fringilla lacinia scelerisque. Vestibulum dignissim tortor posuere mauris semper sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque et cursus metus, et congue neque. Etiam scelerisque massa a viverra condimentum. Quisque ac quam a augue vestibulum convallis eget sit amet dui. Nullam rhoncus quis orci id varius. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum vitae est orci.
-
-Phasellus porttitor vestibulum ipsum et ultricies. Morbi tincidunt ligula nec neque consequat mattis. Proin et lectus ut mi porttitor mollis. Nulla facilisi. Nulla condimentum pulvinar leo. Sed luctus laoreet dui, vel varius metus egestas sed. Suspendisse molestie accumsan nunc, at mollis dolor rutrum vitae. Ut dignissim lectus non faucibus maximus. Quisque vel turpis id ipsum sagittis cursus vel at libero. Praesent facilisis turpis lorem, in fringilla est consectetur ut. Vivamus vitae scelerisque augue. Aenean et congue felis. Praesent id est vel sapien condimentum ultricies eu sed leo. Curabitur nisi elit, vehicula vitae lectus vel, ultricies interdum mi.
+Also, each answer is hardly typed with [pydantic](https://docs.pydantic.dev)'s models, so you can always look at sources
+if I will forget to update these docs. This also ensures stability of the API, because if there will be any mistake in
+types - there will be an error on our side, not yours! (We track those with [Sentry](https://sentry.io), so don't worry,
+we have a guy who will spam our email if something will go wrong).

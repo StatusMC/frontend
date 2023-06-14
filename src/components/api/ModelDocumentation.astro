@@ -4,8 +4,7 @@ import CodeHighlight from "~/components/widgets/CodeHighlight.astro";
 import getModel from "~/components/api/get-model";
 
 export interface Props {
-	url?: string;
-	model: "java" | "bedrock" | "offline";
+	model: "java" | "bedrock" | "query" | "offline";
 }
 
 const props: Props = Astro.props;
@@ -14,15 +13,6 @@ const modelText = getModel(props.model);
 
 <div>
 	<div class="button-and-url">
-		{
-			props.url !== undefined ? (
-				<>
-					<span class="get-button">GET</span>
-					<code class="url">https://api.statusmc.perchun.it/{props.url}</code>
-				</>
-			) : null
-		}
-
 		<!-- Some-why, tailwind doesn't work here -->
 		<style>
 			.button-and-url {
@@ -39,7 +29,7 @@ const modelText = getModel(props.model);
 		</style>
 	</div>
 	<div class="not-prose mt-4">
-		<Collapsible title={`See the ${props.model.charAt(0).toUpperCase() + props.model.substring(1)} scheme`}>
+		<Collapsible title={`See the ${props.model.charAt(0).toUpperCase() + props.model.substring(1)} answer scheme`}>
 			<CodeHighlight code={modelText} language="ts" />
 		</Collapsible>
 	</div>
