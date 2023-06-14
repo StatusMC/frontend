@@ -18,7 +18,7 @@ const whenExternalScripts = (items = []) => CONFIG.googleAnalyticsId ? Array.isA
 
 // https://astro.build/config
 export default defineConfig({
-  site: CONFIG.origin,
+  site: "https://statusmc.perchun.it",
   base: CONFIG.basePathname,
   trailingSlash: CONFIG.trailingSlash ? "always" : "never",
   output: "server",
@@ -59,6 +59,7 @@ export default defineConfig({
         // Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
         // and needs the `project:releases` and `org:read` scopes
         authToken: process.env.SENTRY_AUTH_TOKEN,
+				telemetry: false
       }),
 		]
   },
