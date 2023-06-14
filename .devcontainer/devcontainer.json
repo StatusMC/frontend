@@ -1,5 +1,5 @@
 {
-  "name": "perchun.it",
+  "name": "StatusMC Frontend",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
