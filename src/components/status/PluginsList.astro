@@ -46,7 +46,7 @@ const { status }: Props = Astro.props;
 												[".", null],
 											].map(([resourceName, url]) => {
 												return url ? (
-													<a class="font-bold text-gray-400 inline-block" href={url + encodeURIComponent(plugin.name)}>
+													<a class="inline-block font-bold text-gray-400" href={url + encodeURIComponent(plugin.name)}>
 														{resourceName}
 													</a>
 												) : (

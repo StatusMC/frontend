@@ -20,7 +20,7 @@ export const headerData: HeaderData = {
 		{
 			text: "How to test?",
 			href: getPermalink("/how-to-test"),
-		}
+		},
 	],
 };
 
