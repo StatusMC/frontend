@@ -95,8 +95,23 @@ const id = generateID(5);
 			}
 		</div>
 	</form>
+	<!-- No modules selected toast -->
+	<button
+		type="button"
+		@click="closeToast()"
+		x-show="toastIsOpen"
+		x-transition.duration.300ms
+		class="fixed right-8 top-20 z-50 rounded-md bg-red-500 px-4 py-2 text-white transition hover:bg-red-600"
+	>
+		<div class="flex items-center space-x-2">
+			<span class="text-3xl"><i class="bx bx-check"></i></span>
+			<p class="font-bold">No module selected!</p>
+		</div>
+	</button>
 
 	<script define:vars={{ id: id, isChecked: isChecked, inputValues: inputValues }}>
+		let timerToCloseTheToast;
+
 		document.addEventListener("alpine:init", () => {
 			// eslint-disable-next-line no-undef
 			Alpine.data(id, () => ({
@@ -107,6 +122,7 @@ const id = generateID(5);
 				javaIP: inputValues.java,
 				bedrockIP: inputValues.bedrock,
 				queryIP: inputValues.query,
+				toastIsOpen: false,
 
 				handleGetStatus() {
 					let redirectTo = `/info/${encodeURIComponent(this.serverAddress)}?modules=`;
@@ -124,7 +140,28 @@ const id = generateID(5);
 					}
 					if (laterArgs !== "&") redirectTo += laterArgs.slice(0, -1);
 
+					if (redirectTo.endsWith("=")) {
+						this.openToast();
+						return;
+					}
 					window.location.href = redirectTo;
+				},
+
+				openToast() {
+					// if (this.toastIsOpen) return;
+					this.toastIsOpen = true;
+
+					// reset time to 0 seconds
+					clearTimeout(timerToCloseTheToast);
+
+					// auto close toast after 5 seconds
+					timerToCloseTheToast = setTimeout(() => {
+						this.closeToast();
+					}, 5000);
+				},
+
+				closeToast() {
+					this.toastIsOpen = false;
 				},
 			}));
 		});
