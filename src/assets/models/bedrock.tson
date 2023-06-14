@@ -1,101 +1,65 @@
-TODO add real response scheme 
-
 // Determines whether the server is online or offline.
+// Is `false` only in the Offline scheme.
 online: boolean = true
-// The hostname of the server that was resolved from the address string.
-host: string = "play.hypixel.net"
-// The port of the server that was resolved from the address string.
-port: number = 25565
-// Whether or not this server address has been blocked by Mojang.
-// If this is true, Notchian clients will not be able to connect to the
-// server via the Minecraft client because it previously violated the EULA.
-eula_blocked: boolean = false
-// The timestamp in Unix milliseconds of when the status was retrieved from
-// the Minecraft server itself.
-retrieved_at: number = 1673774293240
-// The Unix milliseconds timestamp at which the cache will expire for this
-// status. The first proceeding request made after this timestamp will
-// return an up-to-date status of the server.
-expires_at: number = 1673774353240
-// The version data of the server. This will be null if the server 
-// version is pre-1.3.2. This property will be missing if the server
-// is offline.
-version: object or null = {
-// The version name of the server, typically modified by the server
-// itself to show version range. This value may contain special formatting
-// characters.
-name_raw: string = "Requires MC 1.8 / 1.19"
-  // The version name of the server, typically modified by the server
-  // itself to show version range. This value will have all formatting
-  // characters removed.
-  name_clean: string = "Requires MC 1.8 / 1.19"
-  // The version name of the server, typically modified by the server
-  // itself to show version range, as an HTML string with proper
-  // formatting applied.
-  name_html: string = "<span><span style=\"color: #ffffff;\">Requires MC 1.8 / 1.19</span></span>"
-  // The protocol version of the server which is used to identify
-  // what client versions are supported.
+// The server's address information
+address: object = {
+  // The hostname of the server that was parsed from the address string.
+  // Example if there were an SRV record.
+  host: string = "play.hypixel.net"
+  // The port of the server that was parsed from the address string.
+  // Will be different if there was an SRV record and no port was specified.
+  port: number = 25565
+}
+// Message Of The Day aka server's description.
+motd: StringWithFormatting = {
+  // The raw format, with Minecraft's formatting codes.
+  // TODO should be renamed to `minecraft`?
+  raw: string
+  // The plain format. There are no formatting codes, only plain text.
+  plain: string
+  // The HTML format. It's a string with HTML tags.
+  // Note that it's wrapped in `<p>` tag, so you may want to remove it.
+  html: string
+  // ANSI 24-bit format aka format for colored text in the terminal.
+  ansi: string
+  // You may want to write other formats yourself, use underlying library
+  // mcstatus for this. They have really powerful API for MOTD transformers.
+  // https://github.com/py-mine/mcstatus
+}
+// Server's version information.
+version: object = {
+  // Human readable version name. It may contain formatting codes, so
+  // it's parsed the same as it parses MOTD. It's sent by the server,
+  // so expect that it can be modified.
+  name: StringWithFormatting = {
+    // See `motd` above for attribute descriptions here.
+  }
+  // Pocket Edition (now it's Bedrock Edition) or Education Edition.
+  // Some custom implementations can change it to something else,
+  // but generally expect only these values.
+  edition: "MCPE" or "MCEE" = "MCPE"
+  // Internal Minecraft protocol version.
+  // See https://minecraft.fandom.com/wiki/Protocol_version#List_of_protocol_versions
   protocol: number = 47
 }
-// Information about the amount of players online and *some* sample
-// players if provided. This property will be missing if the server
-// is offline.
+// Info about the server's players that are currently online.
 players: object = {
-  // The amount of online players in the server.
-  online: number = 66870
-  // The maximum number of allowed players in the server.
-  max: number = 200000
-  // Some sample players online in the server. Most (if not all) major
-  // servers disable this or modify the data for custom formatting. If you
-  // do not have any items in this array, it is because the server has
-  // disabled sample players for a reason.
-  list: Array of objects = [
-    {
-      // The UUID of the player logged into the server.
-      uuid: string = "78d78fb0-eb86-3dde-a9fc-203ecf33072b"
-      // The username of the player logged into the server. The server
-      // may have plugins that modify this data to show special
-      // formatting. This value may have formatting characters.
-      name_raw: string = "§5§m               §d§m          §7§m        §d§m          §5§m               "
-      // The username of the player logged into the server. The server
-      // may have plugins that modify this data to show special
-      // formatting. This value will not have any formatting characters.
-      name_clean: string = "                                                          "
-      // The username of the player logged into the server, as an HTML
-      // string with proper formatting applied.
-      name_html: string = "<span><span style=\"color: #aa00aa; text-decoration: line-through;\">               </span><span style=\"text-decoration: line-through; color: #ff55ff;\">          </span><span style=\"color: #aaaaaa; text-decoration: line-through;\">        </span><span style=\"color: #ff55ff; text-decoration: line-through;\">          </span><span style=\"color: #aa00aa; text-decoration: line-through;\">               </span></span>"
-    }
-  ]
+  // Current number of players that are on this server.
+  online: number
+  // Maximum number of players that can be on this server.
+  max: number
 }
-// The message of the day (or MOTD/description) of the server. This is the
-// message shown below the server name in the client multiplayer menu. This
-// property will be missing if the server is offline.
-motd: object = {
-  // The raw MOTD with formatting codes. Refer to
-  // https://minecraft.fandom.com/wiki/Formatting_codes for information
-  // on how to use formatting codes.
-  raw: string = "                §aHypixel Network §c[1.8-1.19]\n       §b§lNEW: DROPPER §7§l| §6§lSUMMER EVENT§7§l+§e§lSALE"
-  // A clean text-only version of the MOTD with all formatting codes removed.
-  clean: string = "                Hypixel Network [1.8-1.19]\n       NEW: DROPPER | SUMMER EVENT+SALE"
-  // An HTML representation of the MOTD with proper formatting. All formatting
-  // codes are supported and are equal to their value in the Minecraft fandom wiki.
-  // Magic/obfuscated formatting codes are a <span> with the class `.minecraft-format-obfuscated`.
-  // Line breaks are encoded as the "\n" escape code and may be replaced with <br> by the user.
-  html: string = "<span><span style=\"color: #ffffff;\">                </span><span style=\"color: #55ff55;\">Hypixel Network </span><span style=\"color: #ff5555;\">[1.8-1.19]</span><span style=\"color: #ffffff;\">\n       </span><span style=\"color: #55ffff; font-weight: bold;\">NEW: DROPPER </span><span style=\"color: #aaaaaa; font-weight: bold;\">| </span><span style=\"color: #ffaa00; font-weight: bold;\">SUMMER EVENT</span><span style=\"color: #aaaaaa; font-weight: bold;\">+</span><span style=\"font-weight: bold; color: #ffff55;\">SALE</span></span>"
+// The name of the map. May be modified, but mostly it's `world`.
+map_name: string
+// The default gamemode on the server. New players spawn with it.
+gamemode: string
+// Internal info that is not sent by the server.
+// It's still a part of Public API and you are free to use it.
+internal: object = {
+  // The time when this server answer was cached on our side.
+  // Can be different from the Cloudflare's cache time.
+  // Look for theirs headers if you really want to know it.
+  cached_at: number = 1645666816
+  // The time, when this cache will expire.
+  cache_ends_at: number = 1645667116
 }
-// The base64-encoded PNG data of the 64x64 server icon. You may require
-// additional libraries or utilities for using this property. There are
-// several examples out there. This property may be null if the server does
-// not set an icon image. This property will also be missing if the server
-// is offline.
-icon: string or null = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAttklEQV..."
-// Any Forge mods loaded if provided by the server. Most servers do not
-// have Forge installed so this property will be empty a majority of the time.
-mods: Array of objects = [
-  {
-    // The name of the mod that is loaded on the server.
-    name: string = "Forge"
-    // The version of the mod that is loaded on the server.
-    version: string = "v1.0.0"
-  }
-]

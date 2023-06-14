@@ -59,7 +59,7 @@ export interface QueryAnswer extends BaseOnlineStatusAnswer {
 export interface OfflineStatusAnswer extends BaseStatusAnswer {
 	online: false;
 	error: {
-		shortName: string;
+		short_name: string;
 		traceback: string;
 	};
 }

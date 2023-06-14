@@ -71,3 +71,13 @@ icon: string
 // parse. It may not be a part of the official protocol, so don't
 // expect it to be present.
 additional: object
+// Internal info that is not sent by the server.
+// It's still a part of Public API and you are free to use it.
+internal: object = {
+  // The time when this server answer was cached on our side.
+  // Can be different from the Cloudflare's cache time.
+  // Look for theirs headers if you really want to know it.
+  cached_at: number = 1645666816
+  // The time, when this cache will expire.
+  cache_ends_at: number = 1645667116
+}

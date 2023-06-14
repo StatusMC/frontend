@@ -16,7 +16,7 @@ const { status }: Props = Astro.props;
 			slot="button"
 			class="flex transform items-center rounded text-sm tracking-wide transition-colors duration-200"
 		>
-			<code class="rounded bg-dark px-2 py-1 text-white">{status.error.shortName}</code>
+			<code class="rounded bg-dark px-2 py-1 text-white">{status.error.short_name}</code>
 		</button>
 		<div slot="value">
 			<CodeHighlight code={status.error.traceback} language="python" />
