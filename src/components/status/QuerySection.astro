@@ -6,7 +6,9 @@ import HostComponent from "~/components/status/Host.astro";
 import PortComponent from "~/components/status/Port.astro";
 import MotdComponent from "~/components/status/Motd.astro";
 import VersionNameComponent from "~/components/status/VersionName.astro";
+import ServerCoreComponent from "~/components/status/ServerCore.astro";
 import PlayersComponent from "~/components/status/Players.astro";
+import PluginsListComponent from "~/components/status/PluginsList.astro";
 import MapNameComponent from "~/components/status/MapName.astro";
 import CachedComponent from "~/components/status/Cached.astro";
 
@@ -20,6 +22,8 @@ const { status }: Props = Astro.props;
 <PortComponent status={status} />
 <MotdComponent status={status} />
 <VersionNameComponent status={status} />
+<ServerCoreComponent status={status} />
 <PlayersComponent status={status} />
+<PluginsListComponent status={status} />
 <MapNameComponent status={status} />
 <CachedComponent status={status} />

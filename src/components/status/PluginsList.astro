@@ -1,0 +1,66 @@
+---
+import Modal from "~/components/widgets/Modal.astro";
+
+import type { QueryAnswer } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = { status: QueryAnswer };
+
+const { status }: Props = Astro.props;
+---
+
+{
+	status.version.plugins ? (
+		<Base nameValue="Plugins List">
+			<div class="grid grid-cols-2 grid-rows-1 items-center gap-4">
+				<Modal>
+					<div slot="button" class="interactive-box max-w-fit cursor-pointer p-2">
+						<span class="font-bold">Show the list</span>
+					</div>
+					<div slot="value" class="grid grid-cols-1 gap-4">
+						{status.version.plugins.map((plugin) => {
+							return (
+								<div class="sm:inline-flex">
+									<div class="sm:inline-grid sm:content-center sm:pl-10 lg:text-lg">
+										<a href={`https://www.google.com/search?q=minecraft+plugin+${encodeURIComponent(plugin.name)}`}>
+											<span class="font-bold">Name:</span>{" "}
+											<span class="text-gray-700 dark:text-gray-100">{plugin.name}</span>
+										</a>
+										<br />
+										<div>
+											<span class="text-gray-400">Search on:</span>
+											{[
+												["Bukkit", "https://dev.bukkit.org/search?search="],
+												[", ", null],
+												[
+													"Spigot",
+													"https://www.spigotmc.org/search/200029922/?t=resource_update&o=relevance&c[title_only]=1&q=",
+												],
+												[", ", null],
+												["Modrinth", "https://modrinth.com/plugins?q="],
+												[" or ", null],
+												[
+													"CurseForge",
+													"https://www.curseforge.com/minecraft/search?page=1&class=bukkit-plugins&sortType=1&pageSize=20&search=",
+												],
+												[".", null],
+											].map(([resourceName, url]) => {
+												return url ? (
+													<a class="font-bold text-gray-400 inline-block" href={url + encodeURIComponent(plugin.name)}>
+														{resourceName}
+													</a>
+												) : (
+													<span class="text-gray-400">{resourceName}</span>
+												);
+											})}
+										</div>
+									</div>
+								</div>
+							);
+						})}
+					</div>
+				</Modal>
+			</div>
+		</Base>
+	) : null
+}

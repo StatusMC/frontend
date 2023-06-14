@@ -1,0 +1,12 @@
+---
+import type { QueryAnswer } from "~/components/status/interfaces";
+import Base from "~/components/status/Base.astro";
+
+export type Props = { status: QueryAnswer };
+
+const { status }: Props = Astro.props;
+---
+
+<Base nameValue="Server Core">
+	<Fragment set:html={status.version.brand.html} />
+</Base>
