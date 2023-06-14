@@ -74,7 +74,7 @@ const id = generateID(5);
 							for={`${id}-is-${moduleName}`}
 							class="ml-2 cursor-pointer text-base font-medium text-gray-900 dark:text-gray-300"
 						>
-							{uppercaseFirstLetter(moduleName)} Edition?
+							{moduleName === "query" ? "Query?" : `${uppercaseFirstLetter(moduleName)} Edition?`}
 						</label>
 						<div class="invisible mr-3 mt-2 peer-checked:visible">
 							<label class="sr-only" for={`${id}-${moduleName}-input`}>
