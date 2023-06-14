@@ -15,16 +15,6 @@ function createPath(...params: string[]) {
 
 const BASE_PATHNAME = CONFIG.basePathname;
 
-export function getCanonical(path = ""): string | URL {
-	const url = String(new URL(path, CONFIG.origin));
-	if (!CONFIG.trailingSlash && path && url.endsWith("/")) {
-		return url.slice(0, -1);
-	} else if (CONFIG.trailingSlash && path && !url.endsWith("/")) {
-		return url + "/";
-	}
-	return url;
-}
-
 export function getPermalink(slug = ""): string {
 	return definitivePermalink(createPath(slug));
 }

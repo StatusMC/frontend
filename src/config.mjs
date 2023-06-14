@@ -3,15 +3,13 @@ import defaultImage from "./assets/images/default.png";
 export const CONFIG = {
 	name: "StatusMC",
 
-	// origin: "https://statusmc.perchun.it",
-	origin: "http://localhost:3000",  // todo get automatically
 	basePathname: "/",
 	trailingSlash: false,
 	apiUrl: "https://api.statusmc.perchun.it",
 
-	title: "AstroWind — Free template for create a website with Astro + Tailwind CSS",
+	title: "StatusMC — The great way to get status from your Minecraft server!",
 	description:
-		"🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.",
+		"You can get Java status, Bedrock status and Query answer in parallel without even knowing what that word means!",
 	defaultImage: defaultImage,
 	announcement: {
 		text: null,
