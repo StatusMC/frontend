@@ -16,7 +16,7 @@ const { meta = {} } = Astro.props;
 const { language = "en" } = CONFIG;
 
 Sentry.init({
-  dsn: "https://8c5f0b4919644ef69904e9901bf3154e@o4504254006689792.ingest.sentry.io/4505353780133888",
+	dsn: "https://8c5f0b4919644ef69904e9901bf3154e@o4504254006689792.ingest.sentry.io/4505353780133888",
 	tracesSampleRate: 1.0,
 });
 ---
@@ -26,7 +26,7 @@ Sentry.init({
 	<head>
 		<MetaTags {...meta} />
 		<script>
-      import * as Sentry from "@sentry/browser";
+			import * as Sentry from "@sentry/browser";
 
 			Sentry.init({
 				dsn: "https://8c5f0b4919644ef69904e9901bf3154e@o4504254006689792.ingest.sentry.io/4505353780133888",
