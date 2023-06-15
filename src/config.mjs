@@ -1,4 +1,4 @@
-import defaultImage from "./assets/images/default.png";
+import opengraphImage from "~/assets/images/opengraph-image.png";
 
 export const CONFIG = {
 	name: "StatusMC",
@@ -10,7 +10,7 @@ export const CONFIG = {
 	title: "StatusMC — The great way to get status from your Minecraft server!",
 	description:
 		"You can get Java status, Bedrock status and Query answer in parallel without even knowing what that word means!",
-	defaultImage: defaultImage,
+	defaultImage: opengraphImage,
 	announcement: {
 		text: null,
 		prefix: null,
