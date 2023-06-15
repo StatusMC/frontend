@@ -1,0 +1,29 @@
+---
+import type { QueryAnswer } from "../interfaces";
+
+import IsOnlineComponent from "../fields/IsOnline.astro";
+import HostComponent from "../fields/Host.astro";
+import PortComponent from "../fields/Port.astro";
+import MotdComponent from "../fields/Motd.astro";
+import VersionNameComponent from "../fields/VersionName.astro";
+import ServerCoreComponent from "../fields/ServerCore.astro";
+import PlayersComponent from "../fields/Players.astro";
+import PluginsListComponent from "../fields/PluginsList.astro";
+import MapNameComponent from "../fields/MapName.astro";
+import CachedComponent from "../fields/Cached.astro";
+
+export type Props = { status: QueryAnswer };
+
+const { status }: Props = Astro.props;
+---
+
+<IsOnlineComponent status={status} />
+<HostComponent status={status} />
+<PortComponent status={status} />
+<MotdComponent status={status} />
+<VersionNameComponent status={status} />
+<ServerCoreComponent status={status} />
+<PlayersComponent status={status} />
+<PluginsListComponent status={status} />
+<MapNameComponent status={status} />
+<CachedComponent status={status} />

@@ -1,0 +1,29 @@
+---
+import type { JavaStatusAnswer } from "../interfaces";
+
+import IsOnlineComponent from "../fields/IsOnline.astro";
+import HostComponent from "../fields/Host.astro";
+import PortComponent from "../fields/Port.astro";
+import IconComponent from "../fields/Icon.astro";
+import MotdComponent from "../fields/Motd.astro";
+import VersionNameComponent from "../fields/VersionName.astro";
+import VersionProtocolComponent from "../fields/VersionProtocol.astro";
+import PlayersComponent from "../fields/Players.astro";
+import CachedComponent from "../fields/Cached.astro";
+import AdditionalInfoComponent from "../fields/AdditionalInfo.astro";
+
+export type Props = { status: JavaStatusAnswer };
+
+const { status }: Props = Astro.props;
+---
+
+<IsOnlineComponent status={status} />
+<HostComponent status={status} />
+<PortComponent status={status} />
+<IconComponent status={status} />
+<MotdComponent status={status} />
+<VersionNameComponent status={status} />
+<VersionProtocolComponent status={status} />
+<PlayersComponent status={status} />
+<CachedComponent status={status} />
+<AdditionalInfoComponent status={status} />

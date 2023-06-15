@@ -4,10 +4,10 @@ import Layout from "~/layouts/PageLayout.astro";
 import GetStatus from "~/components/widgets/GetStatus.astro";
 import Collapsible from "~/components/widgets/Collapsible.astro";
 
-import JavaEditionSection from "~/components/status/JavaEditionSection.astro";
-import BedrockEditionSection from "~/components/status/BedrockEditionSection.astro";
-import QuerySection from "~/components/status/QuerySection.astro";
-import ErrorSectionReplacer from "~/components/status/ErrorSectionReplacer.astro";
+import JavaEditionSection from "../../components/status/sections/JavaEditionSection.astro";
+import BedrockEditionSection from "../../components/status/sections/BedrockEditionSection.astro";
+import QuerySection from "../../components/status/sections/QuerySection.astro";
+import ErrorSectionReplacer from "../../components/status/sections/ErrorSectionReplacer.astro";
 
 export interface Props {
 	ip: string;
