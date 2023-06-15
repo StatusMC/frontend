@@ -25,6 +25,7 @@
 		"@astrolib/analytics": "^0.3.0",
 		"@astrolib/seo": "^0.3.0",
 		"@fontsource/inter": "^5.0.3",
+		"@hotwired/turbo": "^7.3.0",
 		"@sentry/browser": "^7.55.0",
 		"@sentry/node": "^7.55.0",
 		"@sentry/vite-plugin": "^2.2.2",
