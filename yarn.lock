@@ -268,12 +268,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrolib/seo@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@astrolib/seo@npm:0.3.0"
+"@astrolib/seo@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@astrolib/seo@npm:0.4.0"
   peerDependencies:
     astro: ^1.2.1 || ^2.0.0
-  checksum: dbda5dccbbe050c29f80cefabc34d6a7c7f3bf497c69106b25158f87cac58d09dfe91c40df7cbd78fbbf5319e9b17172cb6cd3ff06d10c8ade3d09eeabfb63af
+  checksum: 81f85b29d7d9007edbdc1bfd21b4d2c6420f94285b1bd4e7348e9587aa65da7355b560a411506d5cb8943876b21a5d777ab41fc59b7c8543be25cde9daddaddb
   languageName: node
   linkType: hard
 
@@ -1288,7 +1288,7 @@ __metadata:
     "@astrojs/ts-plugin": ^1.0.10
     "@astrojs/vercel": ^3.5.0
     "@astrolib/analytics": ^0.3.0
-    "@astrolib/seo": ^0.3.0
+    "@astrolib/seo": ^0.4.0
     "@fontsource/inter": ^5.0.3
     "@sentry/browser": ^7.55.0
     "@sentry/node": ^7.55.0
@@ -8857,21 +8857,21 @@ __metadata:
 
 "typescript@patch:typescript@*#~builtin<compat/typescript>":
   version: 5.0.3
-  resolution: "typescript@patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=b5f058"
+  resolution: "typescript@patch:typescript@npm%3A5.0.3#~builtin<compat/typescript>::version=5.0.3&hash=85af82"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f341676d09552abce8c2e86a9980bccef3d4c0a5e89fb2b8a2649fbbce8141c742cc44765649aafd92f8fe5da61ae36ca236879d959a64ed9844af9e994dbe3b
+  checksum: 5580367025ff7ee1f2a61e5affdbddccfe6e893bc662aa33fefdbf12de7e493173fa7d47475e9e15121828691004c4ed13bcd115e57866baed97b54c60954e1c
   languageName: node
   linkType: hard
 
 "typescript@patch:typescript@^5.1.3#~builtin<compat/typescript>":
   version: 5.1.3
-  resolution: "typescript@patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=5da071"
+  resolution: "typescript@patch:typescript@npm%3A5.1.3#~builtin<compat/typescript>::version=5.1.3&hash=85af82"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 6f0a9dca6bf4ce9dcaf4e282aade55ef4c56ecb5fb98d0a4a5c0113398815aea66d871b5611e83353e5953a19ed9ef103cf5a76ac0f276d550d1e7cd5344f61e
+  checksum: 32a25b2e128a4616f999d4ee502aabb1525d5647bc8955e6edf05d7fbc53af8aa98252e2f6ba80bcedfc0260c982b885f3c09cfac8bb65d2924f3133ad1e1e62
   languageName: node
   linkType: hard
 
