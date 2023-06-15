@@ -60,10 +60,10 @@ const id = generateID(5);
 				Get<span class="hidden md:inline"> server status</span>
 			</button>
 		</div>
-		<div class="mb-4 mt-1 flex items-center">
+		<div class="mb-4 mt-1 grid sm:flex sm:items-center">
 			{
 				["java", "bedrock", "query"].map((moduleName) => (
-					<div class="flow-root">
+					<div class="flow-root mt-1">
 						<input
 							id={`${id}-is-${moduleName}`}
 							type="checkbox"
@@ -72,11 +72,12 @@ const id = generateID(5);
 						/>
 						<label
 							for={`${id}-is-${moduleName}`}
-							class="ml-2 cursor-pointer text-base font-medium text-gray-900 dark:text-gray-300"
+							class="ml-2 cursor-pointer text-lg sm:text-base font-medium text-gray-900 dark:text-gray-300"
 						>
-							{moduleName === "query" ? "Query?" : `${uppercaseFirstLetter(moduleName)} Edition?`}
+							{moduleName === "query" ? "Query?" : 
+								<>{uppercaseFirstLetter(moduleName)}<span class="hidden md:inline"> Edition</span>?</>}
 						</label>
-						<div class="invisible mr-3 mt-2 peer-checked:visible">
+						<div class="mr-3 mt-2 hidden peer-checked:block sm:invisible sm:block sm:peer-checked:visible">
 							<label class="sr-only" for={`${id}-${moduleName}-input`}>
 								Different address for {moduleName} edition
 							</label>
