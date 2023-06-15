@@ -1,4 +1,4 @@
-import opengraphImage from "~/assets/images/opengraph-image.png";
+import opengraphImage from "./assets/images/opengraph-image.png";
 
 export const CONFIG = {
 	name: "StatusMC",
