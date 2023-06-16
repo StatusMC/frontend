@@ -63,7 +63,7 @@ const id = generateID(5);
 		<div class="mb-4 mt-1 grid sm:flex sm:items-center">
 			{
 				["java", "bedrock", "query"].map((moduleName) => (
-					<div class="flow-root mt-1">
+					<div class="mt-1 flow-root">
 						<input
 							id={`${id}-is-${moduleName}`}
 							type="checkbox"
@@ -72,10 +72,16 @@ const id = generateID(5);
 						/>
 						<label
 							for={`${id}-is-${moduleName}`}
-							class="ml-2 cursor-pointer text-lg sm:text-base font-medium text-gray-900 dark:text-gray-300"
+							class="ml-2 cursor-pointer text-lg font-medium text-gray-900 dark:text-gray-300 sm:text-base"
 						>
-							{moduleName === "query" ? "Query?" : 
-								<>{uppercaseFirstLetter(moduleName)}<span class="hidden md:inline"> Edition</span>?</>}
+							{moduleName === "query" ? (
+								"Query?"
+							) : (
+								<>
+									{uppercaseFirstLetter(moduleName)}
+									<span class="hidden md:inline"> Edition</span>?
+								</>
+							)}
 						</label>
 						<div class="mr-3 mt-2 hidden peer-checked:block sm:invisible sm:block sm:peer-checked:visible">
 							<label class="sr-only" for={`${id}-${moduleName}-input`}>
