@@ -13,55 +13,65 @@ import alpinejs from "@astrojs/alpinejs";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const whenExternalScripts = (items = []) => CONFIG.googleAnalyticsId ? Array.isArray(items) ? items.map(item => item()) : [items()] : [];
-
+const whenExternalScripts = (items = []) =>
+	CONFIG.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://statusmc.perchun.it",
-  base: CONFIG.basePathname,
-  trailingSlash: CONFIG.trailingSlash ? "always" : "never",
-  output: "server",
-  integrations: [tailwind({
-    config: {
-      applyBaseStyles: false
-    }
-  }), sitemap(), image({
-    serviceEntryPoint: "@astrojs/image/sharp"
-  }), mdx(), ...whenExternalScripts(() => partytown({
-    config: {
-      forward: ["dataLayer.push"]
-    }
-  })), compress({
-    css: true,
-    html: {
-      removeAttributeQuotes: false
-    },
-    img: false,
-    js: true,
-    svg: false,
-    logger: 1
-  }), alpinejs()],
-  vite: {
-    resolve: {
-      alias: {
-        "~": path.resolve(__dirname, "./src")
-      }
-    },
+	site: "https://statusmc.perchun.it",
+	base: CONFIG.basePathname,
+	trailingSlash: CONFIG.trailingSlash ? "always" : "never",
+	output: "server",
+	integrations: [
+		tailwind({
+			config: {
+				applyBaseStyles: false,
+			},
+		}),
+		sitemap(),
+		image({
+			serviceEntryPoint: "@astrojs/image/sharp",
+		}),
+		mdx(),
+		...whenExternalScripts(() =>
+			partytown({
+				config: {
+					forward: ["dataLayer.push"],
+				},
+			})
+		),
+		compress({
+			css: true,
+			html: {
+				removeAttributeQuotes: false,
+			},
+			img: false,
+			js: true,
+			svg: false,
+			logger: 1,
+		}),
+		alpinejs(),
+	],
+	vite: {
+		resolve: {
+			alias: {
+				"~": path.resolve(__dirname, "./src"),
+			},
+		},
 		plugins: [
-      sentryVitePlugin({
-        org: "perchunpak",
-        project: "statusmc-frontend",
+			sentryVitePlugin({
+				org: "perchunpak",
+				project: "statusmc-frontend",
 
-        // Specify the directory containing build artifacts
-        include: "./.vercel",
+				// Specify the directory containing build artifacts
+				include: "./.vercel",
 
-        // Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
-        // and needs the `project:releases` and `org:read` scopes
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-				telemetry: false
-      }),
-		]
-  },
-  adapter: vercel()
+				// Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
+				// and needs the `project:releases` and `org:read` scopes
+				authToken: process.env.SENTRY_AUTH_TOKEN,
+				telemetry: false,
+			}),
+		],
+	},
+	adapter: vercel(),
 });

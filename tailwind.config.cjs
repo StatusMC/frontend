@@ -17,37 +17,37 @@ module.exports = {
 				serif: ["var(--aw-font-serif)", ...defaultTheme.fontFamily.serif],
 				heading: ["var(--aw-font-heading)", ...defaultTheme.fontFamily.sans],
 			},
-			typography (theme) {
+			typography(theme) {
 				return {
 					DEFAULT: {
 						css: {
-							'code::before': {
-								content: 'none',
+							"code::before": {
+								content: "none",
 							},
-							'code::after': {
-								content: 'none'
+							"code::after": {
+								content: "none",
 							},
 							code: {
-								color: theme('colors.red.400'),
-								backgroundColor: theme('colors.stone.100'),
-								borderRadius: theme('borderRadius.DEFAULT'),
-								paddingLeft: theme('spacing[1.5]'),
-								paddingRight: theme('spacing[1.5]'),
-								paddingTop: theme('spacing[0.5]'),
-								paddingBottom: theme('spacing[0.5]'),
+								color: theme("colors.red.400"),
+								backgroundColor: theme("colors.stone.100"),
+								borderRadius: theme("borderRadius.DEFAULT"),
+								paddingLeft: theme("spacing[1.5]"),
+								paddingRight: theme("spacing[1.5]"),
+								paddingTop: theme("spacing[0.5]"),
+								paddingBottom: theme("spacing[0.5]"),
 							},
 						},
 					},
 					invert: {
 						css: {
 							code: {
-								color: theme('colors.red.400'),
-								backgroundColor: theme('colors.zinc.800'),
-							}
-						}
-					}
-				}
-			}
+								color: theme("colors.red.400"),
+								backgroundColor: theme("colors.zinc.800"),
+							},
+						},
+					},
+				};
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography"), require("@tailwindcss/forms")],
