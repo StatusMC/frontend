@@ -6,8 +6,6 @@ layout: "~/layouts/MarkdownLayout.astro"
 import { CONFIG } from "~/config.mjs";
 import ModelDocumentation from "~/components/api/ModelDocumentation.astro";
 
-export const prerender = true;
-
 As you may know from the [About us](/about) page, we have the modules system, which allows to do multiple things with
 one request. This works with Query parameters (text after `?` in the URL). For example, if you want to get the server
 Java and Bedrock status in one time, you can just send HTTP GET request to `https://api.statusmc.perchun.it/myserver.net?modules=java,bedrock`.

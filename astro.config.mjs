@@ -21,7 +21,7 @@ export default defineConfig({
 	site: "https://statusmc.perchun.it",
 	base: CONFIG.basePathname,
 	trailingSlash: CONFIG.trailingSlash ? "always" : "never",
-	output: "server",
+	output: "hybrid",
 	integrations: [
 		tailwind({
 			config: {

@@ -15,6 +15,7 @@ export interface Props {
 
 const { ip }: Props = Astro.params;
 const modules: string[] = (Astro.url.searchParams.get("modules")! || "").split(",");
+export const prerender = false;
 
 const isOneModule = modules.length === 1;
 
