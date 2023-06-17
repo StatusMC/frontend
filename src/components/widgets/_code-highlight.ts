@@ -1,4 +1,4 @@
-import shiki from "shiki-es";
+import * as shiki from "shiki-es";
 import type { Highlighter, Lang } from "shiki-es";
 
 const cache: { [key: string]: Highlighter[] } = {};
