@@ -22,6 +22,7 @@ ENV HOST = "0.0.0.0"
 EXPOSE 3000
 
 WORKDIR /app
-COPY --from=base /app/node_modules /app/dist ./
+COPY --from=base /app/node_modules ./node_modules
+COPY --from=base /app/dist ./dist
 
 ENTRYPOINT ["node", "./dist/server/entry.mjs"]
