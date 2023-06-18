@@ -64,7 +64,7 @@ export default defineConfig({
 				project: "statusmc-frontend",
 
 				// Specify the directory containing build artifacts
-				include: "./.vercel",
+				include: "./dist",
 
 				// Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
 				// and needs the `project:releases` and `org:read` scopes
