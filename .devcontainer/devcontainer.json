@@ -9,5 +9,5 @@
       "extensions": ["astro-build.astro-vscode"]
     }
   },
-  "postCreateCommand": "yarn && yarn install"
+  "postCreateCommand": "pnpm install"
 }
