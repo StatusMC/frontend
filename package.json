@@ -1,7 +1,7 @@
 {
-	"name": "@onwidget/astrowind",
-	"description": "A template to make your website using Astro + Tailwind CSS.",
-	"version": "0.9.8",
+	"name": "statusmc",
+	"description": "The great way to get status from your Minecraft server!",
+	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
