@@ -1,5 +1,7 @@
 FROM node:18 AS base
 
+ARG SENTRY_AUTH_TOKEN
+ENV SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
 WORKDIR /app
 
 RUN npm install -g pnpm@8.6.x
