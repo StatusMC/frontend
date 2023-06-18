@@ -1,13 +1,13 @@
 {
-  "name": "StatusMC Frontend",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
-  "customizations": {
-      "vscode": {
-      "extensions": ["astro-build.astro-vscode"]
-    }
-  },
-  "postCreateCommand": "pnpm install"
+	"name": "StatusMC Frontend",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": ["astro-build.astro-vscode"]
+		}
+	},
+	"postCreateCommand": "pnpm install"
 }

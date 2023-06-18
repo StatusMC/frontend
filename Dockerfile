@@ -1,0 +1,25 @@
+FROM node:18 AS base
+
+WORKDIR /app
+
+RUN npm install -g pnpm@8.6.x
+
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install
+
+COPY astro.config.mjs tsconfig.json tailwind.config.cjs ./
+COPY public/ public/
+COPY src/ src/
+# for sentry auto version
+COPY .git/ .git/
+RUN pnpm build
+
+FROM node:18 AS final
+
+ENV HOST = "0.0.0.0"
+EXPOSE 3000
+
+WORKDIR /app
+COPY --from=base /app/node_modules /app/dist ./
+
+ENTRYPOINT ["node", "./dist/server/entry.mjs"]
