@@ -18,7 +18,7 @@ RUN pnpm build
 
 FROM node:18 AS final
 
-ENV HOST = "0.0.0.0"
+ENV HOST="0.0.0.0"
 EXPOSE 3000
 
 WORKDIR /app
