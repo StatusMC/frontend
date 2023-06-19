@@ -39,7 +39,7 @@
 		"astro-compress": "^1.1.47",
 		"astro-eslint-parser": "^0.14.0",
 		"astro-icon": "^0.8.1",
-		"eslint": "^8.42.0",
+		"eslint": "^8.43.0",
 		"eslint-plugin-astro": "^0.27.1",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"limax": "^4.1.0",
