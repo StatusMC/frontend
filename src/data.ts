@@ -6,7 +6,15 @@ const linkStyles = "text-blue-600 hover:underline dark:text-gray-200";
 export const headerData: HeaderData = {
 	links: [
 		{
-			text: "API",
+			text: "How to test?",
+			href: getPermalink("/how-to-test"),
+		},
+		{
+			text: "About",
+			href: getPermalink("/about"),
+		},
+		{
+			text: "API Documentation",
 			href: getPermalink("/api"),
 		},
 		{
@@ -14,12 +22,8 @@ export const headerData: HeaderData = {
 			href: "https://github.com/StatusMC/frontend",
 		},
 		{
-			text: "About",
-			href: getPermalink("/about"),
-		},
-		{
-			text: "How to test?",
-			href: getPermalink("/how-to-test"),
+			text: "Privacy Policy",
+			href: getPermalink("/privacy"),
 		},
 	],
 };
