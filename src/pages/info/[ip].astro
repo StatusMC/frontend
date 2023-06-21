@@ -1,4 +1,5 @@
 ---
+import { CONFIG } from "~/config.mjs";
 import { javaPart, bedrockPart, queryPart, offlinePart } from "~/components/status/test-response-objects";
 import Layout from "~/layouts/PageLayout.astro";
 import GetStatus from "~/components/widgets/GetStatus.astro";
@@ -17,23 +18,54 @@ const { ip }: Props = Astro.params;
 const modules: string[] = Astro.url.searchParams.get("modules")?.split(",") || [];
 export const prerender = false;
 
-const isOneModule = modules.length === 1;
-
 const queryParams: { [key: string]: string } = {};
 Astro.url.searchParams.forEach((value, key) => {
 	if (!key.startsWith("to_")) return;
 	queryParams[key] = value;
 });
 
-const statusResult = {};
-if (modules.includes("java"))
-	statusResult["java"] = queryParams["to_java"] === "offline" ? offlinePart : ip === "offline" ? offlinePart : javaPart;
-if (modules.includes("bedrock"))
-	statusResult["bedrock"] =
-		queryParams["to_java"] === "offline" ? offlinePart : ip === "offline" ? offlinePart : bedrockPart;
-if (modules.includes("query"))
-	statusResult["query"] =
-		queryParams["to_java"] === "offline" ? offlinePart : ip === "offline" ? offlinePart : queryPart;
+async function getStatus() {
+	const isNotTestIP = (ip, secondaryIp) =>
+		!(secondaryIp === "test" || secondaryIp === "offline" || (secondaryIp === undefined ? (ip === "test" || ip === "offline") : false));
+
+	const [modulesForUrl, modulesArgs] = (() => {
+		const modulesForUrl: string[] = [];
+		const modulesArgs: string[] = [];
+
+		for (const moduleName of ["java", "bedrock", "query"]) {
+			if (modules.includes(moduleName) && isNotTestIP(ip, queryParams[`to_${moduleName}`]))
+				modulesForUrl.push(moduleName);
+			if (queryParams[`to_${moduleName}`] !== undefined && isNotTestIP(ip, queryParams[`to_${moduleName}`]))
+				modulesArgs.push(`to_${moduleName}=${encodeURIComponent(queryParams[`to_${moduleName}`])}`);
+		}
+
+		return [modulesForUrl, modulesArgs];
+	})();
+
+	const urlForGettingStatus =
+		CONFIG.apiUrl +
+		"/v1/" +
+		ip +
+		"?modules=" +
+		modulesForUrl.join(",") +
+		(modulesArgs.length !== 0 ? "&" + modulesArgs.join("&") : "");
+
+	const statusResult = modulesForUrl.length !== 0 ? await fetch(urlForGettingStatus).then((res) => res.json()) : {};
+
+	if (modules.includes("java") && !isNotTestIP(ip, queryParams["to_java"]))
+		statusResult["java"] =
+			queryParams["to_java"] === "offline" ? offlinePart : ip === "offline" ? offlinePart : javaPart;
+	if (modules.includes("bedrock") && !isNotTestIP(ip, queryParams["to_bedrock"]))
+		statusResult["bedrock"] =
+			queryParams["to_bedrock"] === "offline" ? offlinePart : ip === "offline" ? offlinePart : bedrockPart;
+	if (modules.includes("query") && !isNotTestIP(ip, queryParams["to_query"]))
+		statusResult["query"] =
+			queryParams["to_query"] === "offline" ? offlinePart : ip === "offline" ? offlinePart : queryPart;
+
+	return statusResult;
+}
+
+const statusResult = await getStatus();
 ---
 
 <Layout>
@@ -56,7 +88,7 @@ if (modules.includes("query"))
 				<div class="rounded border-2 border-solid border-slate-300 bg-slate-50 p-5 text-black dark:border-slate-500 dark:bg-slate-800 dark:text-white">
 					{statusResult.java ? (
 						<div class="my-3">
-							<Collapsible title="Java Response" openByDefault={isOneModule}>
+							<Collapsible title="Java Response" openByDefault={modules.length === 1}>
 								{statusResult.java.online ? (
 									<JavaEditionSection status={statusResult.java} />
 								) : (
@@ -67,7 +99,7 @@ if (modules.includes("query"))
 					) : null}
 					{statusResult.bedrock ? (
 						<div class="my-3">
-							<Collapsible title="Bedrock Response" openByDefault={isOneModule}>
+							<Collapsible title="Bedrock Response" openByDefault={modules.length === 1}>
 								{statusResult.bedrock.online ? (
 									<BedrockEditionSection status={statusResult.bedrock} />
 								) : (
@@ -78,7 +110,7 @@ if (modules.includes("query"))
 					) : null}
 					{statusResult.query ? (
 						<div class="my-3">
-							<Collapsible title="Query Response" openByDefault={isOneModule}>
+							<Collapsible title="Query Response" openByDefault={modules.length === 1}>
 								{statusResult.query.online ? (
 									<QuerySection status={statusResult.query} />
 								) : (
