@@ -15,7 +15,8 @@ const { status }: Props = Astro.props;
 			{status.players.online} / {status.players.max}
 		</p>
 		{
-			status.players.list || status.players.names ? (
+			(status.players.list && status.players.list.lenght > 0) ||
+			(status.players.names && status.players.names.lenght > 0) ? (
 				<Modal>
 					<div slot="button" class="interactive-box max-w-fit cursor-pointer p-2">
 						<span class="font-bold">Show the list</span>
