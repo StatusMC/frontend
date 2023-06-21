@@ -14,7 +14,7 @@ export interface Props {
 }
 
 const { ip }: Props = Astro.params;
-const modules: string[] = (Astro.url.searchParams.get("modules")! || "").split(",");
+const modules: string[] = Astro.url.searchParams.get("modules")?.split(",") || [];
 export const prerender = false;
 
 const isOneModule = modules.length === 1;
@@ -50,49 +50,45 @@ if (modules.includes("query"))
 			query: modules.includes("query"),
 		}}
 	/>
-	<section class="mx-auto max-w-6xl px-4 pb-8 lg:px-8 lg:pb-20">
-		<div
-			class="rounded border-2 border-solid border-slate-300 bg-slate-50 p-5 text-black dark:border-slate-500 dark:bg-slate-800 dark:text-white"
-		>
-			{
-				statusResult.java ? (
-					<div class="my-3">
-						<Collapsible title="Java Response" openByDefault={isOneModule}>
-							{statusResult.java.online ? (
-								<JavaEditionSection status={statusResult.java} />
-							) : (
-								<ErrorSectionReplacer status={statusResult.java} />
-							)}
-						</Collapsible>
-					</div>
-				) : null
-			}
-			{
-				statusResult.bedrock ? (
-					<div class="my-3">
-						<Collapsible title="Bedrock Response" openByDefault={isOneModule}>
-							{statusResult.bedrock.online ? (
-								<BedrockEditionSection status={statusResult.bedrock} />
-							) : (
-								<ErrorSectionReplacer status={statusResult.bedrock} />
-							)}
-						</Collapsible>
-					</div>
-				) : null
-			}
-			{
-				statusResult.query ? (
-					<div class="my-3">
-						<Collapsible title="Query Response" openByDefault={isOneModule}>
-							{statusResult.query.online ? (
-								<QuerySection status={statusResult.query} />
-							) : (
-								<ErrorSectionReplacer status={statusResult.query} />
-							)}
-						</Collapsible>
-					</div>
-				) : null
-			}
-		</div>
-	</section>
+	{
+		modules.length !== 0 ? (
+			<section class="mx-auto max-w-6xl px-4 pb-8 lg:px-8 lg:pb-20">
+				<div class="rounded border-2 border-solid border-slate-300 bg-slate-50 p-5 text-black dark:border-slate-500 dark:bg-slate-800 dark:text-white">
+					{statusResult.java ? (
+						<div class="my-3">
+							<Collapsible title="Java Response" openByDefault={isOneModule}>
+								{statusResult.java.online ? (
+									<JavaEditionSection status={statusResult.java} />
+								) : (
+									<ErrorSectionReplacer status={statusResult.java} />
+								)}
+							</Collapsible>
+						</div>
+					) : null}
+					{statusResult.bedrock ? (
+						<div class="my-3">
+							<Collapsible title="Bedrock Response" openByDefault={isOneModule}>
+								{statusResult.bedrock.online ? (
+									<BedrockEditionSection status={statusResult.bedrock} />
+								) : (
+									<ErrorSectionReplacer status={statusResult.bedrock} />
+								)}
+							</Collapsible>
+						</div>
+					) : null}
+					{statusResult.query ? (
+						<div class="my-3">
+							<Collapsible title="Query Response" openByDefault={isOneModule}>
+								{statusResult.query.online ? (
+									<QuerySection status={statusResult.query} />
+								) : (
+									<ErrorSectionReplacer status={statusResult.query} />
+								)}
+							</Collapsible>
+						</div>
+					) : null}
+				</div>
+			</section>
+		) : null
+	}
 </Layout>

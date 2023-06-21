@@ -9,7 +9,7 @@ export interface Props {
 		bedrock: string;
 		query: string;
 	};
-	isBedrockChecked: {
+	isChecked: {
 		java: boolean;
 		bedrock: boolean;
 		query: boolean;
@@ -43,7 +43,7 @@ const id = generateID(5);
 				<input
 					type="text"
 					required
-					class="box input dark:bg-gray-700 !rounded-r-none"
+					class="box input !rounded-r-none dark:bg-gray-700"
 					placeholder="hypixel.net"
 					value={inputValues.main}
 					id={`${id}-input`}
@@ -137,6 +137,10 @@ const id = generateID(5);
 				queryIP: inputValues.query,
 				toastIsOpen: false,
 
+				init() {
+					if (!this.isJava && !this.isBedrock && !this.isQuery) this.openToast(false);
+				},
+
 				handleGetStatus() {
 					let redirectTo = `/info/${encodeURIComponent(this.serverAddress)}?modules=`;
 					let laterArgs = "&";
@@ -160,17 +164,18 @@ const id = generateID(5);
 					window.location.href = redirectTo;
 				},
 
-				openToast() {
-					// if (this.toastIsOpen) return;
+				openToast(closeThen = true) {
 					this.toastIsOpen = true;
 
-					// reset time to 0 seconds
-					clearTimeout(timerToCloseTheToast);
+					if (closeThen) {
+						// reset time to 0 seconds
+						clearTimeout(timerToCloseTheToast);
 
-					// auto close toast after 5 seconds
-					timerToCloseTheToast = setTimeout(() => {
-						this.closeToast();
-					}, 5000);
+						// auto close toast after 5 seconds
+						timerToCloseTheToast = setTimeout(() => {
+							this.closeToast();
+						}, 5000);
+					}
 				},
 
 				closeToast() {
