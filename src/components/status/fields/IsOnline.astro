@@ -7,6 +7,6 @@ export type Props = { status: AnyStatusAnswer };
 const { status }: Props = Astro.props;
 ---
 
-<Base nameValue="Status" valueClasses={`bg-${status.online ? "green-700" : "red-600"} text-white px-2 py-1 rounded`}>
+<Base nameValue="Status" valueClasses={`${status.online ? "bg-green-700" : "bg-red-600"} text-white px-2 py-1 rounded`}>
 	{status.online ? "Online" : "Offline"}
 </Base>
