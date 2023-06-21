@@ -27,12 +27,16 @@
 	stroke-width: 2.4;
 }
 
+.darker-than-bg {
+    @apply border bg-black bg-opacity-5 border-black border-opacity-10 dark:bg-white dark:bg-opacity-5 dark:border-white dark:border-opacity-10
+}
+
 .box {
-	@apply border w-full rounded border-gray-300 bg-gray-100 text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300
+	@apply darker-than-bg w-full rounded
 }
 
 .interactive-box {
-	@apply box hover:bg-gray-200 dark:hover:bg-gray-600 hover:border-gray-200 dark:hover:border-gray-700
+    @apply box hover:bg-opacity-10 hover:border-opacity-25 disabled:border-opacity-0 outline-none
 }
 
 [x-cloak] {
