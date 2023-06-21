@@ -10,7 +10,7 @@ import compress from "astro-compress";
 import { CONFIG } from "./src/config.mjs";
 import alpinejs from "@astrojs/alpinejs";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
-import node from '@astrojs/node';
+import node from "@astrojs/node";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
@@ -73,7 +73,7 @@ export default defineConfig({
 			}),
 		],
 	},
-  adapter: node({
-    mode: 'standalone'
-  }),
+	adapter: node({
+		mode: "standalone",
+	}),
 });
