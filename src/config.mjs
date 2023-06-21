@@ -5,11 +5,11 @@ export const CONFIG = {
 
 	basePathname: "/",
 	trailingSlash: false,
-	
+
 	// This is the API URL for the backend.
 	// In production, frontend and backend are in one `podman pod`,
 	// so we can use `localhost` here to speed up the data transferring process.
-	apiUrl: "http://localhost:3000",
+	apiUrl: "http://localhost:8000",
 
 	title: "StatusMC — The great way to get status from your Minecraft server!",
 	description:
