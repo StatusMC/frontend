@@ -26,7 +26,11 @@ Astro.url.searchParams.forEach((value, key) => {
 
 async function getStatus() {
 	const isNotTestIP = (ip, secondaryIp) =>
-		!(secondaryIp === "test" || secondaryIp === "offline" || (secondaryIp === undefined ? (ip === "test" || ip === "offline") : false));
+		!(
+			secondaryIp === "test" ||
+			secondaryIp === "offline" ||
+			(secondaryIp === undefined ? ip === "test" || ip === "offline" : false)
+		);
 
 	const [modulesForUrl, modulesArgs] = (() => {
 		const modulesForUrl: string[] = [];
@@ -50,7 +54,7 @@ async function getStatus() {
 		modulesForUrl.join(",") +
 		(modulesArgs.length !== 0 ? "&" + modulesArgs.join("&") : "");
 
-	if (modulesForUrl.length !== 0) console.log("Fetching from " + urlForGettingStatus)
+	if (modulesForUrl.length !== 0) console.log("Fetching from " + urlForGettingStatus);
 	const statusResult = modulesForUrl.length !== 0 ? await fetch(urlForGettingStatus).then((res) => res.json()) : {};
 
 	if (modules.includes("java") && !isNotTestIP(ip, queryParams["to_java"]))
