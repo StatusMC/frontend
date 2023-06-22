@@ -79,6 +79,7 @@ const statusResult = await getStatus();
 		description:
 			`Get information about ${ip} and its status without launching Minecraft. ` +
 			"This includes the Java Edition status, Bedrock Edition status and Query protocol. ",
+		favicon: statusResult.java?.icon,
 	}}
 >
 	<GetStatus

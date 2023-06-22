@@ -13,10 +13,10 @@ export interface Props extends MetaSEO {
 	dontUseTitleTemplate?: boolean;
 }
 
-const defaultImage = CONFIG.defaultImage
+const defaultOgImage = CONFIG.defaultOgImage
 	? (
 			await getImage({
-				src: CONFIG.defaultImage,
+				src: CONFIG.defaultOgImage,
 				alt: "Default image",
 				width: 1200,
 				height: 628,
@@ -27,7 +27,7 @@ const defaultImage = CONFIG.defaultImage
 const {
 	title = CONFIG.title,
 	description = CONFIG.description,
-	image: _image = defaultImage,
+	favicon = getAsset("/favicon.ico"),
 
 	canonical = Astro.url,
 	noindex = false,
@@ -35,16 +35,17 @@ const {
 
 	ogTitle = title,
 	ogType = "website",
+	ogImage: _ogImage = defaultOgImage,
 
 	dontUseTitleTemplate = false,
 } = Astro.props;
 
-const image =
-	typeof _image === "string"
-		? new URL(_image, Astro.site)
-		: _image && typeof _image["src"] !== "undefined"
+const ogImage =
+	typeof _ogImage === "string"
+		? new URL(_ogImage, Astro.site)
+		: _ogImage && typeof _ogImage["src"] !== "undefined"
 		? // @ts-ignore
-		  new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
+		  new URL(getRelativeUrlByFilePath(_ogImage.src), Astro.site)
 		: null;
 ---
 
@@ -63,10 +64,10 @@ const image =
 		title: ogTitle,
 		description: description,
 		type: ogType,
-		images: image
+		images: ogImage
 			? [
 					{
-						url: image.toString(),
+						url: ogImage.toString(),
 						alt: ogTitle,
 					},
 			  ]
@@ -76,11 +77,18 @@ const image =
 	twitter={{
 		// handle: '@handle',
 		// site: '@site',
-		cardType: image ? "summary_large_image" : undefined,
+		cardType: ogImage ? "summary_large_image" : undefined,
 	}}
+	additionalLinkTags={[
+		{
+			rel: "shortcut icon",
+			href: favicon,
+		},
+		{
+			rel: "sitemap",
+			href: getAsset("/sitemap-index.xml"),
+		},
+	]}
 />
 
 <CustomStyles />
-
-<link rel="shortcut icon" href={getAsset("/favicon.ico")} />
-<link rel="sitemap" href={getAsset("/sitemap-index.xml")} />

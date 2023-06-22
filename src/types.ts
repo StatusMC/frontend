@@ -1,7 +1,7 @@
 export interface MetaSEO {
 	title?: string;
 	description?: string;
-	image?: string;
+	favicon?: string;
 
 	canonical?: string | URL;
 	noindex?: boolean;
@@ -9,6 +9,7 @@ export interface MetaSEO {
 
 	ogTitle?: string;
 	ogType?: string;
+	ogImage?: string;
 }
 
 /* Header and footer */

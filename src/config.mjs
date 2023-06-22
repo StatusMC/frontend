@@ -14,7 +14,7 @@ export const CONFIG = {
 	title: "StatusMC — The great way to get status from your Minecraft server!",
 	description:
 		"You can get Java status, Bedrock status and Query answer in parallel without even knowing what that word means!",
-	defaultImage: opengraphImage,
+	defaultOgImage: opengraphImage,
 	announcement: {
 		text: null,
 		prefix: null,
