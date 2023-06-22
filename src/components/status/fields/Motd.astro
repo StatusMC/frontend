@@ -10,6 +10,7 @@ const { status }: Props = Astro.props;
 <Base nameValue="MOTD">
 	<pre
 		class="block w-full overflow-x-auto rounded border border-slate-400 bg-neutral-900 p-4"
+		id="minecraft-server-motd"
 		set:html={status.motd.html}
 	/>
 </Base>

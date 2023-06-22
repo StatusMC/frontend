@@ -27,3 +27,24 @@ const { status }: Props = Astro.props;
 <PlayersComponent status={status} />
 <CachedComponent status={status} />
 <AdditionalInfoComponent status={status} />
+
+<!-- Obfuscated formatting code handling -->
+<script>
+	const obfuscatedCharacters =
+		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[]\"';:<>,./?";
+	const obfuscatedElems = document.querySelector("#minecraft-server-motd").querySelectorAll(".obfuscated");
+
+	const render = () => {
+		obfuscatedElems.forEach((elem) => {
+			let value = "";
+
+			for (let i = 0, l = elem.innerText.length; i < l; i++) {
+				value += obfuscatedCharacters.charAt(Math.floor(Math.random() * obfuscatedCharacters.length));
+			}
+
+			elem.innerText = value;
+		});
+		setTimeout(render, 20);
+	};
+	render();
+</script>
