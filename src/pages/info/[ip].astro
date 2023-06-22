@@ -69,7 +69,12 @@ async function getStatus() {
 const statusResult = await getStatus();
 ---
 
-<Layout>
+<Layout meta={{
+	title: `${ip} - Minecraft Server Status`,
+	description: 
+		`Get information about ${ip} and its status without launching Minecraft. ` +
+		"This includes the Java Edition status, Bedrock Edition status and Query protocol. ",
+}}>
 	<GetStatus
 		inputValues={{
 			main: ip,
