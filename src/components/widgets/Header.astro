@@ -13,7 +13,7 @@ const { links = [], actions = [] }: Props = Astro.props;
 ---
 
 <header
-	class="relative sticky top-0 z-40 mx-auto w-full flex-none bg-white shadow-md transition-all duration-100 ease-in dark:bg-slate-900 md:bg-white/90 md:shadow-lg md:backdrop-blur-sm dark:md:bg-slate-900/90"
+	class="sticky top-0 z-40 mx-auto w-full flex-none bg-white shadow-md dark:bg-slate-900 md:bg-white/90 md:shadow-lg md:backdrop-blur-sm dark:md:bg-slate-900/90"
 	id="header"
 >
 	<div class="mx-auto w-full max-w-7xl px-3 py-3 md:flex md:justify-between md:px-4 md:py-3.5">
@@ -91,9 +91,4 @@ const { links = [], actions = [] }: Props = Astro.props;
 			</div>
 		</div>
 	</div>
-	<style>
-		#header.scroll {
-			@apply bg-white shadow-md dark:bg-slate-900 md:bg-white/90 md:shadow-lg md:backdrop-blur-sm dark:md:bg-slate-900/90;
-		}
-	</style>
 </header>

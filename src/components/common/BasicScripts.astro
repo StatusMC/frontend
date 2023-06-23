@@ -1,25 +1,11 @@
----
-import { CONFIG } from "~/config.mjs";
----
-
-<script is:inline define:vars={{ defaultTheme: CONFIG.defaultTheme }}>
-	function applyTheme(theme) {
-		if (theme === "dark") {
-			document.documentElement.classList.add("dark");
-		} else {
-			document.documentElement.classList.remove("dark");
-		}
-	}
-
-	if ((defaultTheme && defaultTheme.endsWith(":only")) || (!localStorage.theme && defaultTheme !== "system")) {
-		applyTheme(defaultTheme.replace(":only", ""));
-	} else if (
+<script is:inline rel="prefetch">
+	if (
 		localStorage.theme === "dark" ||
 		(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
 	) {
-		applyTheme("dark");
+		document.documentElement.classList.add("dark");
 	} else {
-		applyTheme("light");
+		document.documentElement.classList.remove("dark");
 	}
 
 	function attachEvent(selector, event, fn) {
@@ -33,7 +19,6 @@ import { CONFIG } from "~/config.mjs";
 
 	window.onload = function () {
 		let lastKnownScrollPosition = window.scrollY;
-		let ticking = true;
 
 		attachEvent("[data-aw-toggle-menu]", "click", function (_, elem) {
 			elem.classList.toggle("expanded");
@@ -43,44 +28,17 @@ import { CONFIG } from "~/config.mjs";
 		});
 
 		attachEvent("[data-aw-toggle-color-scheme]", "click", function () {
-			if (defaultTheme.endsWith(":only")) {
-				return;
-			}
 			document.documentElement.classList.toggle("dark");
 			localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
-		});
-
-		function appyHeaderStylesOnScroll() {
-			const header = document.getElementById("header");
-			if (lastKnownScrollPosition > 60 && !header.classList.contains("scroll")) {
-				document.getElementById("header").classList.add("scroll");
-			} else if (lastKnownScrollPosition <= 60 && header.classList.contains("scroll")) {
-				document.getElementById("header").classList.remove("scroll");
-			}
-			ticking = false;
-		}
-		appyHeaderStylesOnScroll();
-
-		attachEvent([document], "scroll", function () {
-			lastKnownScrollPosition = window.scrollY;
-
-			if (!ticking) {
-				window.requestAnimationFrame(() => {
-					appyHeaderStylesOnScroll();
-				});
-				ticking = true;
-			}
 		});
 	};
 
 	window.onpageshow = function () {
 		document.documentElement.classList.add("motion-safe:scroll-smooth");
-		const elem = document.querySelector("[data-aw-toggle-menu]");
-		if (elem) {
-			elem.classList.remove("expanded");
-		}
+		document.querySelector("[data-aw-toggle-menu]").classList.remove("expanded");
 		document.body.classList.remove("overflow-hidden");
-		document.getElementById("header")?.classList.remove("h-screen");
-		document.querySelector("#header nav")?.classList.add("hidden");
+		document.getElementById("header").classList.remove("h-screen");
+		document.getElementById("header").classList.add("transition-all", "duration-100", "ease-in");
+		document.querySelector("#header nav").classList.add("hidden");
 	};
 </script>

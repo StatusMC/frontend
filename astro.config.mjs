@@ -11,6 +11,7 @@ import { CONFIG } from "./src/config.mjs";
 import alpinejs from "@astrojs/alpinejs";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import node from "@astrojs/node";
+import prefetch from "@astrojs/prefetch";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
@@ -51,6 +52,7 @@ export default defineConfig({
 			logger: 1,
 		}),
 		alpinejs(),
+		prefetch(),
 	],
 	vite: {
 		resolve: {
