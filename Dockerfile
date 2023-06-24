@@ -19,9 +19,10 @@ RUN pnpm build
 FROM node:18-slim AS final
 
 ENV HOST="0.0.0.0"
+EXPOSE 3000
 
 WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
 COPY --from=base /app/dist ./dist
 
-ENTRYPOINT ["node"]
+ENTRYPOINT ["node", "./dist/server/entry.mjs"]

@@ -78,7 +78,4 @@ export default defineConfig({
 	adapter: node({
 		mode: "standalone",
 	}),
-  build: {
-    split: true,
-  },
 });
