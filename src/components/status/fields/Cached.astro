@@ -16,8 +16,13 @@ const id = generateID(5);
 	<span class="text-gray-400">until</span>
 	<span id={`${id}-to`}></span>
 
-	<script define:vars={{ id: id, cachedAt: status.internal.cached_at, cacheEndsAt: status.internal.cache_ends_at }}>
-		document.getElementById(`${id}-from`).innerText = new Date(cachedAt).toLocaleTimeString();
-		document.getElementById(`${id}-to`).innerText = new Date(cacheEndsAt).toLocaleTimeString();
+	<script is:inline define:vars={{ id: id, cachedAt: status.internal.cached_at, cacheEndsAt: status.internal.cache_ends_at }}>
+		function formatDate (date) {
+			const is12hourFormat = Intl.DateTimeFormat(navigator.language, {hour: 'numeric'}).resolvedOptions().hourCycle === 'h12'
+		
+			return date.toLocaleTimeString(navigator.language, {hour12: is12hourFormat})
+		}
+		document.getElementById(`${id}-from`).innerText = formatDate(new Date(cachedAt * 1000));
+		document.getElementById(`${id}-to`).innerText = formatDate(new Date(cacheEndsAt * 1000));
 	</script>
 </Base>
