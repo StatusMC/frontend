@@ -16,7 +16,7 @@ COPY src/ src/
 COPY .git/ .git/
 RUN pnpm build
 
-FROM node:18 AS final
+FROM node:18-slim AS final
 
 ENV HOST="0.0.0.0"
 
