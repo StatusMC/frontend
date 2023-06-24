@@ -19,12 +19,9 @@ RUN pnpm build
 FROM node:18 AS final
 
 ENV HOST="0.0.0.0"
-EXPOSE 3000
 
 WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
 COPY --from=base /app/dist ./dist
 
-VOLUME /app/dist/client
-
-ENTRYPOINT ["node", "./dist/server/src/pages/info/entry._ip_.astro.mjs"]
+ENTRYPOINT ["node"]
