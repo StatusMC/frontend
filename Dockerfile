@@ -25,4 +25,6 @@ WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
 COPY --from=base /app/dist ./dist
 
-ENTRYPOINT ["node", "./dist/server/entry.mjs"]
+VOLUME /app/dist/client
+
+ENTRYPOINT ["node", "./dist/server/src/pages/info/entry._ip_.astro.mjs"]
