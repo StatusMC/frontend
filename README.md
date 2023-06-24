@@ -18,7 +18,8 @@ There is nothing to configure except for reverse-proxy (consult with google abou
 I recommend using [Caddy](https://caddyserver.com/) as it is easy to configure and use than nginx.
 
 Reverse-proxy must go separately from the app, so you need to run it in a separate container or
-without container. You can always contact us if you need some help!
+without a container. You also need to ship static files (images, fonts, etc.) via the proxy. It's
+in `/app/dist/client` directory. You can always contact us if you need some help!
 
 We don't use free hostings like Vercel or Netlify because they have Serverless architecture, which
 works quite bad with Astro's SSR (Server-Side Rendering) for dynamic pages (it rendered 5 seconds
