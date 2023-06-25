@@ -32,19 +32,21 @@ const { status }: Props = Astro.props;
 <script>
 	const obfuscatedCharacters =
 		"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[]\"';:<>,./?";
-	const obfuscatedElems = document.querySelector("#minecraft-server-motd").querySelectorAll(".obfuscated");
+	const obfuscatedElems = document.querySelector("#minecraft-server-motd")?.querySelectorAll(".obfuscated");
 
-	const render = () => {
-		obfuscatedElems.forEach((elem) => {
-			let value = "";
+	if (obfuscatedElems !== undefined) {
+		const render = () => {
+			obfuscatedElems.forEach((elem) => {
+				let value = "";
 
-			for (let i = 0, l = elem.innerText.length; i < l; i++) {
-				value += obfuscatedCharacters.charAt(Math.floor(Math.random() * obfuscatedCharacters.length));
-			}
+				for (let i = 0, l = elem.innerText.length; i < l; i++) {
+					value += obfuscatedCharacters.charAt(Math.floor(Math.random() * obfuscatedCharacters.length));
+				}
 
-			elem.innerText = value;
-		});
-		setTimeout(render, 20);
+				elem.innerText = value;
+			});
+			setTimeout(render, 20);
+		};
+		render();
 	};
-	render();
 </script>
