@@ -25,9 +25,7 @@ export default defineConfig({
 	output: "hybrid",
 	integrations: [
 		tailwind({
-			config: {
-				applyBaseStyles: false,
-			},
+			applyBaseStyles: false,
 		}),
 		sitemap(),
 		image({
