@@ -51,8 +51,8 @@ dependencies:
     specifier: ^7.57.0
     version: 7.57.0
   '@sentry/vite-plugin':
-    specifier: ^2.3.0
-    version: 2.3.0
+    specifier: ^2.4.0
+    version: 2.4.0
   '@tailwindcss/forms':
     specifier: ^0.5.3
     version: 0.5.3(tailwindcss@3.3.2)
@@ -1010,13 +1010,14 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@sentry/bundler-plugin-core@2.3.0:
-    resolution: {integrity: sha512-PiX3yJ8UFKBIPRfhytweYjVdGfcruYJYdwSlbwFNe28fSMTKYPAF9/IqAOav9G8izlICnJm7ROyXlFlfMw0gRA==}
-    engines: {node: '>= 10'}
+  /@sentry/bundler-plugin-core@2.4.0:
+    resolution: {integrity: sha512-bcDNLSce34kncvrYHgl5+edzIF8Dru5f6+gpkK2Sm/RBg/4yitCrVkzftTVwIsxZqJf0pz/CqCeMAIadEtx8JQ==}
+    engines: {node: '>= 14'}
     dependencies:
       '@sentry/cli': 2.18.1
       '@sentry/node': 7.53.1
       '@sentry/utils': 7.53.1
+      dotenv: 16.3.1
       find-up: 5.0.0
       glob: 9.3.2
       magic-string: 0.27.0
@@ -1127,11 +1128,11 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@sentry/vite-plugin@2.3.0:
-    resolution: {integrity: sha512-TUKj29cLT0RLUKg74GyP4YoAalvkYrVo9/7zW+L+gbgR/7sh+9iNBjn8IZbEuMwot+A7tG+2NBGLDVXvGrwIKA==}
-    engines: {node: '>= 10'}
+  /@sentry/vite-plugin@2.4.0:
+    resolution: {integrity: sha512-j2MXX09zhZpw9/vNzYd4hDv74+YWMWdXMLSvces6+8HaQdNe9yoOq0ItLIM5PY8sP2sCAm1afTKZYxRqJk6wIw==}
+    engines: {node: '>= 14'}
     dependencies:
-      '@sentry/bundler-plugin-core': 2.3.0
+      '@sentry/bundler-plugin-core': 2.4.0
       unplugin: 1.0.1
     transitivePeerDependencies:
       - encoding
@@ -2419,6 +2420,11 @@ packages:
     dependencies:
       no-case: 3.0.4
       tslib: 2.5.0
+    dev: false
+
+  /dotenv@16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /dset@3.1.2:
