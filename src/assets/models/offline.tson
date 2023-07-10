@@ -1,8 +1,9 @@
 // Determines whether the server is online or offline.
 // It's always `false` in this model.
 online: boolean = false
-// The server's address information
-address: object = {
+// The server's address information.
+// If it's invalid, we set here a string provided by user.
+address: object or string = {
   // The hostname of the server that was parsed from the address string.
   // Example if there were an SRV record.
   host: string = "play.hypixel.net"
