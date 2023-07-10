@@ -13,8 +13,7 @@ address: object = {
 // Message Of The Day aka server's description.
 motd: StringWithFormatting = {
   // The raw format, with Minecraft's formatting codes.
-  // TODO should be renamed to `minecraft`?
-  raw: string
+  minecraft: string
   // The plain format. There are no formatting codes, only plain text.
   plain: string
   // The HTML format. It's a string with HTML tags.

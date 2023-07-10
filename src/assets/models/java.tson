@@ -13,8 +13,7 @@ address: object = {
 // Message Of The Day aka server's description.
 motd: StringWithFormatting = {
   // The raw format, with Minecraft's formatting codes.
-  // TODO should be renamed to `minecraft`?
-  raw: string
+  minecraft: string
   // The plain format. There are no formatting codes, only plain text.
   plain: string
   // The HTML format. It's a string with HTML tags.
@@ -55,12 +54,12 @@ players: object = {
       // will be formatting codes that are parsed the same as MOTD
       // is parsed.
       name: StringWithFormatting = {
-		// See `motd` above for attribute descriptions here.
-	  }
-	  // The UUID of the player. Can be set to zeros if the server
-	  // use this list as ad. Don't expect to be it as something meaningful
-	  // on pirate servers.
-	  uuid: string
+        // See `motd` above for attribute descriptions here.
+      }
+      // The UUID of the player. Can be set to zeros if the server
+      // use this list as ad. Don't expect to be it as something meaningful
+      // on pirate servers.
+      uuid: string
     }
   ]
 }
