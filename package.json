@@ -21,7 +21,7 @@
 		"@astrojs/partytown": "^1.2.3",
 		"@astrojs/prefetch": "^0.3.0",
 		"@astrojs/rss": "^2.4.3",
-		"@astrojs/sitemap": "^1.3.3",
+		"@astrojs/sitemap": "^1.4.0",
 		"@astrojs/tailwind": "^4.0.0",
 		"@astrojs/ts-plugin": "^1.0.10",
 		"@astrolib/analytics": "^0.3.0",
