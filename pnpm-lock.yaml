@@ -33,8 +33,8 @@ dependencies:
     specifier: ^4.0.0
     version: 4.0.0(astro@2.8.0)(tailwindcss@3.3.2)
   '@astrojs/ts-plugin':
-    specifier: ^1.0.10
-    version: 1.0.10
+    specifier: ^1.1.0
+    version: 1.1.0
   '@astrolib/analytics':
     specifier: ^0.3.0
     version: 0.3.0(astro@2.8.0)
@@ -342,11 +342,14 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/ts-plugin@1.0.10:
-    resolution: {integrity: sha512-HLEIkVRYfL1FbHvdNXbPQLloUBHZpiYCSuwEQNyLM14TXX21JtqIVF9snHcs2qPge/XHgFnGh2V/1qvLPdRi7g==}
+  /@astrojs/ts-plugin@1.1.0:
+    resolution: {integrity: sha512-t1NpLpN9RM27DS0TR+SDcV+J4wsUG89hHCl3gqhMeZn5/jE/T6KboIWCmE3gr7cPaxzsGFhTAFWP4zMsvL31lQ==}
     dependencies:
-      '@astrojs/compiler': 1.5.1
-      '@jridgewell/trace-mapping': 0.3.18
+      '@astrojs/compiler': 1.5.7
+      '@jridgewell/sourcemap-codec': 1.4.15
+      '@volar/language-core': 1.9.0
+      '@volar/typescript': 1.9.0
+      vscode-languageserver-textdocument: 1.0.9
     dev: false
 
   /@astrojs/webapi@2.2.0:
@@ -1500,6 +1503,24 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.62.0
       eslint-visitor-keys: 3.4.1
+    dev: false
+
+  /@volar/language-core@1.9.0:
+    resolution: {integrity: sha512-+PTRrGanAD2PxqMty0ZC46xhgW5BWzb67RLHhZyB3Im4+eMXsKlYjFUt7Z8ZCwTWQQOnj8NQ6gSgUEoOTwAHrQ==}
+    dependencies:
+      '@volar/source-map': 1.9.0
+    dev: false
+
+  /@volar/source-map@1.9.0:
+    resolution: {integrity: sha512-TQWLY8ozUOHBHTMC2pHZsNbtM25Q9QCEwAL8JFR/gmR9Yv0d9qup/gQdd5sDI7RmoPYKD+gqjLrbM4Ib41QSJQ==}
+    dependencies:
+      muggle-string: 0.3.1
+    dev: false
+
+  /@volar/typescript@1.9.0:
+    resolution: {integrity: sha512-B8X4/H6V93uD7zu5VCw05eB0Ukcc39SFKsZoeylkAk2sJ50oaJLpajnQ8Ov4c+FnVQ6iPA6Xy1qdWoWJjh6xEg==}
+    dependencies:
+      '@volar/language-core': 1.9.0
     dev: false
 
   /@vscode/emmet-helper@2.8.6:
@@ -4594,6 +4615,10 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: false
 
+  /muggle-string@0.3.1:
+    resolution: {integrity: sha512-ckmWDJjphvd/FvZawgygcUeQCxzvohjFO5RxTjj4eq8kw359gFF3E1brjfI+viLMxss5JrHTDRHZvu2/tuy0Qg==}
+    dev: false
+
   /mz@2.7.0:
     resolution: {integrity: sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==}
     dependencies:
@@ -5110,7 +5135,7 @@ packages:
     resolution: {integrity: sha512-pYZXSbdq0eElvzoIMArzv1SBn1NUXzopjlcnt6Ql8VW32PjC12NovwBjXJ6rh8qQLi7vF8jNqAbraKW03UPfag==}
     engines: {node: ^14.15.0 || >=16.0.0, pnpm: '>=7.14.0'}
     dependencies:
-      '@astrojs/compiler': 1.5.4
+      '@astrojs/compiler': 1.5.7
       prettier: 2.8.8
       sass-formatter: 0.7.6
       synckit: 0.8.5
