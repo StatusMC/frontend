@@ -51,7 +51,7 @@
 		"reading-time": "^1.5.0",
 		"sharp": "^0.32.1",
 		"shiki-es": "^0.14.0",
-		"svgo": "^2.8.0",
+		"svgo": "^3.0.2",
 		"tailwindcss": "^3.3.2",
 		"typescript": "^5.1.3"
 	},

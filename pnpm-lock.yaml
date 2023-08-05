@@ -117,8 +117,8 @@ dependencies:
     specifier: ^0.14.0
     version: 0.14.0
   svgo:
-    specifier: ^2.8.0
-    version: 2.8.0
+    specifier: ^3.0.2
+    version: 3.0.2
   tailwindcss:
     specifier: ^3.3.2
     version: 3.3.2
