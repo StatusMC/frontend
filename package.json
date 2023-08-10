@@ -24,7 +24,7 @@
 		"@astrojs/sitemap": "^2.0.0",
 		"@astrojs/tailwind": "^4.0.0",
 		"@astrojs/ts-plugin": "^1.1.0",
-		"@astrolib/analytics": "^0.3.0",
+		"@astrolib/analytics": "^0.4.2",
 		"@astrolib/seo": "^0.4.0",
 		"@fontsource/inter": "^5.0.3",
 		"@sentry/browser": "^7.61.0",
