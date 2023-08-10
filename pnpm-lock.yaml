@@ -39,8 +39,8 @@ dependencies:
     specifier: ^0.4.2
     version: 0.4.2(astro@2.10.1)
   '@astrolib/seo':
-    specifier: ^0.4.0
-    version: 0.4.0(astro@2.10.1)
+    specifier: ^0.6.0
+    version: 0.6.0(astro@2.10.1)
   '@fontsource/inter':
     specifier: ^5.0.3
     version: 5.0.3
@@ -366,10 +366,10 @@ packages:
       astro: 2.10.1(sharp@0.32.1)
     dev: false
 
-  /@astrolib/seo@0.4.0(astro@2.10.1):
-    resolution: {integrity: sha512-pLErJ8X0+MbC36D5ZPX39rOrSk8Dx8wV4ssaNceNgavVEn70C2udupn5Jsw4bSOrEaxU8ovdciEvb9wMKV+BEQ==}
+  /@astrolib/seo@0.6.0(astro@2.10.1):
+    resolution: {integrity: sha512-mJzvW2ApVVpoB3mVNB+I3wrloorkcypoA7kXQWl1F9vu6X9LRTP2sLdCrn8qkPnKdwgGfmqe/S4vqiW/eemaDg==}
     peerDependencies:
-      astro: ^1.2.1 || ^2.0.0
+      astro: ^1.2.1 || ^2.0.0 || ^3.0.0-beta.0 || ^3.0.0
     dependencies:
       astro: 2.10.1(sharp@0.32.1)
     dev: false
