@@ -47,7 +47,7 @@
 		"mdast-util-to-string": "^4.0.0",
 		"prettier": "^3.0.0",
 		"prettier-plugin-astro": "^0.11.0",
-		"prettier-plugin-tailwindcss": "^0.4.0",
+		"prettier-plugin-tailwindcss": "^0.5.1",
 		"reading-time": "^1.5.0",
 		"sharp": "^0.32.1",
 		"shiki-es": "^0.14.0",
