@@ -4,130 +4,127 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
-
-  .:
-    dependencies:
-      '@astrojs/alpinejs':
-        specifier: ^0.2.2
-        version: 0.2.2(@types/alpinejs@3.7.1)(alpinejs@3.12.2)
-      '@astrojs/image':
-        specifier: ^0.17.0
-        version: 0.17.0(astro@2.10.1)(sharp@0.32.1)
-      '@astrojs/mdx':
-        specifier: ^0.19.7
-        version: 0.19.7(astro@2.10.1)
-      '@astrojs/node':
-        specifier: ^5.3.0
-        version: 5.3.0(astro@2.10.1)
-      '@astrojs/partytown':
-        specifier: ^1.2.3
-        version: 1.2.3
-      '@astrojs/prefetch':
-        specifier: ^0.3.0
-        version: 0.3.0
-      '@astrojs/rss':
-        specifier: ^2.4.3
-        version: 2.4.3
-      '@astrojs/sitemap':
-        specifier: ^2.0.0
-        version: 2.0.0
-      '@astrojs/tailwind':
-        specifier: ^4.0.0
-        version: 4.0.0(astro@2.10.1)(tailwindcss@3.3.2)
-      '@astrojs/ts-plugin':
-        specifier: ^1.1.0
-        version: 1.1.0
-      '@astrolib/analytics':
-        specifier: ^0.4.2
-        version: 0.4.2(astro@2.10.1)
-      '@astrolib/seo':
-        specifier: ^0.6.0
-        version: 0.6.0(astro@2.10.1)
-      '@fontsource/inter':
-        specifier: ^5.0.3
-        version: 5.0.3
-      '@sentry/browser':
-        specifier: ^7.64.0
-        version: 7.64.0
-      '@sentry/node':
-        specifier: ^7.64.0
-        version: 7.64.0
-      '@sentry/vite-plugin':
-        specifier: ^2.6.1
-        version: 2.6.1
-      '@tailwindcss/forms':
-        specifier: ^0.5.3
-        version: 0.5.3(tailwindcss@3.3.2)
-      '@tailwindcss/typography':
-        specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.3.2)
-      '@types/alpinejs':
-        specifier: ^3.7.1
-        version: 3.7.1
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.62.0
-        version: 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.47.0)(typescript@5.1.3)
-      '@typescript-eslint/parser':
-        specifier: ^5.62.0
-        version: 5.62.0(eslint@8.47.0)(typescript@5.1.3)
-      alpinejs:
-        specifier: ^3.12.2
-        version: 3.12.2
-      astro:
-        specifier: ^2.10.1
-        version: 2.10.1(sharp@0.32.1)
-      astro-compress:
-        specifier: ^2.0.2
-        version: 2.0.2
-      astro-eslint-parser:
-        specifier: ^0.14.0
-        version: 0.14.0
-      astro-icon:
-        specifier: ^0.8.1
-        version: 0.8.1
-      eslint:
-        specifier: ^8.47.0
-        version: 8.47.0
-      eslint-plugin-astro:
-        specifier: ^0.28.0
-        version: 0.28.0(eslint@8.47.0)
-      eslint-plugin-jsx-a11y:
-        specifier: ^6.7.1
-        version: 6.7.1(eslint@8.47.0)
-      limax:
-        specifier: ^4.1.0
-        version: 4.1.0
-      mdast-util-to-string:
-        specifier: ^4.0.0
-        version: 4.0.0
-      prettier:
-        specifier: ^3.0.0
-        version: 3.0.0
-      prettier-plugin-astro:
-        specifier: ^0.11.0
-        version: 0.11.0
-      prettier-plugin-tailwindcss:
-        specifier: ^0.5.1
-        version: 0.5.1(prettier-plugin-astro@0.11.0)(prettier@3.0.0)
-      reading-time:
-        specifier: ^1.5.0
-        version: 1.5.0
-      sharp:
-        specifier: ^0.32.1
-        version: 0.32.1
-      shiki-es:
-        specifier: ^0.14.0
-        version: 0.14.0
-      svgo:
-        specifier: ^2.8.0
-        version: 2.8.0
-      tailwindcss:
-        specifier: ^3.3.2
-        version: 3.3.2
-      typescript:
-        specifier: ^5.1.3
-        version: 5.1.3
+dependencies:
+  '@astrojs/alpinejs':
+    specifier: ^0.2.2
+    version: 0.2.2(@types/alpinejs@3.7.1)(alpinejs@3.12.2)
+  '@astrojs/image':
+    specifier: ^0.17.0
+    version: 0.17.0(astro@2.10.1)(sharp@0.32.1)
+  '@astrojs/mdx':
+    specifier: ^0.19.7
+    version: 0.19.7(astro@2.10.1)
+  '@astrojs/node':
+    specifier: ^5.3.0
+    version: 5.3.0(astro@2.10.1)
+  '@astrojs/partytown':
+    specifier: ^1.2.3
+    version: 1.2.3
+  '@astrojs/prefetch':
+    specifier: ^0.3.0
+    version: 0.3.0
+  '@astrojs/rss':
+    specifier: ^2.4.3
+    version: 2.4.3
+  '@astrojs/sitemap':
+    specifier: ^2.0.0
+    version: 2.0.0
+  '@astrojs/tailwind':
+    specifier: ^4.0.0
+    version: 4.0.0(astro@2.10.1)(tailwindcss@3.3.2)
+  '@astrojs/ts-plugin':
+    specifier: ^1.1.0
+    version: 1.1.0
+  '@astrolib/analytics':
+    specifier: ^0.4.2
+    version: 0.4.2(astro@2.10.1)
+  '@astrolib/seo':
+    specifier: ^0.6.0
+    version: 0.6.0(astro@2.10.1)
+  '@fontsource/inter':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@sentry/browser':
+    specifier: ^7.64.0
+    version: 7.64.0
+  '@sentry/node':
+    specifier: ^7.64.0
+    version: 7.64.0
+  '@sentry/vite-plugin':
+    specifier: ^2.7.0
+    version: 2.7.0
+  '@tailwindcss/forms':
+    specifier: ^0.5.3
+    version: 0.5.3(tailwindcss@3.3.2)
+  '@tailwindcss/typography':
+    specifier: ^0.5.9
+    version: 0.5.9(tailwindcss@3.3.2)
+  '@types/alpinejs':
+    specifier: ^3.7.1
+    version: 3.7.1
+  '@typescript-eslint/eslint-plugin':
+    specifier: ^5.62.0
+    version: 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.47.0)(typescript@5.1.3)
+  '@typescript-eslint/parser':
+    specifier: ^5.62.0
+    version: 5.62.0(eslint@8.47.0)(typescript@5.1.3)
+  alpinejs:
+    specifier: ^3.12.2
+    version: 3.12.2
+  astro:
+    specifier: ^2.10.1
+    version: 2.10.1(sharp@0.32.1)
+  astro-compress:
+    specifier: ^2.0.2
+    version: 2.0.2
+  astro-eslint-parser:
+    specifier: ^0.14.0
+    version: 0.14.0
+  astro-icon:
+    specifier: ^0.8.1
+    version: 0.8.1
+  eslint:
+    specifier: ^8.47.0
+    version: 8.47.0
+  eslint-plugin-astro:
+    specifier: ^0.28.0
+    version: 0.28.0(eslint@8.47.0)
+  eslint-plugin-jsx-a11y:
+    specifier: ^6.7.1
+    version: 6.7.1(eslint@8.47.0)
+  limax:
+    specifier: ^4.1.0
+    version: 4.1.0
+  mdast-util-to-string:
+    specifier: ^4.0.0
+    version: 4.0.0
+  prettier:
+    specifier: ^3.0.0
+    version: 3.0.0
+  prettier-plugin-astro:
+    specifier: ^0.11.0
+    version: 0.11.0
+  prettier-plugin-tailwindcss:
+    specifier: ^0.5.1
+    version: 0.5.1(prettier-plugin-astro@0.11.0)(prettier@3.0.0)
+  reading-time:
+    specifier: ^1.5.0
+    version: 1.5.0
+  sharp:
+    specifier: ^0.32.1
+    version: 0.32.1
+  shiki-es:
+    specifier: ^0.14.0
+    version: 0.14.0
+  svgo:
+    specifier: ^2.8.0
+    version: 2.8.0
+  tailwindcss:
+    specifier: ^3.3.2
+    version: 3.3.2
+  typescript:
+    specifier: ^5.1.3
+    version: 5.1.3
 
 packages:
 
@@ -1218,8 +1215,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@sentry/bundler-plugin-core@2.6.1:
-    resolution: {integrity: sha512-9pxyfwjODPPvB5Tm/yCGKpNxqvDZZgyJ6aTk5OGMFMye0xvqAkar4fM4zGG8HAi6bWHs2toLPvZefpN42ySyJg==}
+  /@sentry/bundler-plugin-core@2.7.0:
+    resolution: {integrity: sha512-ZxJG/DsRXJ9BMaKv+butL3TaiHsuuUy1bNkl56/FCbCt1rYuzltEPT2cBuuveieg66ZWtzerSF17QX3v6svtJQ==}
     engines: {node: '>= 14'}
     dependencies:
       '@sentry/cli': 2.20.4
@@ -1298,11 +1295,11 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@sentry/vite-plugin@2.6.1:
-    resolution: {integrity: sha512-qydmri9dLjcP9veRrCYYZc6MVkcwqnrUZd0NVYBo0w09tBF/SC7L3FtuoVv4eqyAU5dawW4AFrD0GNSJxOZGZg==}
+  /@sentry/vite-plugin@2.7.0:
+    resolution: {integrity: sha512-VDkKneqIV5ESg41iz0ODsTl4BXsd4C/PhLgkjES9TFzDcG9VcnbECCxosXZd7nDZB9EQZDIsKSEc29PzLl1JUQ==}
     engines: {node: '>= 14'}
     dependencies:
-      '@sentry/bundler-plugin-core': 2.6.1
+      '@sentry/bundler-plugin-core': 2.7.0
       unplugin: 1.0.1
     transitivePeerDependencies:
       - encoding
