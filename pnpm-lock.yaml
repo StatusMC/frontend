@@ -21,8 +21,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   '@astrojs/prefetch':
-    specifier: ^0.3.0
-    version: 0.3.0
+    specifier: ^0.4.0
+    version: 0.4.0
   '@astrojs/rss':
     specifier: ^3.0.0
     version: 3.0.0
@@ -284,8 +284,8 @@ packages:
       mrmime: 1.0.1
     dev: false
 
-  /@astrojs/prefetch@0.3.0:
-    resolution: {integrity: sha512-LPKpbcnTwonkgNeLvVEQ1SXEyjkjsCm/o77Leg6/9725Cpn+rAIHiWMwFwigqf366VuvdvEYsG86nH8d1kSoNA==}
+  /@astrojs/prefetch@0.4.0:
+    resolution: {integrity: sha512-TTlVJcBrVv2R10Owsbl4tizvcRV+MuQsh4ZwIn2hU3XvzvaacIw4/2bzQ3WcYwQhc3t72t6E1vLdvtnXo0xyEA==}
     dependencies:
       throttles: 1.0.1
     dev: false
