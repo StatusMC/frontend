@@ -8,7 +8,7 @@ import ModelDocumentation from "~/components/api/ModelDocumentation.astro";
 
 As you may know from the [About us](/about) page, we have the modules system, which allows to do multiple things with
 one request. This works with Query parameters (text after `?` in the URL). For example, if you want to get the server
-Java and Bedrock status in one time, you can just send HTTP GET request to `https://api.statusmc.perchun.it/myserver.net?modules=java,bedrock`.
+Java and Bedrock status in one time, you can just send HTTP GET request to `https://statusmc.perchun.it/api/v1/myserver.net?modules=java,bedrock`.
 
 Our API server will send a Java status request to `myserver.net:25565` and Bedrock status request to `myserver.net:19132`.
 (Those ports are guessed automatically: if no port specified, we will try `19132` for Bedrock and `25565` (or SRV record)
@@ -17,12 +17,12 @@ for Java. You can specify the port adding `:port` to the end of the hostname, fo
 But what about Java status and Query? Those cannot be hosted on one port, so you need to use another one (e.g. `25566`).
 In the modules system, we can specify completely different IP for every module. For example, if you want to get Java
 status from `myserver.net:25565` and Query from `myserver.net:25566`, you can send HTTP GET request to
-`https://api.statusmc.perchun.it/v1/i_am_ignored?modules=java,query&to_java=myserver.net:25565&to_query=myserver.net:25566`.
+`https://statusmc.perchun.it/api/v1/i_am_ignored?modules=java,query&to_java=myserver.net:25565&to_query=myserver.net:25566`.
 (For example, if you will not specify `&to_java=`, the API will use IP from the URL as fallback (in upper example, it's
 `i_am_ignored`).)
 
 It's not limited to only ports, but also to completely different IPs:
-`https://api.statusmc.perchun.it/v1/hypixel.net?modules=java,bedrock&to_bedrock=mco.cubecraft.net`. This works with Query too!
+`https://statusmc.perchun.it/api/v1/hypixel.net?modules=java,bedrock&to_bedrock=mco.cubecraft.net`. This works with Query too!
 
 ## Few answers in one? How?
 
@@ -64,7 +64,7 @@ Java status, you should do only Java status request and decode the icon from it.
 Also, if you will do two requests (for Java status and icon) - don't worry, we cache the Java status answer, so
 we don't spam the server!
 
-The endpoint is `https://api.statusmc.perchun.it/v1/icon/myserver.net`. Replace the `myserver.net` part with your IP.
+The endpoint is `https://statusmc.perchun.it/api/v1/icon/myserver.net`. Replace the `myserver.net` part with your IP.
 This is not done as one of modules, because the endpoint return bytes that cannot be properly encoded into JSON, and
 even if so, there is no sense to encode those, as you can just use `icon` property from Java status answer with the
 same impact.
