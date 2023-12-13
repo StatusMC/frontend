@@ -13,8 +13,8 @@ const { status }: Props = Astro.props;
 			{status.version.edition === "MCPE"
 				? "Bedrock Edition"
 				: status.version.edition === "MCEE"
-				? "Education Edition"
-				: status.version.edition}
+				  ? "Education Edition"
+				  : status.version.edition}
 		</Base>
 	) : null
 }

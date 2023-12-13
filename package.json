@@ -14,6 +14,11 @@
 		"lint": "eslint . --ext .js,.ts,.astro"
 	},
 	"dependencies": {
+		"@sentry/node": "^7.64.0",
+		"svgo": "^2.8.0",
+		"shiki-es": "^0.14.0"
+	},
+	"devDependencies": {
 		"@astrojs/alpinejs": "^0.3.0",
 		"@astrojs/image": "^0.17.0",
 		"@astrojs/mdx": "^0.19.7",
@@ -28,7 +33,6 @@
 		"@astrolib/seo": "^0.6.0",
 		"@fontsource/inter": "^5.0.3",
 		"@sentry/browser": "^7.80.0",
-		"@sentry/node": "^7.64.0",
 		"@sentry/vite-plugin": "^2.10.0",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
@@ -50,8 +54,6 @@
 		"prettier-plugin-tailwindcss": "^0.5.1",
 		"reading-time": "^1.5.0",
 		"sharp": "^0.32.1",
-		"shiki-es": "^0.14.0",
-		"svgo": "^2.8.0",
 		"tailwindcss": "^3.3.2",
 		"typescript": "^5.2.2"
 	},

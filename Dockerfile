@@ -7,6 +7,10 @@ WORKDIR /app
 RUN npm install -g pnpm@8.6.x
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --prod
+
+FROM base AS build
+
 RUN pnpm install
 
 COPY astro.config.mjs tsconfig.json tailwind.config.cjs ./
@@ -23,6 +27,6 @@ EXPOSE 3000
 
 WORKDIR /app
 COPY --from=base /app/node_modules ./node_modules
-COPY --from=base /app/dist ./dist
+COPY --from=build /app/dist ./dist
 
 ENTRYPOINT ["node", "./dist/server/entry.mjs"]

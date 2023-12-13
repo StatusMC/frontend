@@ -44,9 +44,9 @@ const ogImage =
 	typeof _ogImage === "string"
 		? new URL(_ogImage, Astro.site)
 		: _ogImage && typeof _ogImage["src"] !== "undefined"
-		? // @ts-ignore
-		  new URL(getRelativeUrlByFilePath(_ogImage.src), Astro.site)
-		: null;
+		  ? // @ts-ignore
+		    new URL(getRelativeUrlByFilePath(_ogImage.src), Astro.site)
+		  : null;
 ---
 
 <meta charset="UTF-8" />

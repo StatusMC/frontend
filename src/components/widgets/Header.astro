@@ -75,7 +75,7 @@ const { links = [], actions = [] }: Props = Astro.props;
 							{actions.map(({ text, href, type }) => (
 								<a
 									class:list={[
-										"btn ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm",
+										"btn px-5.5 ml-2 py-2.5 text-sm font-semibold shadow-none md:px-6",
 										{ "btn-ghost": type === "ghost", "btn-primary": type === "primary" },
 									]}
 									href={href}
