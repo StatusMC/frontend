@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@sentry/node": "^7.64.0",
 		"svgo": "^2.8.0",
-		"sharp": "^0.32.1",
+		"sharp": "^0.33.2",
 		"shiki-es": "^0.14.0"
 	},
 	"devDependencies": {
