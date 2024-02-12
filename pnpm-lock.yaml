@@ -20,8 +20,8 @@ dependencies:
 
 devDependencies:
   '@astrojs/alpinejs':
-    specifier: ^0.3.0
-    version: 0.3.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
+    specifier: ^0.4.0
+    version: 0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
   '@astrojs/image':
     specifier: ^0.17.0
     version: 0.17.0(astro@2.10.1)(sharp@0.33.2)
@@ -152,8 +152,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@astrojs/alpinejs@0.3.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0):
-    resolution: {integrity: sha512-vxyCZqDay5Eg6MFc2MgvrDF/r07sWVdQNi95qP+OhCB7gIYCAF+6tGk3qMxXHSw0Ywt7n6ZzILlokvaw8NIUtA==}
+  /@astrojs/alpinejs@0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0):
+    resolution: {integrity: sha512-68BY1CA0XuielLW3WdX2sfh9F4sSTnFqQ//IE9AditbiYJ77HJDb4uZx07pTFDtr1jOMU7lCvH+iS9gmNafM1g==}
     peerDependencies:
       '@types/alpinejs': ^3.0.0
       alpinejs: ^3.0.0
