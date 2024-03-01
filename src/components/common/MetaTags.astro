@@ -1,6 +1,7 @@
 ---
 import { AstroSeo } from "@astrolib/seo";
-import { getImage } from "@astrojs/image";
+import { getImage } from "astro:assets";
+import opengraphImage from "./assets/images/opengraph-image.png";
 
 import { CONFIG } from "~/config.mjs";
 import { MetaSEO } from "~/types";
@@ -13,16 +14,7 @@ export interface Props extends MetaSEO {
 	dontUseTitleTemplate?: boolean;
 }
 
-const defaultOgImage = CONFIG.defaultOgImage
-	? (
-			await getImage({
-				src: CONFIG.defaultOgImage,
-				alt: "Default image",
-				width: 1200,
-				height: 628,
-			})
-	  ).src
-	: "";
+const defaultOgImage = (await getImage({ src: opengraphImage, format: "webp" })).src;
 
 const {
 	title = CONFIG.title,
@@ -44,9 +36,9 @@ const ogImage =
 	typeof _ogImage === "string"
 		? new URL(_ogImage, Astro.site)
 		: _ogImage && typeof _ogImage["src"] !== "undefined"
-		  ? // @ts-ignore
-		    new URL(getRelativeUrlByFilePath(_ogImage.src), Astro.site)
-		  : null;
+			? // @ts-ignore
+				new URL(getRelativeUrlByFilePath(_ogImage.src), Astro.site)
+			: null;
 ---
 
 <meta charset="UTF-8" />
@@ -70,7 +62,7 @@ const ogImage =
 						url: ogImage.toString(),
 						alt: ogTitle,
 					},
-			  ]
+				]
 			: undefined,
 		// site_name: 'SiteName',
 	}}
