@@ -11,6 +11,7 @@ import alpinejs from "@astrojs/alpinejs";
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 import node from "@astrojs/node";
 import prefetch from "@astrojs/prefetch";
+import icon from "astro-icon";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
@@ -47,6 +48,7 @@ export default defineConfig({
 		}),
 		alpinejs(),
 		prefetch(),
+		icon(),
 	],
 	vite: {
 		resolve: {

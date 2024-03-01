@@ -19,11 +19,11 @@
     	@apply font-semibold bg-primary text-white border-primary hover:bg-secondary hover:border-secondary hover:text-white dark:text-white dark:bg-primary dark:border-primary dark:hover:border-secondary dark:hover:bg-secondary;	}
 }
 
-[astro-icon].icon-light > * {
+[data-icon].icon-light > * {
 	stroke-width: 1.2;
 }
 
-[astro-icon].icon-bold > * {
+[data-icon].icon-bold > * {
 	stroke-width: 2.4;
 }
 

@@ -57,6 +57,12 @@ importers:
       '@fontsource/inter':
         specifier: ^5.0.3
         version: 5.0.3
+      '@iconify-json/ion':
+        specifier: ^1.1.15
+        version: 1.1.15
+      '@iconify-json/tabler':
+        specifier: ^1.1.106
+        version: 1.1.106
       '@sentry/browser':
         specifier: ^7.104.0
         version: 7.104.0
@@ -1197,6 +1203,18 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.2:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
+    dev: true
+
+  /@iconify-json/ion@1.1.15:
+    resolution: {integrity: sha512-ouEW3wypJCwv9pB6b5k7f2cRMXKSCuxn23S1e9TjJLXXWCF45Juyjls5olrnSRNqYdZise7ZLSojgM8/2kaDtA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/tabler@1.1.106:
+    resolution: {integrity: sha512-TcGGQ2nDhb2OmKsMPk3SuNxf259Rjirbvkz3gX1C8fexJmSWqR8AsH98/VMbK7VVYb2L2FIfX3QJxKpJvXEryw==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/tools@3.0.7:
