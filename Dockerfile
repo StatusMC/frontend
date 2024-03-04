@@ -18,7 +18,7 @@ COPY public/ public/
 COPY src/ src/
 # for sentry auto version
 COPY .git/ .git/
-RUN pnpm build
+RUN BACKEND_URL="http://statusmc-backend:8000" pnpm build
 
 FROM node:18-slim AS final
 
