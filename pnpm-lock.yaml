@@ -4,134 +4,132 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@sentry/node':
+    specifier: ^7.104.0
+    version: 7.104.0
+  sharp:
+    specifier: ^0.33.2
+    version: 0.33.2
+  shiki-es:
+    specifier: ^0.14.0
+    version: 0.14.0
+  svgo:
+    specifier: ^3.2.0
+    version: 3.2.0
 
-  .:
-    dependencies:
-      '@sentry/node':
-        specifier: ^7.104.0
-        version: 7.104.0
-      sharp:
-        specifier: ^0.33.2
-        version: 0.33.2
-      shiki-es:
-        specifier: ^0.14.0
-        version: 0.14.0
-      svgo:
-        specifier: ^3.2.0
-        version: 3.2.0
-    devDependencies:
-      '@astrojs/alpinejs':
-        specifier: ^0.4.0
-        version: 0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
-      '@astrojs/mdx':
-        specifier: ^2.1.1
-        version: 2.1.1(astro@4.4.8)
-      '@astrojs/node':
-        specifier: ^8.2.3
-        version: 8.2.3(astro@4.4.8)
-      '@astrojs/partytown':
-        specifier: ^2.0.0
-        version: 2.0.0
-      '@astrojs/prefetch':
-        specifier: ^0.4.0
-        version: 0.4.0
-      '@astrojs/rss':
-        specifier: ^4.0.4
-        version: 4.0.4
-      '@astrojs/sitemap':
-        specifier: ^3.1.1
-        version: 3.1.1
-      '@astrojs/tailwind':
-        specifier: ^5.1.0
-        version: 5.1.0(astro@4.4.8)(tailwindcss@3.4.1)
-      '@astrojs/ts-plugin':
-        specifier: ^1.5.0
-        version: 1.5.0
-      '@astrolib/analytics':
-        specifier: ^0.5.0
-        version: 0.5.0(astro@4.4.8)
-      '@astrolib/seo':
-        specifier: ^1.0.0-beta.5
-        version: 1.0.0-beta.5(astro@4.4.8)
-      '@fontsource/inter':
-        specifier: ^5.0.3
-        version: 5.0.3
-      '@iconify-json/ion':
-        specifier: ^1.1.15
-        version: 1.1.15
-      '@iconify-json/tabler':
-        specifier: ^1.1.106
-        version: 1.1.106
-      '@sentry/browser':
-        specifier: ^7.104.0
-        version: 7.104.0
-      '@sentry/vite-plugin':
-        specifier: ^2.14.1
-        version: 2.14.1
-      '@tailwindcss/forms':
-        specifier: ^0.5.3
-        version: 0.5.3(tailwindcss@3.4.1)
-      '@tailwindcss/typography':
-        specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.4.1)
-      '@types/alpinejs':
-        specifier: ^3.13.0
-        version: 3.13.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^7.1.0
-        version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3)
-      '@typescript-eslint/parser':
-        specifier: ^7.1.0
-        version: 7.1.0(eslint@8.57.0)(typescript@5.3.3)
-      alpinejs:
-        specifier: ^3.13.0
-        version: 3.13.0
-      astro:
-        specifier: ^4.4.8
-        version: 4.4.8(typescript@5.3.3)
-      astro-compress:
-        specifier: ^2.2.0
-        version: 2.2.0
-      astro-eslint-parser:
-        specifier: ^0.16.0
-        version: 0.16.0
-      astro-icon:
-        specifier: ^1.1.0
-        version: 1.1.0
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      eslint-plugin-astro:
-        specifier: ^0.31.4
-        version: 0.31.4(eslint@8.57.0)
-      eslint-plugin-jsx-a11y:
-        specifier: ^6.8.0
-        version: 6.8.0(eslint@8.57.0)
-      limax:
-        specifier: ^4.1.0
-        version: 4.1.0
-      mdast-util-to-string:
-        specifier: ^4.0.0
-        version: 4.0.0
-      prettier:
-        specifier: ^3.2.5
-        version: 3.2.5
-      prettier-plugin-astro:
-        specifier: ^0.13.0
-        version: 0.13.0
-      prettier-plugin-tailwindcss:
-        specifier: ^0.5.1
-        version: 0.5.1(prettier-plugin-astro@0.13.0)(prettier@3.2.5)
-      reading-time:
-        specifier: ^1.5.0
-        version: 1.5.0
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.1
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
+devDependencies:
+  '@astrojs/alpinejs':
+    specifier: ^0.4.0
+    version: 0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
+  '@astrojs/mdx':
+    specifier: ^2.1.1
+    version: 2.1.1(astro@4.4.8)
+  '@astrojs/node':
+    specifier: ^8.2.3
+    version: 8.2.3(astro@4.4.8)
+  '@astrojs/partytown':
+    specifier: ^2.0.0
+    version: 2.0.0
+  '@astrojs/prefetch':
+    specifier: ^0.4.0
+    version: 0.4.0
+  '@astrojs/rss':
+    specifier: ^4.0.4
+    version: 4.0.4
+  '@astrojs/sitemap':
+    specifier: ^3.1.1
+    version: 3.1.1
+  '@astrojs/tailwind':
+    specifier: ^5.1.0
+    version: 5.1.0(astro@4.4.8)(tailwindcss@3.4.1)
+  '@astrojs/ts-plugin':
+    specifier: ^1.5.0
+    version: 1.5.0
+  '@astrolib/analytics':
+    specifier: ^0.5.0
+    version: 0.5.0(astro@4.4.8)
+  '@astrolib/seo':
+    specifier: ^1.0.0-beta.5
+    version: 1.0.0-beta.5(astro@4.4.8)
+  '@fontsource/inter':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@iconify-json/ion':
+    specifier: ^1.1.15
+    version: 1.1.15
+  '@iconify-json/tabler':
+    specifier: ^1.1.106
+    version: 1.1.106
+  '@sentry/browser':
+    specifier: ^7.105.0
+    version: 7.105.0
+  '@sentry/vite-plugin':
+    specifier: ^2.14.1
+    version: 2.14.1
+  '@tailwindcss/forms':
+    specifier: ^0.5.3
+    version: 0.5.3(tailwindcss@3.4.1)
+  '@tailwindcss/typography':
+    specifier: ^0.5.9
+    version: 0.5.9(tailwindcss@3.4.1)
+  '@types/alpinejs':
+    specifier: ^3.13.0
+    version: 3.13.0
+  '@typescript-eslint/eslint-plugin':
+    specifier: ^7.1.0
+    version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3)
+  '@typescript-eslint/parser':
+    specifier: ^7.1.0
+    version: 7.1.0(eslint@8.57.0)(typescript@5.3.3)
+  alpinejs:
+    specifier: ^3.13.0
+    version: 3.13.0
+  astro:
+    specifier: ^4.4.8
+    version: 4.4.8(typescript@5.3.3)
+  astro-compress:
+    specifier: ^2.2.0
+    version: 2.2.0
+  astro-eslint-parser:
+    specifier: ^0.16.0
+    version: 0.16.0
+  astro-icon:
+    specifier: ^1.1.0
+    version: 1.1.0
+  eslint:
+    specifier: ^8.57.0
+    version: 8.57.0
+  eslint-plugin-astro:
+    specifier: ^0.31.4
+    version: 0.31.4(eslint@8.57.0)
+  eslint-plugin-jsx-a11y:
+    specifier: ^6.8.0
+    version: 6.8.0(eslint@8.57.0)
+  limax:
+    specifier: ^4.1.0
+    version: 4.1.0
+  mdast-util-to-string:
+    specifier: ^4.0.0
+    version: 4.0.0
+  prettier:
+    specifier: ^3.2.5
+    version: 3.2.5
+  prettier-plugin-astro:
+    specifier: ^0.13.0
+    version: 0.13.0
+  prettier-plugin-tailwindcss:
+    specifier: ^0.5.1
+    version: 0.5.1(prettier-plugin-astro@0.13.0)(prettier@3.2.5)
+  reading-time:
+    specifier: ^1.5.0
+    version: 1.5.0
+  tailwindcss:
+    specifier: ^3.4.1
+    version: 3.4.1
+  typescript:
+    specifier: ^5.3.3
+    version: 5.3.3
 
 packages:
 
@@ -1652,23 +1650,23 @@ packages:
     dev: true
     optional: true
 
-  /@sentry-internal/feedback@7.104.0:
-    resolution: {integrity: sha512-+OWqm+X9ZfEQQmxVoZsc9lpzd85pabAT+bEj57StRMTnfdRbD9TippS20nCD9N2Ql5v2/41NfiPONMejGbnOwg==}
+  /@sentry-internal/feedback@7.105.0:
+    resolution: {integrity: sha512-17doUQFKYgLfG7EmZXjZQ7HR/aBzuLDd+GVaCNthUPyiz/tltV7EFECDWwHpXqzQgYRgroSbY8PruMVujFGUUw==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.104.0
-      '@sentry/types': 7.104.0
-      '@sentry/utils': 7.104.0
+      '@sentry/core': 7.105.0
+      '@sentry/types': 7.105.0
+      '@sentry/utils': 7.105.0
     dev: true
 
-  /@sentry-internal/replay-canvas@7.104.0:
-    resolution: {integrity: sha512-gfdnkFIpxAveKNghkvRCqv+hSiBkxYVoyFZLTvUPuM9Cmvmket1/PpnuWMC2jNtCEewG3gxkPDd4EaT9oa1HZQ==}
+  /@sentry-internal/replay-canvas@7.105.0:
+    resolution: {integrity: sha512-XMBdkjIDhap5Gwrub5wlUJhuUVJM4aL4lZV8KcxJZZSXgXsnyGYbEh9SPZOHO05jtbxTxVeL3Pik5qtYjdGnPA==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry/core': 7.104.0
-      '@sentry/replay': 7.104.0
-      '@sentry/types': 7.104.0
-      '@sentry/utils': 7.104.0
+      '@sentry/core': 7.105.0
+      '@sentry/replay': 7.105.0
+      '@sentry/types': 7.105.0
+      '@sentry/utils': 7.105.0
     dev: true
 
   /@sentry-internal/tracing@7.104.0:
@@ -1679,22 +1677,31 @@ packages:
       '@sentry/types': 7.104.0
       '@sentry/utils': 7.104.0
 
+  /@sentry-internal/tracing@7.105.0:
+    resolution: {integrity: sha512-b+AFYB7Bc9vmyxl2jbmuT4esX5G0oPfpz35A0sxFzmJIhvMg1YMDNio2c81BtKN+VSPORCnKMLhfk3kyKKvWMQ==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/core': 7.105.0
+      '@sentry/types': 7.105.0
+      '@sentry/utils': 7.105.0
+    dev: true
+
   /@sentry/babel-plugin-component-annotate@2.14.1:
     resolution: {integrity: sha512-NHVOr6m0vOoh1UNSZr+OpWQERjjQM7lO48WN/N/MzobIIxc2pymw2KAq3lNJ1SnVAy1t9RNP8u+g6aEFEMGZ/w==}
     engines: {node: '>= 14'}
     dev: true
 
-  /@sentry/browser@7.104.0:
-    resolution: {integrity: sha512-HsqO+mr1SowGoP0VbuWrQ2DZT0t5PLomy7LEYa6+4lbOemnY+5YV2NSwBTKbjYysvKipSwaRtPhXrsXsMaz8Bg==}
+  /@sentry/browser@7.105.0:
+    resolution: {integrity: sha512-OlYJzsZG109T1VpZ7O7KXf9IXCUUpp41lkkQM7ICBOBsfiHRUKmV5piTGCG5UgAvyb/gI/I1uQQtO4jthcHKEA==}
     engines: {node: '>=8'}
     dependencies:
-      '@sentry-internal/feedback': 7.104.0
-      '@sentry-internal/replay-canvas': 7.104.0
-      '@sentry-internal/tracing': 7.104.0
-      '@sentry/core': 7.104.0
-      '@sentry/replay': 7.104.0
-      '@sentry/types': 7.104.0
-      '@sentry/utils': 7.104.0
+      '@sentry-internal/feedback': 7.105.0
+      '@sentry-internal/replay-canvas': 7.105.0
+      '@sentry-internal/tracing': 7.105.0
+      '@sentry/core': 7.105.0
+      '@sentry/replay': 7.105.0
+      '@sentry/types': 7.105.0
+      '@sentry/utils': 7.105.0
     dev: true
 
   /@sentry/bundler-plugin-core@2.14.1:
@@ -1705,7 +1712,7 @@ packages:
       '@sentry/babel-plugin-component-annotate': 2.14.1
       '@sentry/cli': 2.28.6
       '@sentry/node': 7.104.0
-      '@sentry/utils': 7.102.1
+      '@sentry/utils': 7.105.0
       dotenv: 16.3.1
       find-up: 5.0.0
       glob: 9.3.2
@@ -1809,6 +1816,14 @@ packages:
       '@sentry/types': 7.104.0
       '@sentry/utils': 7.104.0
 
+  /@sentry/core@7.105.0:
+    resolution: {integrity: sha512-5xsaTG6jZincTeJUmZomlv20mVRZUEF1U/g89lmrSOybyk2+opEnB1JeBn4ODwnvmSik8r2QLr6/RiYlaxRJCg==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/types': 7.105.0
+      '@sentry/utils': 7.105.0
+    dev: true
+
   /@sentry/node@7.104.0:
     resolution: {integrity: sha512-Ixt8qg6IV8gywi4+H1cAtQeglAAww2nwLHybCxAvnu3czdF8w7ifF+o5BY1FmO5UYVCAfr8vEb+XG4CuRrFb7g==}
     engines: {node: '>=8'}
@@ -1818,30 +1833,23 @@ packages:
       '@sentry/types': 7.104.0
       '@sentry/utils': 7.104.0
 
-  /@sentry/replay@7.104.0:
-    resolution: {integrity: sha512-HmWBr/u+SNeULxCxM8lJb2iqhjizeLGJtuKSShPEguEXIUT4kzdoqLh6wn7BAjiKzhmyjrnBcosR5LUqJtGYZQ==}
+  /@sentry/replay@7.105.0:
+    resolution: {integrity: sha512-hZD2m6fNL9gorUOaaEpqxeH7zNP4y2Ej0TdieM1HMQ2q9Zrm9yOzk9/7ALfbRLIZFRMFTqo9vvVztLs3E+Hx+g==}
     engines: {node: '>=12'}
     dependencies:
-      '@sentry-internal/tracing': 7.104.0
-      '@sentry/core': 7.104.0
-      '@sentry/types': 7.104.0
-      '@sentry/utils': 7.104.0
-    dev: true
-
-  /@sentry/types@7.102.1:
-    resolution: {integrity: sha512-htKorf3t/D0XYtM7foTcmG+rM47rDP6XdbvCcX5gBCuCYlzpM1vqCt2rl3FLktZC6TaIpFRJw1TLfx6m+x5jdA==}
-    engines: {node: '>=8'}
+      '@sentry-internal/tracing': 7.105.0
+      '@sentry/core': 7.105.0
+      '@sentry/types': 7.105.0
+      '@sentry/utils': 7.105.0
     dev: true
 
   /@sentry/types@7.104.0:
     resolution: {integrity: sha512-5bs0xe0+GZR4QBm9Nrqw59o0sv3kBtCosrZDVxBru/dQbrfnB+/kVorvuM0rV3+coNITTKcKDegSZmK1d2uOGQ==}
     engines: {node: '>=8'}
 
-  /@sentry/utils@7.102.1:
-    resolution: {integrity: sha512-+8WcFjHVV/HROXSAwMuUzveElBFC43EiTG7SNEBNgOUeQzQVTmbUZXyTVgLrUmtoWqvnIxCacoLxtZo1o67kdg==}
+  /@sentry/types@7.105.0:
+    resolution: {integrity: sha512-80o0KMVM+X2Ym9hoQxvJetkJJwkpCg7o6tHHFXI+Rp7fawc2iCMTa0IRQMUiSkFvntQLYIdDoNNuKdzz2PbQGA==}
     engines: {node: '>=8'}
-    dependencies:
-      '@sentry/types': 7.102.1
     dev: true
 
   /@sentry/utils@7.104.0:
@@ -1849,6 +1857,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       '@sentry/types': 7.104.0
+
+  /@sentry/utils@7.105.0:
+    resolution: {integrity: sha512-YVAV0c2KLM8+VZCicQ/E/P2+J9Vs0hGhrXwV7w6ZEAtvxrg4oF270toL1WRhvcaf8JO4J1v4V+LuU6Txs4uEeQ==}
+    engines: {node: '>=8'}
+    dependencies:
+      '@sentry/types': 7.105.0
+    dev: true
 
   /@sentry/vite-plugin@2.14.1:
     resolution: {integrity: sha512-leNq+hWaKRhp0e+U1LYVbKBUAN4P+RXhG6GyMLvjKZL0LTsbLni05XeWg3Xy364Xoawcj6vgEN2lVvlpUvUnEQ==}
