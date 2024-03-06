@@ -1,0 +1,16 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import { CONFIG } from "~/config.mjs";
+
+const meta = {
+	title: CONFIG.title,
+	description: CONFIG.description,
+	dontUseTitleTemplate: true,
+	};
+---
+
+<Layout {meta}>
+	<button onclick="throw new Error('This is a test error')">
+		Throw test error
+	</button>
+</Layout>
