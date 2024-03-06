@@ -14,7 +14,7 @@
 		"lint": "eslint . --ext .js,.ts,.astro"
 	},
 	"dependencies": {
-		"@sentry/node": "^7.104.0",
+		"@sentry/astro": "^7.105.0",
 		"sharp": "^0.33.2",
 		"shiki-es": "^0.14.0",
 		"svgo": "^3.2.0"
@@ -34,8 +34,6 @@
 		"@fontsource/inter": "^5.0.3",
 		"@iconify-json/ion": "^1.1.15",
 		"@iconify-json/tabler": "^1.1.106",
-		"@sentry/browser": "^7.104.0",
-		"@sentry/vite-plugin": "^2.14.1",
 		"@tailwindcss/forms": "^0.5.3",
 		"@tailwindcss/typography": "^0.5.9",
 		"@types/alpinejs": "^3.13.0",

@@ -8,11 +8,10 @@ import partytown from "@astrojs/partytown";
 import compress from "astro-compress";
 import { CONFIG } from "./src/config.mjs";
 import alpinejs from "@astrojs/alpinejs";
-import { sentryVitePlugin } from "@sentry/vite-plugin";
 import node from "@astrojs/node";
 import prefetch from "@astrojs/prefetch";
 import icon from "astro-icon";
-
+import sentry from "@sentry/astro";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const whenExternalScripts = (items = []) =>
 	CONFIG.googleAnalyticsId ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
@@ -49,6 +48,13 @@ export default defineConfig({
 		alpinejs(),
 		prefetch(),
 		icon(),
+		sentry({
+			dsn: "https://8c5f0b4919644ef69904e9901bf3154e@o4504254006689792.ingest.us.sentry.io/4505353780133888",
+			sourceMapsUploadOptions: {
+				project: "statusmc-frontend",
+				authToken: process.env.SENTRY_AUTH_TOKEN,
+			},
+		}),
 	],
 	vite: {
 		resolve: {
@@ -56,20 +62,6 @@ export default defineConfig({
 				"~": path.resolve(__dirname, "./src"),
 			},
 		},
-		plugins: [
-			sentryVitePlugin({
-				org: "perchunpak",
-				project: "statusmc-frontend",
-
-				// Specify the directory containing build artifacts
-				include: "./dist",
-
-				// Auth tokens can be obtained from https://sentry.io/settings/account/api/auth-tokens/
-				// and needs the `project:releases` and `org:read` scopes
-				authToken: process.env.SENTRY_AUTH_TOKEN,
-				telemetry: false,
-			}),
-		],
 	},
 	adapter: node({
 		mode: "standalone",
