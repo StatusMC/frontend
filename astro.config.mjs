@@ -51,6 +51,7 @@ export default defineConfig({
 		sentry({
 			dsn: "https://8c5f0b4919644ef69904e9901bf3154e@o4504254006689792.ingest.us.sentry.io/4505353780133888",
 			sourceMapsUploadOptions: {
+				org: "perchunpak",
 				project: "statusmc-frontend",
 				authToken: process.env.SENTRY_AUTH_TOKEN,
 			},
