@@ -55,6 +55,8 @@ export default defineConfig({
 				project: "statusmc-frontend",
 				authToken: process.env.SENTRY_AUTH_TOKEN,
 			},
+			replaysOnErrorSampleRate: 0.0,
+			replaysSessionSampleRate: 0.0,
 		}),
 	],
 	vite: {
