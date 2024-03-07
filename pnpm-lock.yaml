@@ -4,128 +4,126 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@sentry/astro':
+    specifier: ^7.105.0
+    version: 7.105.0(astro@4.4.8)
+  sharp:
+    specifier: ^0.33.2
+    version: 0.33.2
+  shiki-es:
+    specifier: ^0.14.0
+    version: 0.14.0
+  svgo:
+    specifier: ^3.2.0
+    version: 3.2.0
 
-  .:
-    dependencies:
-      '@sentry/astro':
-        specifier: ^7.105.0
-        version: 7.105.0(astro@4.4.8)
-      sharp:
-        specifier: ^0.33.2
-        version: 0.33.2
-      shiki-es:
-        specifier: ^0.14.0
-        version: 0.14.0
-      svgo:
-        specifier: ^3.2.0
-        version: 3.2.0
-    devDependencies:
-      '@astrojs/alpinejs':
-        specifier: ^0.4.0
-        version: 0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
-      '@astrojs/mdx':
-        specifier: ^2.1.1
-        version: 2.1.1(astro@4.4.8)
-      '@astrojs/node':
-        specifier: ^8.2.3
-        version: 8.2.3(astro@4.4.8)
-      '@astrojs/partytown':
-        specifier: ^2.0.0
-        version: 2.0.0
-      '@astrojs/prefetch':
-        specifier: ^0.4.0
-        version: 0.4.0
-      '@astrojs/rss':
-        specifier: ^4.0.4
-        version: 4.0.4
-      '@astrojs/sitemap':
-        specifier: ^3.1.1
-        version: 3.1.1
-      '@astrojs/tailwind':
-        specifier: ^5.1.0
-        version: 5.1.0(astro@4.4.8)(tailwindcss@3.4.1)
-      '@astrojs/ts-plugin':
-        specifier: ^1.5.0
-        version: 1.5.0
-      '@astrolib/analytics':
-        specifier: ^0.5.0
-        version: 0.5.0(astro@4.4.8)
-      '@astrolib/seo':
-        specifier: ^1.0.0-beta.5
-        version: 1.0.0-beta.5(astro@4.4.8)
-      '@fontsource/inter':
-        specifier: ^5.0.3
-        version: 5.0.3
-      '@iconify-json/ion':
-        specifier: ^1.1.15
-        version: 1.1.15
-      '@iconify-json/tabler':
-        specifier: ^1.1.106
-        version: 1.1.106
-      '@tailwindcss/forms':
-        specifier: ^0.5.3
-        version: 0.5.3(tailwindcss@3.4.1)
-      '@tailwindcss/typography':
-        specifier: ^0.5.9
-        version: 0.5.9(tailwindcss@3.4.1)
-      '@types/alpinejs':
-        specifier: ^3.13.0
-        version: 3.13.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^7.1.0
-        version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3)
-      '@typescript-eslint/parser':
-        specifier: ^7.1.0
-        version: 7.1.0(eslint@8.57.0)(typescript@5.3.3)
-      alpinejs:
-        specifier: ^3.13.0
-        version: 3.13.0
-      astro:
-        specifier: ^4.4.8
-        version: 4.4.8(typescript@5.3.3)
-      astro-compress:
-        specifier: ^2.2.0
-        version: 2.2.0
-      astro-eslint-parser:
-        specifier: ^0.16.0
-        version: 0.16.0
-      astro-icon:
-        specifier: ^1.1.0
-        version: 1.1.0
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      eslint-plugin-astro:
-        specifier: ^0.31.4
-        version: 0.31.4(eslint@8.57.0)
-      eslint-plugin-jsx-a11y:
-        specifier: ^6.8.0
-        version: 6.8.0(eslint@8.57.0)
-      limax:
-        specifier: ^4.1.0
-        version: 4.1.0
-      mdast-util-to-string:
-        specifier: ^4.0.0
-        version: 4.0.0
-      prettier:
-        specifier: ^3.2.5
-        version: 3.2.5
-      prettier-plugin-astro:
-        specifier: ^0.13.0
-        version: 0.13.0
-      prettier-plugin-tailwindcss:
-        specifier: ^0.5.1
-        version: 0.5.1(prettier-plugin-astro@0.13.0)(prettier@3.2.5)
-      reading-time:
-        specifier: ^1.5.0
-        version: 1.5.0
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.1
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
+devDependencies:
+  '@astrojs/alpinejs':
+    specifier: ^0.4.0
+    version: 0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
+  '@astrojs/mdx':
+    specifier: ^2.1.1
+    version: 2.1.1(astro@4.4.8)
+  '@astrojs/node':
+    specifier: ^8.2.3
+    version: 8.2.3(astro@4.4.8)
+  '@astrojs/partytown':
+    specifier: ^2.0.0
+    version: 2.0.0
+  '@astrojs/prefetch':
+    specifier: ^0.4.0
+    version: 0.4.0
+  '@astrojs/rss':
+    specifier: ^4.0.4
+    version: 4.0.4
+  '@astrojs/sitemap':
+    specifier: ^3.1.1
+    version: 3.1.1
+  '@astrojs/tailwind':
+    specifier: ^5.1.0
+    version: 5.1.0(astro@4.4.8)(tailwindcss@3.4.1)
+  '@astrojs/ts-plugin':
+    specifier: ^1.5.0
+    version: 1.5.0
+  '@astrolib/analytics':
+    specifier: ^0.5.0
+    version: 0.5.0(astro@4.4.8)
+  '@astrolib/seo':
+    specifier: ^1.0.0-beta.5
+    version: 1.0.0-beta.5(astro@4.4.8)
+  '@fontsource/inter':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@iconify-json/ion':
+    specifier: ^1.1.15
+    version: 1.1.15
+  '@iconify-json/tabler':
+    specifier: ^1.1.106
+    version: 1.1.106
+  '@tailwindcss/forms':
+    specifier: ^0.5.3
+    version: 0.5.3(tailwindcss@3.4.1)
+  '@tailwindcss/typography':
+    specifier: ^0.5.9
+    version: 0.5.9(tailwindcss@3.4.1)
+  '@types/alpinejs':
+    specifier: ^3.13.0
+    version: 3.13.0
+  '@typescript-eslint/eslint-plugin':
+    specifier: ^7.1.0
+    version: 7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.4.2)
+  '@typescript-eslint/parser':
+    specifier: ^7.1.0
+    version: 7.1.0(eslint@8.57.0)(typescript@5.4.2)
+  alpinejs:
+    specifier: ^3.13.0
+    version: 3.13.0
+  astro:
+    specifier: ^4.4.8
+    version: 4.4.8(typescript@5.4.2)
+  astro-compress:
+    specifier: ^2.2.0
+    version: 2.2.0
+  astro-eslint-parser:
+    specifier: ^0.16.0
+    version: 0.16.0
+  astro-icon:
+    specifier: ^1.1.0
+    version: 1.1.0
+  eslint:
+    specifier: ^8.57.0
+    version: 8.57.0
+  eslint-plugin-astro:
+    specifier: ^0.31.4
+    version: 0.31.4(eslint@8.57.0)
+  eslint-plugin-jsx-a11y:
+    specifier: ^6.8.0
+    version: 6.8.0(eslint@8.57.0)
+  limax:
+    specifier: ^4.1.0
+    version: 4.1.0
+  mdast-util-to-string:
+    specifier: ^4.0.0
+    version: 4.0.0
+  prettier:
+    specifier: ^3.2.5
+    version: 3.2.5
+  prettier-plugin-astro:
+    specifier: ^0.13.0
+    version: 0.13.0
+  prettier-plugin-tailwindcss:
+    specifier: ^0.5.1
+    version: 0.5.1(prettier-plugin-astro@0.13.0)(prettier@3.2.5)
+  reading-time:
+    specifier: ^1.5.0
+    version: 1.5.0
+  tailwindcss:
+    specifier: ^3.4.1
+    version: 3.4.1
+  typescript:
+    specifier: ^5.4.2
+    version: 5.4.2
 
 packages:
 
@@ -210,7 +208,7 @@ packages:
       '@astrojs/markdown-remark': 4.2.1
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.4.8(typescript@5.3.3)
+      astro: 4.4.8(typescript@5.4.2)
       es-module-lexer: 1.4.1
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -232,7 +230,7 @@ packages:
     peerDependencies:
       astro: ^4.2.0
     dependencies:
-      astro: 4.4.8(typescript@5.3.3)
+      astro: 4.4.8(typescript@5.4.2)
       send: 0.18.0
       server-destroy: 1.0.1
     transitivePeerDependencies:
@@ -278,7 +276,7 @@ packages:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.4.8(typescript@5.3.3)
+      astro: 4.4.8(typescript@5.4.2)
       autoprefixer: 10.4.17(postcss@8.4.31)
       postcss: 8.4.31
       postcss-load-config: 4.0.2(postcss@8.4.31)
@@ -317,7 +315,7 @@ packages:
     peerDependencies:
       astro: ^1.2.1 || ^2.0.0 || ^3.0.0-beta.0 || ^3.0.0 || ^4.0.0
     dependencies:
-      astro: 4.4.8(typescript@5.3.3)
+      astro: 4.4.8(typescript@5.4.2)
     dev: true
 
   /@astrolib/seo@1.0.0-beta.5(astro@4.4.8):
@@ -325,7 +323,7 @@ packages:
     peerDependencies:
       astro: ^1.2.1 || ^2.0.0 || ^3.0.0-beta.0 || ^3.0.0 || ^4.0.0
     dependencies:
-      astro: 4.4.8(typescript@5.3.3)
+      astro: 4.4.8(typescript@5.4.2)
     dev: true
 
   /@babel/code-frame@7.23.5:
@@ -1500,7 +1498,7 @@ packages:
       '@sentry/types': 7.105.0
       '@sentry/utils': 7.105.0
       '@sentry/vite-plugin': 2.14.2
-      astro: 4.4.8(typescript@5.3.3)
+      astro: 4.4.8(typescript@5.4.2)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -1842,7 +1840,7 @@ packages:
     dev: true
     optional: true
 
-  /@typescript-eslint/eslint-plugin@7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/eslint-plugin@7.1.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-j6vT/kCulhG5wBmGtstKeiVr1rdXE4nk+DT1k6trYkwlrvW9eOF5ZbgKnd/YR6PcM4uTEXa0h6Fcvf6X7Dxl0w==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -1854,10 +1852,10 @@ packages:
         optional: true
     dependencies:
       '@eslint-community/regexpp': 4.6.2
-      '@typescript-eslint/parser': 7.1.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/parser': 7.1.0(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/scope-manager': 7.1.0
-      '@typescript-eslint/type-utils': 7.1.0(eslint@8.57.0)(typescript@5.3.3)
-      '@typescript-eslint/utils': 7.1.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/type-utils': 7.1.0(eslint@8.57.0)(typescript@5.4.2)
+      '@typescript-eslint/utils': 7.1.0(eslint@8.57.0)(typescript@5.4.2)
       '@typescript-eslint/visitor-keys': 7.1.0
       debug: 4.3.4
       eslint: 8.57.0
@@ -1865,13 +1863,13 @@ packages:
       ignore: 5.2.4
       natural-compare: 1.4.0
       semver: 7.5.4
-      ts-api-utils: 1.2.1(typescript@5.3.3)
-      typescript: 5.3.3
+      ts-api-utils: 1.2.1(typescript@5.4.2)
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/parser@7.1.0(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-V1EknKUubZ1gWFjiOZhDSNToOjs63/9O0puCgGS8aDOgpZY326fzFu15QAUjwaXzRZjf/qdsdBrckYdv9YxB8w==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -1883,11 +1881,11 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 7.1.0
       '@typescript-eslint/types': 7.1.0
-      '@typescript-eslint/typescript-estree': 7.1.0(typescript@5.3.3)
+      '@typescript-eslint/typescript-estree': 7.1.0(typescript@5.4.2)
       '@typescript-eslint/visitor-keys': 7.1.0
       debug: 4.3.4
       eslint: 8.57.0
-      typescript: 5.3.3
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1908,7 +1906,7 @@ packages:
       '@typescript-eslint/visitor-keys': 7.1.0
     dev: true
 
-  /@typescript-eslint/type-utils@7.1.0(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/type-utils@7.1.0(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-UZIhv8G+5b5skkcuhgvxYWHjk7FW7/JP5lPASMEUoliAPwIH/rxoUSQPia2cuOj9AmDZmwUl1usKm85t5VUMew==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -1918,12 +1916,12 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/typescript-estree': 7.1.0(typescript@5.3.3)
-      '@typescript-eslint/utils': 7.1.0(eslint@8.57.0)(typescript@5.3.3)
+      '@typescript-eslint/typescript-estree': 7.1.0(typescript@5.4.2)
+      '@typescript-eslint/utils': 7.1.0(eslint@8.57.0)(typescript@5.4.2)
       debug: 4.3.4
       eslint: 8.57.0
-      ts-api-utils: 1.2.1(typescript@5.3.3)
-      typescript: 5.3.3
+      ts-api-utils: 1.2.1(typescript@5.4.2)
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1938,7 +1936,7 @@ packages:
     engines: {node: ^16.0.0 || >=18.0.0}
     dev: true
 
-  /@typescript-eslint/typescript-estree@7.1.0(typescript@5.3.3):
+  /@typescript-eslint/typescript-estree@7.1.0(typescript@5.4.2):
     resolution: {integrity: sha512-k7MyrbD6E463CBbSpcOnwa8oXRdHzH1WiVzOipK3L5KSML92ZKgUBrTlehdi7PEIMT8k0bQixHUGXggPAlKnOQ==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -1954,13 +1952,13 @@ packages:
       is-glob: 4.0.3
       minimatch: 9.0.3
       semver: 7.5.4
-      ts-api-utils: 1.2.1(typescript@5.3.3)
-      typescript: 5.3.3
+      ts-api-utils: 1.2.1(typescript@5.4.2)
+      typescript: 5.4.2
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /@typescript-eslint/utils@7.1.0(eslint@8.57.0)(typescript@5.3.3):
+  /@typescript-eslint/utils@7.1.0(eslint@8.57.0)(typescript@5.4.2):
     resolution: {integrity: sha512-WUFba6PZC5OCGEmbweGpnNJytJiLG7ZvDBJJoUcX4qZYf1mGZ97mO2Mps6O2efxJcJdRNpqweCistDbZMwIVHw==}
     engines: {node: ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -1971,7 +1969,7 @@ packages:
       '@types/semver': 7.5.8
       '@typescript-eslint/scope-manager': 7.1.0
       '@typescript-eslint/types': 7.1.0
-      '@typescript-eslint/typescript-estree': 7.1.0(typescript@5.3.3)
+      '@typescript-eslint/typescript-estree': 7.1.0(typescript@5.4.2)
       eslint: 8.57.0
       semver: 7.5.4
     transitivePeerDependencies:
@@ -2252,7 +2250,7 @@ packages:
       - supports-color
     dev: true
 
-  /astro@4.4.8(typescript@5.3.3):
+  /astro@4.4.8(typescript@5.4.2):
     resolution: {integrity: sha512-jAAfzvgHOfuZmqJjnSDownVNuWKYmsGkrFqecEppHarMA/cZ5QIboW6GQHZ8eGZQdtYRCjON3h4i64XFZfuwSg==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
@@ -2313,7 +2311,7 @@ packages:
       shikiji-core: 0.9.19
       string-width: 7.1.0
       strip-ansi: 7.1.0
-      tsconfck: 3.0.2(typescript@5.3.3)
+      tsconfck: 3.0.2(typescript@5.4.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.1
       vite: 5.1.4
@@ -6803,20 +6801,20 @@ packages:
   /trough@2.1.0:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
 
-  /ts-api-utils@1.2.1(typescript@5.3.3):
+  /ts-api-utils@1.2.1(typescript@5.4.2):
     resolution: {integrity: sha512-RIYA36cJn2WiH9Hy77hdF9r7oEwxAtB/TS9/S4Qd90Ap4z5FSiin5zEiTL44OII1Y3IIlEvxwxFUVgrHSZ/UpA==}
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
     dependencies:
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
   /ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /tsconfck@3.0.2(typescript@5.3.3):
+  /tsconfck@3.0.2(typescript@5.4.2):
     resolution: {integrity: sha512-6lWtFjwuhS3XI4HsX4Zg0izOI3FU/AI9EGVlPEUMDIhvLPMD4wkiof0WCoDgW7qY+Dy198g4d9miAqUHWHFH6Q==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -6826,7 +6824,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.3.3
+      typescript: 5.4.2
 
   /tslib@2.5.0:
     resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
@@ -6895,8 +6893,8 @@ packages:
     peerDependencies:
       typedoc: ^0.25.0
     dependencies:
-      typedoc: 0.25.2(typescript@5.3.3)
-      typescript: 5.3.3
+      typedoc: 0.25.2(typescript@5.4.2)
+      typescript: 5.4.2
     dev: true
 
   /typedoc-plugin-mdn-links@3.1.0(typedoc@0.25.2):
@@ -6904,7 +6902,7 @@ packages:
     peerDependencies:
       typedoc: '>= 0.23.14 || 0.24.x || 0.25.x'
     dependencies:
-      typedoc: 0.25.2(typescript@5.3.3)
+      typedoc: 0.25.2(typescript@5.4.2)
     dev: true
 
   /typedoc-plugin-merge-modules@5.1.0(typedoc@0.25.2):
@@ -6912,7 +6910,7 @@ packages:
     peerDependencies:
       typedoc: 0.24.x || 0.25.x
     dependencies:
-      typedoc: 0.25.2(typescript@5.3.3)
+      typedoc: 0.25.2(typescript@5.4.2)
     dev: true
 
   /typedoc-plugin-remove-references@0.0.6:
@@ -6924,7 +6922,7 @@ packages:
     peerDependencies:
       typedoc: 0.22.x || 0.23.x || 0.24.x || 0.25.x
     dependencies:
-      typedoc: 0.25.2(typescript@5.3.3)
+      typedoc: 0.25.2(typescript@5.4.2)
     dev: true
 
   /typedoc-plugin-zod@1.1.0(typedoc@0.25.2):
@@ -6932,10 +6930,10 @@ packages:
     peerDependencies:
       typedoc: 0.23.x || 0.24.x || 0.25.x
     dependencies:
-      typedoc: 0.25.2(typescript@5.3.3)
+      typedoc: 0.25.2(typescript@5.4.2)
     dev: true
 
-  /typedoc@0.25.2(typescript@5.3.3):
+  /typedoc@0.25.2(typescript@5.4.2):
     resolution: {integrity: sha512-286F7BeATBiWe/qC4PCOCKlSTwfnsLbC/4cZ68oGBbvAqb9vV33quEOXx7q176OXotD+JdEerdQ1OZGJ818lnA==}
     engines: {node: '>= 16'}
     hasBin: true
@@ -6946,7 +6944,7 @@ packages:
       marked: 4.3.0
       minimatch: 9.0.3
       shiki: 0.14.2
-      typescript: 5.3.3
+      typescript: 5.4.2
     dev: true
 
   /typescript-esbuild@0.3.1:
@@ -6959,7 +6957,7 @@ packages:
       esbuild: 0.19.5
       esbuild-plugin-copy: 2.1.1(esbuild@0.19.5)
       fast-glob: 3.3.1
-      typedoc: 0.25.2(typescript@5.3.3)
+      typedoc: 0.25.2(typescript@5.4.2)
       typedoc-plugin-keywords: 1.5.0(typedoc@0.25.2)
       typedoc-plugin-mdn-links: 3.1.0(typedoc@0.25.2)
       typedoc-plugin-merge-modules: 5.1.0(typedoc@0.25.2)
@@ -6975,8 +6973,8 @@ packages:
     hasBin: true
     dev: true
 
-  /typescript@5.3.3:
-    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
+  /typescript@5.4.2:
+    resolution: {integrity: sha512-+2/g0Fds1ERlP6JsakQQDXjZdZMM+rqpamFZJEKh4kwTIn3iDkgKtby0CeNd5ATNZ4Ry1ax15TMx0W2V+miizQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
