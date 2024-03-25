@@ -44,8 +44,8 @@ devDependencies:
     specifier: ^5.1.0
     version: 5.1.0(astro@4.5.8)(tailwindcss@3.4.1)
   '@astrojs/ts-plugin':
-    specifier: ^1.5.0
-    version: 1.5.0
+    specifier: ^1.6.1
+    version: 1.6.1
   '@astrolib/analytics':
     specifier: ^0.5.0
     version: 0.5.0(astro@4.5.8)
@@ -171,10 +171,6 @@ packages:
 
   /@astrojs/compiler@2.0.0:
     resolution: {integrity: sha512-SKVWorXpOHff+OuZCd5kdTc5HxVX7bVXVXYP0jANT4crz7y2PdthUxMnE21iuYt4+Bq3aV5MId4OdgwlJ2/d/Q==}
-    dev: true
-
-  /@astrojs/compiler@2.5.3:
-    resolution: {integrity: sha512-jzj01BRv/fmo+9Mr2FhocywGzEYiyiP2GVHje1ziGNU6c97kwhYGsnvwMkHrncAy9T9Vi54cjaMK7UE4ClX4vA==}
     dev: true
 
   /@astrojs/compiler@2.7.0:
@@ -307,13 +303,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/ts-plugin@1.5.0:
-    resolution: {integrity: sha512-4GoMz26UPWwHdXXGuWhMzTlOM1Cey3o/+QRkbX/1C1cNE8hFG5hsG9LZQRiUVb8iCWiadsM/w2RqMGC251rxXg==}
+  /@astrojs/ts-plugin@1.6.1:
+    resolution: {integrity: sha512-13mkBo5K3J/mUN/pt/4qxbwBJSmm/X2HAzOZaYg2AildnN/JxiZ2rm60LMssUXhHHhrxQoKslCh06l9sHSkCMQ==}
     dependencies:
-      '@astrojs/compiler': 2.5.3
+      '@astrojs/compiler': 2.7.0
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@volar/language-core': 2.0.2
-      '@volar/typescript': 2.0.2
+      '@volar/language-core': 2.1.5
+      '@volar/typescript': 2.1.5
       semver: 7.5.4
       vscode-languageserver-textdocument: 1.0.11
     dev: true
@@ -2062,22 +2058,22 @@ packages:
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
-  /@volar/language-core@2.0.2:
-    resolution: {integrity: sha512-sFtXrTDu59wNrUodrOzf62XpVpLAj47vT9P5dbcLxv3YfmbbW8Ssk9aLdqTksKDMhIe+hJVKrQm4UqBJ8iXaig==}
+  /@volar/language-core@2.1.5:
+    resolution: {integrity: sha512-u1OHmVkCFsJqNdaM2GKuMhE67TxcEnOqJNF+VtYv2Ji8DnrUaF4FAFSNxY+MRGICl+873CsSJVKas9TQtW14LA==}
     dependencies:
-      '@volar/source-map': 2.0.2
+      '@volar/source-map': 2.1.5
     dev: true
 
-  /@volar/source-map@2.0.2:
-    resolution: {integrity: sha512-jzEQwaAXIq7YJUCU6kvJ0aCfesu/cXT0YrSLxdGa+zxeMa8Q0DtWJE4RlIrvaEtowf9MpcNV7wBXKu4i3R9oTw==}
+  /@volar/source-map@2.1.5:
+    resolution: {integrity: sha512-GIkAM6fHgDcTXcdH4i10fAiAZzO0HLIer8/pt3oZ9A0n7n4R5d1b2F8Xxzh/pgmgNoL+SrHX3MFxs35CKgfmtA==}
     dependencies:
       muggle-string: 0.4.1
     dev: true
 
-  /@volar/typescript@2.0.2:
-    resolution: {integrity: sha512-lcCrYdg1ZgKZVm0mnk7pOxBGrojZk/YaeFJdxLH0gd/Kd13Go7uNvfotlYSGQshwHKcbJ0zaqY0et9w9oW1yyA==}
+  /@volar/typescript@2.1.5:
+    resolution: {integrity: sha512-zo9a3NrNMSkufIvHuExDGTfYv+zO7C5p2wg8fyP7vcqF/Qo0ztjb0ZfOgq/A85EO/MBc1Kj2Iu7PaOBtP++NMw==}
     dependencies:
-      '@volar/language-core': 2.0.2
+      '@volar/language-core': 2.1.5
       path-browserify: 1.0.1
     dev: true
 
