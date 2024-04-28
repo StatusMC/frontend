@@ -42,7 +42,7 @@
 		"alpinejs": "^3.13.0",
 		"astro": "^4.6.3",
 		"astro-compress": "^2.2.0",
-		"astro-eslint-parser": "^0.16.0",
+		"astro-eslint-parser": "^1.0.1",
 		"astro-icon": "^1.1.0",
 		"eslint": "^8.57.0",
 		"eslint-plugin-astro": "^0.34.0",
