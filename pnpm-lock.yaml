@@ -21,7 +21,7 @@ dependencies:
 devDependencies:
   '@astrojs/alpinejs':
     specifier: ^0.4.0
-    version: 0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0)
+    version: 0.4.0(@types/alpinejs@3.13.10)(alpinejs@3.14.0)
   '@astrojs/mdx':
     specifier: ^3.0.0
     version: 3.0.0(astro@4.9.2)
@@ -68,8 +68,8 @@ devDependencies:
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.4.1)
   '@types/alpinejs':
-    specifier: ^3.13.0
-    version: 3.13.0
+    specifier: ^3.13.10
+    version: 3.13.10
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.11.0
     version: 7.11.0(@typescript-eslint/parser@7.10.0)(eslint@8.57.0)(typescript@5.4.2)
@@ -77,8 +77,8 @@ devDependencies:
     specifier: ^7.10.0
     version: 7.10.0(eslint@8.57.0)(typescript@5.4.2)
   alpinejs:
-    specifier: ^3.13.0
-    version: 3.13.0
+    specifier: ^3.14.0
+    version: 3.14.0
   astro:
     specifier: ^4.9.2
     version: 4.9.2(typescript@5.4.2)
@@ -155,14 +155,14 @@ packages:
     resolution: {integrity: sha512-gFPqTG7otEJ8uP6wrhDv6mqwGWYZKNvAcCq6u9hOj0c+IKCEsY4L1oC9trPq2SaWIzAfHvqfBDxF591JkMf+kg==}
     dev: true
 
-  /@astrojs/alpinejs@0.4.0(@types/alpinejs@3.13.0)(alpinejs@3.13.0):
+  /@astrojs/alpinejs@0.4.0(@types/alpinejs@3.13.10)(alpinejs@3.14.0):
     resolution: {integrity: sha512-68BY1CA0XuielLW3WdX2sfh9F4sSTnFqQ//IE9AditbiYJ77HJDb4uZx07pTFDtr1jOMU7lCvH+iS9gmNafM1g==}
     peerDependencies:
       '@types/alpinejs': ^3.0.0
       alpinejs: ^3.0.0
     dependencies:
-      '@types/alpinejs': 3.13.0
-      alpinejs: 3.13.0
+      '@types/alpinejs': 3.13.10
+      alpinejs: 3.14.0
     dev: true
 
   /@astrojs/compiler@1.8.0:
@@ -2464,8 +2464,8 @@ packages:
       '@types/estree': 1.0.5
     dev: true
 
-  /@types/alpinejs@3.13.0:
-    resolution: {integrity: sha512-OZ/hZD3DmrJJOylcLlgsJkLIKOrXhIaWWJF48Zu+V2VkSY2+yQ66uqVRjG0xzQKSAiGGdKTW4/bcqJujO0HKHw==}
+  /@types/alpinejs@3.13.10:
+    resolution: {integrity: sha512-ah53tF6mWuuwerpDE7EHwbZErNDJQlsLISPqJhYj2RZ9nuTYbRknSkqebUd3igkhLIZKkPa7IiXjSn9qsU9O2w==}
     dev: true
 
   /@types/babel__core@7.20.5:
@@ -3030,8 +3030,8 @@ packages:
       uri-js: 4.4.1
     dev: true
 
-  /alpinejs@3.13.0:
-    resolution: {integrity: sha512-7FYR1Yz3evIjlJD1mZ3SYWSw+jlOmQGeQ1QiSufSQ6J84XMQFkzxm6OobiZ928SfqhGdoIp2SsABNsS4rXMMJw==}
+  /alpinejs@3.14.0:
+    resolution: {integrity: sha512-YCWF95PMJqePe9ll6KMyDt/nLhh2R7RhqBf4loEmLzIskcHque4Br/9UgAa6cw13H0Cm3FM9e1hzDwP5z5wlDA==}
     dependencies:
       '@vue/reactivity': 3.1.5
     dev: true
